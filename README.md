@@ -27,10 +27,9 @@
 | 🎬 Video | 8 | 视频生成平台概览（可灵/即梦/Vidu/海螺…） |
 | 🖼️ Image | 6 | 图片生成平台概览（Midjourney/即梦/Liblib…） |
 | 🎵 Audio | 4 | 音频生成平台概览（Suno/Udio/Ace Studio…） |
-| 🔄 中转站 | 1 | API 聚合中转（幻境 MirageAI） |
 | 📦 已下架 | 1 | 停服平台归档（京东云） |
 
-Video / Image / Audio / 中转站 / 已下架 类别暂仅含平台概览，无套餐明细，数据持续整理中。
+Video / Image / Audio / 已下架 类别暂仅含平台概览，无套餐明细，数据持续整理中。
 
 ## 🛠 技术栈
 

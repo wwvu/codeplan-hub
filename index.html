@@ -487,10 +487,9 @@ const CATEGORIES = [
   { key: 'video', label: 'Video', sub: '视频', emoji: '🎬' },
   { key: 'image', label: 'Image', sub: '图片', emoji: '🖼️' },
   { key: 'audio', label: 'Audio', sub: '音频', emoji: '🎵' },
-  { key: 'relay', label: '中转站', sub: 'API聚合', emoji: '🔄' },
   { key: 'discontinued', label: '已下架', sub: '停服/下架', emoji: '📦' },
 ];
-const CAT_LABELS = { coding:'Coding 编程', token:'Token 凭证', video:'Video 视频', image:'Image 图片', audio:'Audio 音频', relay:'中转站', discontinued:'已下架' };
+const CAT_LABELS = { coding:'Coding 编程', token:'Token 凭证', video:'Video 视频', image:'Image 图片', audio:'Audio 音频', discontinued:'已下架' };
 
 function catProviders() { return PROVIDERS.filter(p => p.category === currentCategory).sort((a,b) => b.rating - a.rating || (b.featured?1:0)-(a.featured?1:0) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)); }
 function catPlans() { return PLANS.filter(p => catProviders().some(pp => pp.id === p.providerId)); }
