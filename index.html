@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CodePlan 比价 · AI 套餐中立对比</title>
+<meta name="description" content="中立、免费的 AI 套餐对比：Coding + Token + Video + Image + Audio 五大场景，55家平台、90+套餐全覆盖。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:       #fbfbfa;
+    --surface:  #ffffff;
+    --ink:      #1a1a1a;
+    --ink-2:    #444;
+    --ink-3:    #6b6b6b;
+    --ink-4:    #9a9a9a;
+    --ink-5:    #c8c8c8;
+    --rule:     #ececec;
+    --rule-2:   #f3f3f3;
+    --shadow:   0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.04);
+    --shadow-h: 0 2px 8px rgba(0,0,0,.06), 0 16px 40px rgba(0,0,0,.06);
+
+    --sans: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    --maxw: 1080px;
+    --radius: 16px;
+  }
+  /* 深色主题 */
+  [data-theme="dark"] {
+    --bg:       #0e0e10;
+    --surface:  #18181b;
+    --ink:      #f4f4f5;
+    --ink-2:    #d4d4d8;
+    --ink-3:    #a1a1aa;
+    --ink-4:    #71717a;
+    --ink-5:    #3f3f46;
+    --rule:     #27272a;
+    --rule-2:   #1f1f23;
+    --shadow:   0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    --shadow-h: 0 2px 8px rgba(0,0,0,.35), 0 16px 40px rgba(0,0,0,.35);
+  }
+  [data-theme="dark"] .card-mark { background: color-mix(in srgb, var(--c) 22%, var(--surface)); border-color: color-mix(in srgb, var(--c) 20%, transparent); }
+  [data-theme="dark"] .cm-chip { background: var(--rule); }
+  [data-theme="dark"] .card-type-badge { background: var(--rule); }
+  [data-theme="dark"] .card-review { border-top-color: var(--rule); }
+  [data-theme="dark"] .card-foot-bar { border-top-color: var(--rule); }
+  [data-theme="dark"] .card-link-ext:hover { background: color-mix(in srgb, var(--c) 15%, var(--surface)); }
+  [data-theme="dark"] .detail-head { background: linear-gradient(180deg, color-mix(in srgb, var(--c) 14%, var(--surface)) 0%, var(--surface) 70%); }
+  [data-theme="dark"] .mchip.bonus { background: color-mix(in srgb, #16a34a 22%, var(--surface)); }
+  [data-theme="dark"] .topbar { background: rgba(14,14,16,.82); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 14px; line-height: 1.55; font-weight: 400;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; letter-spacing: -0.003em;
+  }
+
+  /* 顶栏 */
+  .topbar { position: sticky; top: 0; z-index: 10; background: rgba(251,251,250,.82); backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid var(--rule); }
+  .topbar-inner { max-width: var(--maxw); margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { font-weight: 600; font-size: 16px; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .brand .dot { color: var(--ink-4); margin: 0 5px; font-weight: 300; }
+  .brand em { font-style: normal; color: var(--ink-3); font-weight: 400; }
+  .topbar nav { display: flex; gap: 28px; }
+  .topbar nav a { color: var(--ink-3); text-decoration: none; font-size: 13px; font-weight: 500; transition: color .15s; }
+  .topbar nav a:hover { color: var(--ink); }
+  .updated { font-family: var(--mono); font-size: 11px; color: var(--ink-4); }
+  .theme-toggle { background: transparent; border: 1px solid var(--rule); border-radius: 999px; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink-3); transition: all .15s; padding: 0; }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink-4); }
+  .theme-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: block; }
+  [data-theme="dark"] .theme-toggle .moon { display: none; }
+  .topbar-right { display: flex; align-items: center; gap: 14px; }
+
+  /* 首屏 */
+  .hero { max-width: var(--maxw); margin: 0 auto; padding: 72px 32px 40px; }
+  .eyebrow { font-family: var(--mono); font-size: 11px; color: var(--ink-4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
+  .hero-top { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }
+  .hero-top .eyebrow { margin-bottom: 0; }
+  .live-badge { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 11px; font-weight: 600; color: #16a34a; background: #dcfce7; padding: 4px 11px; border-radius: 999px; letter-spacing: 0.02em; }
+  .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #16a34a; animation: live-pulse 1.8s ease-in-out infinite; flex-shrink: 0; }
+  @keyframes live-pulse { 0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(22,163,74,.45)} 50%{opacity:.55; box-shadow:0 0 0 5px rgba(22,163,74,0)} }
+  [data-theme="dark"] .live-badge { background: color-mix(in srgb, #16a34a 20%, var(--surface)); }
+  .hero h1 { font-weight: 400; font-size: clamp(34px, 4.4vw, 50px); line-height: 1.1; letter-spacing: -0.035em; margin: 0 0 20px; max-width: 18ch; }
+  .hero h1 em { font-style: normal; font-weight: 600; }
+  .hero .lede { font-size: 16px; line-height: 1.65; color: var(--ink-3); max-width: 54ch; margin: 0; font-weight: 300; }
+
+  /* hero 统计 */
+  .hero-stats { display: flex; gap: 0; margin: 36px 0 0; padding: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .stat-item { flex: 1; padding: 18px 0; border-right: 1px solid var(--rule); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: var(--mono); font-weight: 600; font-size: 28px; color: var(--ink); line-height: 1; letter-spacing: -0.02em; }
+  .stat-num .u { font-size: 14px; color: var(--ink-4); font-weight: 400; margin-left: 3px; }
+  .stat-label { font-size: 11px; color: var(--ink-4); margin-top: 6px; font-family: var(--mono); letter-spacing: 0.04em; }
+
+  /* 特性条 */
+  .features-strip { display: flex; gap: 28px; flex-wrap: wrap; max-width: var(--maxw); margin: 0 auto; padding: 20px 32px 8px; }
+  .feat { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-3); font-weight: 400; }
+  .feat svg { width: 15px; height: 15px; stroke: var(--ink-2); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .feat strong { color: var(--ink-2); font-weight: 600; }
+
+  /* 卡片区 */
+  .cards-section { max-width: var(--maxw); margin: 0 auto; padding: 24px 32px 24px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+  .section-head h2 { font-weight: 500; font-size: 20px; letter-spacing: -0.02em; margin: 0; }
+  .section-head .sub { color: var(--ink-4); font-size: 13px; margin-top: 4px; font-weight: 300; }
+
+  .compare-bar { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; font-size: 13px; color: var(--ink-3); min-height: 32px; flex-wrap: wrap; padding: 10px 16px; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; }
+  .compare-bar .sel-count { color: var(--ink); font-weight: 600; }
+  .compare-bar .sel-names { color: var(--ink-3); }
+  .compare-bar .sel-names .pn { font-weight: 500; color: var(--ink-2); }
+  .compare-bar .hint { color: var(--ink-4); font-size: 12px; }
+  .compare-bar .actions { margin-left: auto; display: flex; gap: 8px; }
+  .compare-bar button { background: transparent; border: 1px solid var(--rule); font-family: var(--sans); font-size: 12px; color: var(--ink-3); padding: 6px 14px; border-radius: 999px; cursor: pointer; transition: all .15s; font-weight: 500; }
+  .compare-bar button:hover { color: var(--ink); border-color: var(--ink-4); }
+  .compare-bar button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .compare-bar button.primary:hover { background: #000; }
+  .compare-bar button:disabled { opacity: .35; cursor: not-allowed; }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--surface); border-radius: var(--radius); padding: 22px; cursor: pointer; text-decoration: none; color: inherit; transition: transform .18s cubic-bezier(.16,1,.3,1), box-shadow .18s, border-color .18s; border: 1.5px solid var(--rule); position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0; }
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-h); border-color: color-mix(in srgb, var(--c) 35%, var(--rule)); }
+  .card.selected { border-color: var(--c); box-shadow: 0 0 0 1px color-mix(in srgb, var(--c) 25%, transparent); }
+  .card.selected::after { content: '✓'; position: absolute; top: 14px; right: 14px; width: 20px; height: 20px; border-radius: 50%; background: var(--c); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+  /* 概览区 — 紧凑顶部 */
+  .card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; padding-right: 28px; }
+  .card-mark { width: 36px; height: 36px; border-radius: 9px; background: color-mix(in srgb, var(--c) 14%, var(--surface)); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 15px; color: var(--c); flex-shrink: 0; border: 1px solid color-mix(in srgb, var(--c) 18%, transparent); }
+  .card-name { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -0.015em; line-height: 1.2; }
+  .card-type-badge { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 5px; background: var(--rule-2); color: var(--ink-3); margin-left: auto; flex-shrink: 0; white-space: nowrap; }
+
+  .card-stars-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
+  .stars svg { display: block; }
+  .star-empty { stroke: #d4d4d8; }
+  [data-theme="dark"] .star-empty { stroke: #52525b; }
+
+  .card-meta { font-size: 12px; color: var(--ink-4); margin-bottom: 6px; font-weight: 400; }
+  .card-meta .sep { color: var(--ink-5); margin: 0 6px; }
+  .card-meta .val { color: var(--ink-2); font-family: var(--mono); }
+
+  .card-models { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+  .cm-chip { font-family: var(--mono); font-size: 10px; color: var(--ink-2); background: var(--rule-2); padding: 2px 7px; border-radius: 5px; white-space: nowrap; max-width: 140px; overflow: hidden; text-overflow: ellipsis; }
+
+  /* 点评 — 卡片核心 */
+  .card-review { flex: 1; padding-top: 12px; border-top: 1px solid var(--rule); display: flex; flex-direction: column; }
+  .card-review .rl { font-size: 10px; color: var(--ink-4); font-family: var(--mono); letter-spacing: 0.04em; font-weight: 500; margin-bottom: 5px; display: flex; align-items: center; gap: 4px; }
+  .card-review .rl .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--c); }
+  .card-review .rc { font-size: 13px; color: var(--ink-2); line-height: 1.55; font-weight: 350; }
+
+  /* 卡片底栏 */
+  .card-foot-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); }
+  .card-cta { font-size: 11px; color: var(--c); font-weight: 500; display: flex; align-items: center; gap: 2px; transition: gap .15s; }
+  .card:hover .card-cta { gap: 5px; }
+  .card-link-ext { width: 28px; height: 28px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--ink-4); transition: all .15s; flex-shrink: 0; cursor: pointer; }
+  .card-link-ext:hover { color: var(--c); background: color-mix(in srgb, var(--c) 10%, transparent); }
+  .card-link-ext svg { width: 14px; height: 14px; }
+
+  .card-skeleton .card-mark, .card-skeleton .card-name { animation: pulse 1.5s ease-in-out infinite; background: var(--rule-2); color: transparent; }
+  @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:.9} }
+
+  /* 详情/对比区 */
+  .detail-section { max-width: var(--maxw); margin: 0 auto; padding: 16px 32px 72px; }
+  .detail-empty { text-align: center; color: var(--ink-4); padding: 56px 0; font-weight: 300; }
+  .detail-empty .big { font-size: 16px; color: var(--ink-3); margin-bottom: 6px; }
+
+  /* 单家详情卡 */
+  .detail-card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .detail-head { display: flex; align-items: center; gap: 16px; padding: 28px 32px; border-bottom: 1px solid var(--rule); background: linear-gradient(180deg, var(--c-bg) 0%, var(--surface) 70%); }
+  .detail-mark { width: 52px; height: 52px; border-radius: 14px; background: var(--c); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 22px; color: #fff; flex-shrink: 0; }
+  .detail-title .name { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  .detail-title .meta { font-size: 12px; color: var(--ink-4); margin-top: 4px; }
+  .detail-title .meta a { color: var(--ink-3); text-decoration: none; border-bottom: 1px dotted var(--ink-5); }
+  .detail-score { margin-left: auto; text-align: right; }
+  .detail-score .n { font-family: var(--mono); font-weight: 600; font-size: 28px; color: var(--ink); line-height: 1; }
+  .detail-score .n .max { color: var(--ink-4); font-size: 14px; font-weight: 400; }
+  .detail-score .l { font-size: 11px; color: var(--ink-4); margin-top: 3px; }
+  .detail-blurb { padding: 20px 32px; font-size: 14px; color: var(--ink-2); line-height: 1.7; font-weight: 300; border-bottom: 1px solid var(--rule-2); margin: 0; }
+  .plans-wrap { padding: 8px 0; }
+  .plan-row { display: grid; grid-template-columns: 1.6fr 1fr 1.4fr 1fr; gap: 20px; align-items: center; padding: 20px 32px; border-bottom: 1px solid var(--rule-2); }
+  .plan-row:last-child { border-bottom: none; }
+  .plan-row:hover { background: var(--rule-2); }
+  .pr-cell .label { font-family: var(--mono); font-size: 10px; color: var(--ink-4); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 5px; }
+  .pr-name { font-weight: 600; font-size: 15px; color: var(--ink); }
+  .pr-tier { font-family: var(--mono); font-size: 10px; color: var(--ink-4); margin-left: 6px; font-weight: 500; }
+  .pr-models { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .pr-models .mchip { font-family: var(--mono); font-size: 10px; color: var(--ink-2); background: var(--rule-2); padding: 2px 6px; border-radius: 4px; }
+  .pr-price { font-family: var(--mono); font-weight: 600; font-size: 20px; color: var(--c); line-height: 1; }
+  .pr-price .cur { color: var(--ink-4); font-weight: 400; font-size: 13px; }
+  .pr-price .unit { color: var(--ink-4); font-weight: 400; font-size: 11px; margin-left: 2px; }
+  .pr-price-orig { display: block; font-size: 11px; color: var(--ink-5); text-decoration: line-through; margin-top: 4px; font-weight: 400; }
+  .pr-price-free { color: #16a34a; }
+  .pr-price-na { color: var(--ink-4); font-weight: 400; font-size: 16px; }
+  .pr-quota { font-weight: 500; font-size: 14px; color: var(--ink-2); }
+  .pr-quota .unit { color: var(--ink-3); font-weight: 400; font-size: 12px; margin-left: 2px; }
+  .pr-sub { font-size: 11px; color: var(--ink-4); margin-top: 4px; font-family: var(--mono); display: block; }
+  .pr-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .pr-tags .tag { font-size: 10px; color: var(--ink-3); background: var(--rule-2); padding: 2px 7px; border-radius: 999px; }
+  .pr-source { font-size: 10px; color: var(--ink-4); font-family: var(--mono); margin-top: 6px; }
+  .pr-source a { color: var(--ink-3); text-decoration: none; border-bottom: 1px dotted var(--ink-5); }
+  .pr-source .manual { color: #d97706; }
+  .pr-source .ph { display: inline-block; width: 6px; height: 6px; border-radius: 50%; border: 1px solid #d97706; margin-right: 4px; vertical-align: 1px; }
+
+  /* 筛选栏 */
+  .filter-bar { display: flex; align-items: flex-end; gap: 18px; flex-wrap: wrap; padding: 18px 24px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); margin-bottom: 16px; box-shadow: var(--shadow); }
+  .filter-bar.hidden { display: none; }
+  .fb-group { display: flex; flex-direction: column; gap: 7px; }
+  .fb-label { font-family: var(--mono); font-size: 10px; color: var(--ink-4); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+  .fb-select { font-family: var(--sans); font-size: 13px; color: var(--ink); background: var(--bg); border: 1px solid var(--rule); border-radius: 8px; padding: 7px 10px; cursor: pointer; min-width: 120px; }
+  .fb-select:focus { outline: none; border-color: var(--ink-4); }
+  .fb-amount { display: flex; align-items: center; gap: 4px; }
+  .fb-amount .cur { font-family: var(--mono); font-size: 13px; color: var(--ink-4); }
+  .fb-amount input { font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--bg); border: 1px solid var(--rule); border-radius: 8px; padding: 7px 8px; width: 76px; }
+  .fb-amount input:focus { outline: none; border-color: var(--ink-4); }
+  .fb-amount input::placeholder { color: var(--ink-5); }
+  .fb-chips { display: flex; flex-wrap: wrap; gap: 6px; max-width: 320px; }
+  .fb-chips .chip { font-family: var(--mono); font-size: 11px; color: var(--ink-2); background: var(--bg); border: 1px solid var(--rule); padding: 4px 9px; border-radius: 999px; cursor: pointer; transition: all .12s; user-select: none; }
+  .fb-chips .chip:hover { border-color: var(--ink-4); }
+  .fb-chips .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .fb-reset { margin-left: auto; background: transparent; border: 1px solid var(--rule); font-family: var(--sans); font-size: 12px; color: var(--ink-3); padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all .15s; font-weight: 500; }
+  .fb-reset:hover { color: var(--ink); border-color: var(--ink-4); }
+  .fb-reset:disabled { opacity: .35; cursor: not-allowed; }
+  .fb-status { font-size: 12px; color: var(--ink-4); padding: 0 4px; }
+  .fb-status .n { color: var(--ink); font-weight: 600; font-family: var(--mono); }
+
+  /* 计费方式 tabs */
+  .billing-tabs { display: flex; gap: 4px; margin-bottom: 16px; padding: 4px; background: var(--rule-2); border-radius: 12px; width: fit-content; }
+  .billing-tab { font-family: var(--sans); font-size: 13px; color: var(--ink-3); background: transparent; border: none; padding: 8px 18px; border-radius: 9px; cursor: pointer; transition: all .15s; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+  .billing-tab:hover { color: var(--ink-2); }
+  .billing-tab.active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+  .billing-tab .cnt { font-family: var(--mono); font-size: 11px; color: var(--ink-4); background: var(--rule-2); padding: 1px 6px; border-radius: 999px; }
+  .billing-tab.active .cnt { color: var(--ink-3); background: var(--rule); }
+
+  /* 类别切换标签 */
+  .cat-tabs { display: flex; gap: 0; padding: 2px; background: var(--rule-2); border-radius: 14px; width: fit-content; max-width: 100%; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .cat-tabs::-webkit-scrollbar { display: none; }
+  .cat-tab { font-family: var(--sans); font-size: 13px; color: var(--ink-3); background: transparent; border: none; padding: 9px 20px; border-radius: 12px; cursor: pointer; transition: all .15s; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .cat-tab:hover { color: var(--ink-2); }
+  .cat-tab.active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+  .cat-tab .cc { font-family: var(--mono); font-size: 10px; color: var(--ink-4); background: var(--rule); padding: 1px 6px; border-radius: 999px; }
+  .cat-tab.active .cc { color: var(--ink-3); background: var(--rule-2); }
+  .cat-divider { width: 1px; margin: 4px 4px; background: var(--rule); }
+
+  /* 排行徽章 */
+  .badge { display: inline-flex; align-items: center; font-family: var(--sans); font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; letter-spacing: 0.02em; }
+  .badge.b-entry { color: #0ea5e9; background: #e0f2fe; }
+  .badge.b-value { color: #16a34a; background: #dcfce7; }
+  .badge.b-adv { color: #6366f1; background: #e0e7ff; }
+  .badge.b-flag { color: #d97706; background: #fef3c7; }
+  .badge.b-promo { color: #db2777; background: #fce7f3; }
+  .badge.b-free { color: #16a34a; background: #dcfce7; }
+  .badge.b-meter { color: var(--ink-4); background: var(--rule-2); }
+  [data-theme="dark"] .badge.b-entry { background: color-mix(in srgb, #0ea5e9 22%, var(--surface)); }
+  [data-theme="dark"] .badge.b-value { background: color-mix(in srgb, #16a34a 22%, var(--surface)); }
+  [data-theme="dark"] .badge.b-adv { background: color-mix(in srgb, #6366f1 22%, var(--surface)); }
+  [data-theme="dark"] .badge.b-flag { background: color-mix(in srgb, #d97706 22%, var(--surface)); }
+  [data-theme="dark"] .badge.b-promo { background: color-mix(in srgb, #db2777 22%, var(--surface)); }
+
+  /* 对比 · 套餐大表 */
+  .cmp-card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .cmp-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 16px 24px; border-bottom: 1px solid var(--rule); background: var(--rule-2); }
+  .cmp-head .ch { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--ink-2); }
+  .cmp-head .ch .m { width: 22px; height: 22px; border-radius: 6px; background: var(--c); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 11px; }
+  .cmp-head .ch .rm { font-size: 11px; color: var(--ink-4); background: none; border: none; cursor: pointer; padding: 0 0 0 4px; text-decoration: underline; text-decoration-color: var(--ink-5); text-underline-offset: 2px; }
+  .cmp-head .ch .rm:hover { color: var(--ink-2); }
+  .cmp-head .add-hint { font-size: 12px; color: var(--ink-4); margin-left: auto; }
+
+  .group-label { font-family: var(--mono); font-size: 10px; color: var(--ink-4); letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 24px 10px; background: var(--rule-2); border-bottom: 1px solid var(--rule); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .group-label .pill { font-family: var(--sans); font-size: 10px; color: var(--ink-3); background: var(--surface); border: 1px solid var(--rule); padding: 1px 7px; border-radius: 999px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+
+  .cmp-tbl-wrap { overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; }
+  .cmp-tbl { width: max-content; min-width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .cmp-tbl thead th { z-index: 2; background: var(--surface); }
+  .cmp-tbl th, .cmp-tbl td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule-2); border-right: 1px solid var(--rule-2); }
+  .cmp-tbl th:last-child, .cmp-tbl td:last-child { border-right: none; }
+  /* 各列固定宽度，内容自然换行，不硬撑也不挤压 */
+  .cmp-tbl col.c-platform { width: 150px; }
+  .cmp-tbl col.c-plan     { width: 140px; }
+  .cmp-tbl col.c-sub      { width: 90px; }
+  .cmp-tbl col.c-price    { width: 96px; }
+  .cmp-tbl col.c-req      { width: 100px; }
+  .cmp-tbl col.c-models   { width: 240px; }
+  .cmp-tbl col.c-benefits { width: 240px; }
+  .cmp-tbl col.c-remark   { width: 200px; }
+  .cmp-tbl thead th { font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+  .cmp-tbl tbody tr:hover td { background: var(--rule-2); }
+  .cmp-tbl tbody tr:last-child td { border-bottom: none; }
+  .cmp-tbl .col-platform { position: sticky; left: 0; z-index: 1; background: var(--surface); }
+  .cmp-tbl tbody tr:hover .col-platform { background: var(--rule-2); }
+
+  .cell-plat { display: flex; align-items: center; gap: 8px; }
+  .cell-plat .mk { width: 24px; height: 24px; border-radius: 7px; background: var(--c); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 12px; flex-shrink: 0; }
+  .cell-plat .pn { font-weight: 600; font-size: 13px; color: var(--ink); line-height: 1.2; }
+  .cell-plat .pt { font-size: 10px; color: var(--ink-4); margin-top: 1px; }
+  .plan-name { font-weight: 600; font-size: 13px; color: var(--ink); }
+  .plan-tier { font-family: var(--mono); font-size: 10px; color: var(--ink-4); margin-top: 2px; }
+  .sub-btn { display: inline-flex; align-items: center; gap: 4px; background: var(--c); color: #fff; font-size: 11px; font-weight: 600; padding: 6px 12px; border-radius: 8px; text-decoration: none; white-space: nowrap; transition: opacity .15s; }
+  .sub-btn:hover { opacity: .85; }
+  .sub-btn .arr { font-family: var(--mono); }
+  .price-val { font-family: var(--mono); font-weight: 600; font-size: 14px; color: var(--c); }
+  .price-val .cur { color: var(--ink-4); font-weight: 400; font-size: 11px; }
+  .price-orig { font-size: 10px; color: var(--ink-5); text-decoration: line-through; margin-left: 4px; font-family: var(--mono); }
+  .price-na { color: var(--ink-5); font-size: 12px; font-weight: 300; }
+  .price-note { font-size: 10px; color: var(--ink-4); font-family: var(--mono); margin-top: 2px; display: block; }
+  .price-conv { font-size: 10px; color: var(--ink-4); font-family: var(--mono); margin-top: 1px; display: block; font-weight: 400; }
+  .price-free { color: #16a34a; font-weight: 600; }
+  .req-num { font-family: var(--mono); font-weight: 600; font-size: 13px; color: var(--ink-2); }
+  .req-num .u { color: var(--ink-4); font-weight: 400; font-size: 10px; margin-left: 2px; }
+  .mchip { display: inline-block; font-family: var(--mono); font-size: 10px; color: var(--ink-2); background: var(--rule-2); padding: 2px 6px; border-radius: 4px; margin: 0 3px 3px 0; white-space: nowrap; }
+  .mchip.bonus { color: #16a34a; background: #dcfce7; }
+  .model-spec { font-size: 10px; color: var(--ink-4); font-family: var(--mono); line-height: 1.5; margin-top: 4px; white-space: normal; }
+  .model-spec .k { color: var(--ink-3); }
+
+  /* 支持模型列：每模型自成一块 */
+  .model-block { margin-bottom: 6px; }
+  .model-block:last-child { margin-bottom: 0; }
+  .mb-head { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 4px; }
+  .mb-bonus { font-size: 9px; font-weight: 600; color: #16a34a; background: #dcfce7; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.02em; }
+  [data-theme="dark"] .mb-bonus { background: color-mix(in srgb, #16a34a 22%, var(--surface)); }
+  .mb-spec { font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.5; display: block; }
+  .mb-spec-na { font-family: var(--mono); font-size: 10px; color: var(--ink-4); line-height: 1.5; display: block; font-style: italic; }
+  .mb-no-specs { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+  .benefit-list { font-size: 11px; color: var(--ink-3); line-height: 1.55; white-space: normal; }
+  .benefit-list li { margin: 0 0 3px; }
+  .benefit-list li::marker { color: var(--ink-5); }
+  .remark { font-size: 11px; color: var(--ink-3); line-height: 1.5; white-space: normal; }
+  .ph { color: #d97706; font-family: var(--mono); font-size: 11px; }
+  .ph::before { content: '○'; margin-right: 3px; font-size: 9px; }
+  .src { font-size: 10px; color: var(--ink-4); font-family: var(--mono); margin-top: 4px; white-space: normal; }
+  .src a { color: var(--ink-3); text-decoration: none; border-bottom: 1px dotted var(--ink-5); }
+  .src .manual { color: #d97706; }
+
+  .group-empty { padding: 28px 24px; text-align: center; color: var(--ink-4); font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule-2); }
+  .cmp-note { padding: 14px 20px; font-size: 12px; color: var(--ink-4); line-height: 1.6; background: var(--rule-2); border-top: 1px solid var(--rule); font-weight: 300; }
+  .cmp-note strong { color: var(--ink-2); font-weight: 600; }
+
+  /* 说明 + 页脚 */
+  .note { max-width: var(--maxw); margin: 0 auto; padding: 0 32px 64px; }
+  .note-inner { border-top: 1px solid var(--rule); padding-top: 32px; max-width: 62ch; }
+  .note h3 { font-family: var(--mono); font-size: 10px; color: var(--ink-4); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 16px; font-weight: 500; }
+  .note p { color: var(--ink-3); font-size: 14px; margin: 0 0 12px; line-height: 1.7; font-weight: 300; }
+  .note strong { color: var(--ink); font-weight: 600; }
+  footer { border-top: 1px solid var(--rule); }
+  .footer-inner { max-width: var(--maxw); margin: 0 auto; padding: 24px 32px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; color: var(--ink-4); font-size: 12px; }
+
+  @media (max-width: 860px) {
+    .topbar nav { display: none; }
+    .hero { padding: 48px 20px 24px; }
+    .cards-section, .detail-section, .note { padding-left: 20px; padding-right: 20px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .detail-head, .detail-blurb, .plan-row { padding-left: 20px; padding-right: 20px; }
+    .plan-row { grid-template-columns: 1fr; gap: 12px; }
+    .cmp-tbl col.c-platform { width: 130px; }
+    .cmp-tbl col.c-plan     { width: 120px; }
+    .cmp-tbl col.c-models   { width: 200px; }
+    .cmp-tbl col.c-benefits { width: 200px; }
+    .cmp-tbl col.c-remark   { width: 160px; }
+    .cmp-tbl th, .cmp-tbl td { padding: 10px 12px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero > * { animation: rise .5s cubic-bezier(.16,1,.3,1) both; }
+    .hero .lede { animation-delay: .08s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">CodePlan<span class="dot">·</span><em>比价</em></a>
+    <nav>
+      <a href="#cards">厂商</a>
+      <a href="#detail">对比</a>
+      <a href="#note">说明</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="updated" id="updatedTime">—</div>
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换深 / 浅色主题">
+        <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-top">
+    <div class="eyebrow">№ 01 · 2026.08</div>
+    <span class="live-badge"><span class="live-dot"></span>2026 持续更新</span>
+  </div>
+  <h1>AI 套餐比价，<em>一个页面全搞定</em>。</h1>
+  <p class="lede">Coding、Token、视频、图片、音频 — 五大场景 55 家平台，中立、免费、人工核对。按平台 / 模型 / 价格上限筛选，直达开通。</p>
+  <div class="hero-stats" id="heroStats"></div>
+</section>
+
+<div class="features-strip">
+  <div class="feat"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 4 4 5-5"/></svg><span><strong>五场景对比</strong> 含视频/图片/音频</span></div>
+  <div class="feat"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span><strong>直达开通</strong> 官方/邀请链接</span></div>
+  <div class="feat"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span><strong>人工核实</strong> 非爬虫抓取</span></div>
+  <div class="feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><span><strong>深 / 浅主题</strong> 护眼查阅</span></div>
+</div>
+
+<!-- 类别切换 -->
+<div class="cards-section" style="padding-bottom:0;">
+  <div class="cat-tabs" id="catTabs"></div>
+</div>
+
+<section class="cards-section" id="cards">
+  <div class="section-head">
+    <div>
+      <h2>提供商概览</h2>
+      <div class="sub">点击卡片直达该厂商官网</div>
+    </div>
+  </div>
+
+  <div class="cards-grid" id="cardsGrid"></div>
+</section>
+
+<section class="detail-section" id="detail">
+  <div class="section-head">
+    <div>
+      <h2>套餐对比</h2>
+      <div class="sub" id="detailSub">所有平台 · 每行一个套餐 · 可按平台/模型/价格上限筛选</div>
+    </div>
+  </div>
+  <div class="billing-tabs" id="billingTabs">
+    <button class="billing-tab active" data-billing="">全部 <span class="cnt" id="cntAll">0</span></button>
+    <button class="billing-tab" data-billing="CALL">Coding（按次订阅） <span class="cnt" id="cntCall">0</span></button>
+    <button class="billing-tab" data-billing="TOKEN">Token（按量计费） <span class="cnt" id="cntToken">0</span></button>
+  </div>
+  <div class="filter-bar" id="filterBar">
+    <div class="fb-group">
+      <div class="fb-label">平台</div>
+      <select class="fb-select" id="fPlatform"><option value="">全部平台</option></select>
+    </div>
+    <div class="fb-group">
+      <div class="fb-label">模型</div>
+      <select class="fb-select" id="fModels"><option value="">全部模型</option></select>
+    </div>
+    <div class="fb-group">
+      <div class="fb-label">月付上限</div>
+      <div class="fb-amount"><span class="cur">¥</span><input type="number" id="fMonthly" min="0" step="1" placeholder="不限" /></div>
+    </div>
+    <div class="fb-group">
+      <div class="fb-label">季付上限</div>
+      <div class="fb-amount"><span class="cur">¥</span><input type="number" id="fQuarterly" min="0" step="1" placeholder="不限" /></div>
+    </div>
+    <div class="fb-group">
+      <div class="fb-label">年付上限</div>
+      <div class="fb-amount"><span class="cur">¥</span><input type="number" id="fAnnual" min="0" step="1" placeholder="不限" /></div>
+    </div>
+    <button class="fb-reset" id="fReset">重置</button>
+    <span class="fb-status" id="fStatus"></span>
+  </div>
+  <div id="detailBody"></div>
+</section>
+
+<section class="note" id="note">
+  <div class="note-inner">
+    <h3>编辑说明</h3>
+    <p>卡片上的<strong>数字评分为主观印象</strong>（满分 5），仅代表编辑综合性价比、稳定性、体验后的判断，非客观数据。套餐价格与用量均为公开信息，<strong>橙圈</strong>标记为待核实占位。</p>
+    <p>聚合平台套餐都是对 GLM、DeepSeek 等模型的二次转售，计费单位各异；模型厂商原价请参考各家官方文档。对比表中的「单位成本」按各套餐最低价换算到 ¥/百万 token 或 ¥/次，<strong>仅作量级参考</strong>，实际成本受模型档位、缓存、限速影响。接口同步标 <em>API</em>，需人工标 <em style="color:#d97706">手动</em>。本站不售卖任何套餐，无 affiliate。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>CodePlan · 比价</div>
+    <div>数据来源 AIPlanHub · 以各厂商官方页面为准 · © 2026</div>
+  </div>
+</footer>
+
+<script>
+let PROVIDERS = [], PLANS = [];
+let currentCategory = 'coding';
+let selectedProvider = null; // 当前选中的卡片
+const filters = { platform: '', model: '', monthly: null, quarterly: null, annual: null, billing: '' };
+
+const CATEGORIES = [
+  { key: 'coding', label: 'Coding', sub: '编程', emoji: '💻' },
+  { key: 'token', label: 'Token', sub: '按量计费', emoji: '🎫' },
+  { key: 'video', label: 'Video', sub: '视频', emoji: '🎬' },
+  { key: 'image', label: 'Image', sub: '图片', emoji: '🖼️' },
+  { key: 'audio', label: 'Audio', sub: '音频', emoji: '🎵' },
+  { key: 'relay', label: '中转站', sub: 'API聚合', emoji: '🔄' },
+  { key: 'discontinued', label: '已下架', sub: '停服/下架', emoji: '📦' },
+];
+const CAT_LABELS = { coding:'Coding 编程', token:'Token 凭证', video:'Video 视频', image:'Image 图片', audio:'Audio 音频', relay:'中转站', discontinued:'已下架' };
+
+function catProviders() { return PROVIDERS.filter(p => p.category === currentCategory).sort((a,b) => b.rating - a.rating || (b.featured?1:0)-(a.featured?1:0) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)); }
+function catPlans() { return PLANS.filter(p => catProviders().some(pp => pp.id === p.providerId)); }
+
+// 徽章 -> CSS class
+const BADGE_CLASS = { '入门':'b-entry','性价比':'b-value','进阶':'b-adv','旗舰':'b-flag','活动':'b-promo','免费':'b-free','按量':'b-meter' };
+const badgeHtml = b => b ? '<span class="badge '+(BADGE_CLASS[b]||'b-meter')+'">'+b+'</span>' : '';
+const USD_TO_CNY = 7.2;
+const curSym = plan => plan.currency === 'USD' ? '$' : '¥';
+
+// 主题切换
+function initTheme() {
+  const saved = localStorage.getItem('cp-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+}
+initTheme();
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('cp-theme', next);
+}
+
+const COLORS = {
+  // Coding
+  'coding-chatgpt':    { c: '#10a37f', bg: '#d1fae5', mark: 'C' },
+  'coding-sensenova':  { c: '#2563eb', bg: '#dbeafe', mark: 'S' },
+  'coding-zhipu':      { c: '#6366f1', bg: '#e0e7ff', mark: 'Z' },
+  'coding-wenming':    { c: '#0ea5e9', bg: '#e0f2fe', mark: 'W' },
+  'coding-bytedance':  { c: '#8b5cf6', bg: '#ede9fe', mark: 'B' },
+  'coding-charm':      { c: '#f59e0b', bg: '#fef3c7', mark: 'H' },
+  'coding-meituan':    { c: '#4ade80', bg: '#dcfce7', mark: 'M' },
+  'coding-kimi':       { c: '#7c3aed', bg: '#ede9fe', mark: 'K' },
+  'coding-aliyun':     { c: '#ef4444', bg: '#fee2e2', mark: 'A' },
+  'coding-lanyun':     { c: '#06b6d4', bg: '#cffafe', mark: 'L' },
+  'coding-tencent':    { c: '#3b82f6', bg: '#dbeafe', mark: 'T' },
+  'coding-baidu':      { c: '#f97316', bg: '#ffedd5', mark: 'D' },
+  'coding-iflytek':    { c: '#14b8a6', bg: '#ccfbf1', mark: 'X' },
+  'coding-jieyue':     { c: '#d946ef', bg: '#fae8ff', mark: 'J' },
+  'coding-kuaishou':   { c: '#ec4899', bg: '#fce7f3', mark: 'R' },
+  'coding-ollama':     { c: '#84cc16', bg: '#ecfccb', mark: 'O' },
+  'coding-atomcode':   { c: '#22d3ee', bg: '#cffafe', mark: 'A' },
+  'coding-zai':        { c: '#f43f5e', bg: '#ffe4e6', mark: 'z' },
+  'coding-minimax':    { c: '#a855f7', bg: '#f3e8ff', mark: 'M' },
+  'coding-liantong':   { c: '#6b7280', bg: '#f3f4f6', mark: 'U' },
+  'coding-taotoken':   { c: '#eab308', bg: '#fef9c3', mark: 'T' },
+  'coding-yidong':     { c: '#78716c', bg: '#f5f5f4', mark: 'I' },
+  'coding-supercomp':  { c: '#0284c7', bg: '#e0f2fe', mark: '超' },
+  'coding-youyun':     { c: '#ca8a04', bg: '#fef9c3', mark: 'Y' },
+  'coding-openstarry': { c: '#9333ea', bg: '#f3e8ff', mark: '星' },
+  'coding-opencode':   { c: '#0891b2', bg: '#cffafe', mark: 'G' },
+  'discontinued-jdcloud': { c: '#9ca3af', bg: '#f3f4f6', mark: 'J' },
+  // Token
+  'token-chatgpt':     { c: '#10a37f', bg: '#d1fae5', mark: 'C' },
+  'token-opencode':    { c: '#0891b2', bg: '#cffafe', mark: 'G' },
+  'token-aliyun':      { c: '#ef4444', bg: '#fee2e2', mark: 'A' },
+  'token-taotoken':    { c: '#eab308', bg: '#fef9c3', mark: 'T' },
+  'token-fangzhou':    { c: '#8b5cf6', bg: '#ede9fe', mark: 'F' },
+  'token-tencent':     { c: '#3b82f6', bg: '#dbeafe', mark: 'T' },
+  'token-tianyi':      { c: '#14b8a6', bg: '#ccfbf1', mark: '天' },
+  'token-alaya':       { c: '#f43f5e', bg: '#ffe4e6', mark: 'A' },
+  'token-xiaomi':      { c: '#f97316', bg: '#ffedd5', mark: '米' },
+  // Video
+  'video-kling':       { c: '#ec4899', bg: '#fce7f3', mark: 'K' },
+  'video-vidu':        { c: '#8b5cf6', bg: '#ede9fe', mark: 'V' },
+  'video-hailuo':      { c: '#06b6d4', bg: '#cffafe', mark: '海' },
+  'video-paivideo':    { c: '#a855f7', bg: '#f3e8ff', mark: 'P' },
+  'video-jimeng':      { c: '#f43f5e', bg: '#ffe4e6', mark: '即' },
+  'video-tongyi':      { c: '#f97316', bg: '#ffedd5', mark: '万' },
+  'video-runninghub':  { c: '#22d3ee', bg: '#cffafe', mark: 'R' },
+  'video-hunyuan':     { c: '#3b82f6', bg: '#dbeafe', mark: '混' },
+  // Image
+  'image-jimeng':      { c: '#f43f5e', bg: '#ffe4e6', mark: '即' },
+  'image-midjourney':  { c: '#6366f1', bg: '#e0e7ff', mark: 'M' },
+  'image-liblib':      { c: '#ec4899', bg: '#fce7f3', mark: 'L' },
+  'image-tongyi':      { c: '#f97316', bg: '#ffedd5', mark: '万' },
+  'image-runninghub':  { c: '#22d3ee', bg: '#cffafe', mark: 'R' },
+  'image-duiyou':      { c: '#d97706', bg: '#fef3c7', mark: '堆' },
+  // Audio
+  'audio-suno':        { c: '#eab308', bg: '#fef9c3', mark: 'S' },
+  'audio-udio':        { c: '#d946ef', bg: '#fae8ff', mark: 'U' },
+  'audio-acestudio':   { c: '#84cc16', bg: '#ecfccb', mark: 'A' },
+  'audio-hailuo':      { c: '#06b6d4', bg: '#cffafe', mark: '海' },
+  // Relay
+  'relay-mirage':      { c: '#0ea5e9', bg: '#e0f2fe', mark: '幻' },
+  default:             { c: '#525252', bg: '#f5f5f5', mark: '?' }
+};
+const colorOf = id => COLORS[id] || COLORS.default;
+
+function plansFor(pid) {
+  return PLANS.filter(p => p.providerId === pid)
+    .sort((a, b) => {
+      const pa = a.price ?? (a.inputPricePerMillion ?? 999999);
+      const pb = b.price ?? (b.inputPricePerMillion ?? 999999);
+      return pa - pb;
+    });
+}
+
+function typeLabel(t) {
+  if (t === 'vendor') return '官方';
+  if (t === 'aggregator') return '聚合';
+  if (t === 'relay') return '中转';
+  return t;
+}
+
+function renderCatTabs() {
+  const el = document.getElementById('catTabs');
+  if (!el) return;
+  const counts = {};
+  CATEGORIES.forEach(cat => { counts[cat.key] = PROVIDERS.filter(p => p.category === cat.key).length; });
+  el.innerHTML = CATEGORIES.map(cat => {
+    const cls = currentCategory === cat.key ? ' active' : '';
+    return `<button class="cat-tab${cls}" data-cat="${cat.key}"><span>${cat.emoji} ${cat.label}</span><span class="cc">${counts[cat.key]}家</span></button>`;
+  }).join('');
+  el.querySelectorAll('.cat-tab').forEach(btn => {
+    btn.onclick = () => { switchCategory(btn.dataset.cat); };
+  });
+}
+
+function switchCategory(cat) {
+  currentCategory = cat;
+  selectedProvider = null;
+  filters.platform = ''; filters.model = ''; filters.monthly = filters.quarterly = filters.annual = null; filters.billing = '';
+  renderCatTabs();
+  renderCards();
+  renderDetail();
+  renderHeroStats();
+  window.location.hash = cat;
+  // scroll to cards if not already visible
+  document.getElementById('cards').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function starsHtml(rating) {
+  const pct = Math.max(0, Math.min(100, (rating / 5) * 100));
+  const clipRight = 100 - pct;
+  const d = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+  const row = Array.from({length:5},(_,i)=>'<path d="'+d+'" transform="translate('+(i*22)+',0)"/>').join('');
+  return '<span class="stars"><svg viewBox="0 0 110 22" width="110" height="22">' +
+    '<g class="star-empty" fill="none" stroke-width="1.5" stroke-linejoin="round">'+row+'</g>' +
+    '<g class="star-fill" fill="#f59e0b" style="clip-path: inset(0 '+clipRight+'% 0 0)">'+row+'</g>' +
+    '</svg></span>';
+}
+
+function providerModels(prov) {
+  const plans = plansFor(prov.id);
+  if (!plans.length) return [];
+  const codes = new Set();
+  plans.forEach(p => (p.models || []).forEach(m => codes.add(m.code)));
+  return [...codes].slice(0, 4); // 最多显示4个
+}
+
+function providerPlanCount(prov) { return plansFor(prov.id).length; }
+function providerMinPrice(prov) {
+  const plans = plansFor(prov.id);
+  if (!plans.length) return null;
+  let min = null;
+  plans.forEach(p => {
+    const pm = p.price ?? p.inputPricePerMillion ?? null;
+    if (pm != null && (min == null || pm < min)) min = pm;
+  });
+  return min;
+}
+function providerMinPriceLabel(prov) {
+  const plans = plansFor(prov.id);
+  if (!plans.length) return '-';
+  let min = null, cur = 'CNY';
+  plans.forEach(p => {
+    const pm = p.price ?? p.inputPricePerMillion ?? null;
+    if (pm != null && (min == null || pm < min)) { min = pm; cur = p.currency || 'CNY'; }
+  });
+  if (min == null) return '-';
+  if (min === 0) return '免费';
+  return (cur === 'USD' ? '$' : '¥') + min;
+}
+
+function selectCard(provId) {
+  // 切换选中状态
+  if (selectedProvider === provId) {
+    selectedProvider = null;
+    filters.platform = '';
+  } else {
+    selectedProvider = provId;
+    filters.platform = provId;
+  }
+  // 重新渲染卡片和筛选栏
+  renderCards();
+  const provs = catProviders();
+  buildFilterBar(provs);
+  document.getElementById('detailBody').innerHTML = compareHtml(provs);
+  updateFilterStatus();
+  // 滚动到对比表
+  document.getElementById('detail').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function renderCards() {
+  const grid = document.getElementById('cardsGrid');
+  const provs = catProviders();
+  grid.innerHTML = provs.map(p => {
+    const col = colorOf(p.id);
+    const models = providerModels(p);
+    const cnt = providerPlanCount(p);
+    const minP = providerMinPriceLabel(p);
+    const starR = starsHtml(p.rating);
+    const rev = p.review || '';
+    const mchips = models.map(m => '<span class="cm-chip">'+m+'</span>').join('');
+    const sel = selectedProvider === p.id ? ' selected' : '';
+    return `<div class="card${sel}" data-id="${p.id}" style="--c:${col.c}; --c-bg:${col.bg};">
+      <div class="card-stars-row">${starR}<span class="card-type-badge">${typeLabel(p.type)}</span></div>
+      <div class="card-top">
+        <div class="card-mark">${col.mark}</div>
+        <div class="card-name">${p.name}</div>
+      </div>
+      <div class="card-meta">${cnt?cnt+' 档方案':'—'}<span class="sep">·</span><span class="val">${minP} 起</span></div>
+      ${mchips ? '<div class="card-models">'+mchips+'</div>' : ''}
+      ${rev ? '<div class="card-review"><div class="rl"><span class="dot"></span>点评</div><div class="rc">'+rev+'</div></div>' : ''}
+      <div class="card-foot-bar">
+        <span class="card-cta">${sel ? '已选中 · 取消' : '查看套餐对比 →'}</span>
+        <span class="card-link-ext" data-url="${p.url||'#'}" title="打开官网"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+      </div>
+    </div>`;
+  }).join('');
+
+  // 绑定事件
+  grid.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // 不拦截外链按钮
+      if (e.target.closest('.card-link-ext')) return;
+      selectCard(card.dataset.id);
+    });
+  });
+  grid.querySelectorAll('.card-link-ext').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.stopPropagation();
+      window.open(link.dataset.url, '_blank', 'noopener');
+    });
+  });
+}
+
+function renderDetail() {
+  const body = document.getElementById('detailBody');
+  const provs = catProviders();
+  const hasPlans = catPlans().length > 0;
+  document.getElementById('filterBar').classList.toggle('hidden', !hasPlans);
+  document.getElementById('billingTabs').style.display = hasPlans ? '' : 'none';
+  if (hasPlans) buildFilterBar(provs);
+  body.innerHTML = compareHtml(provs);
+  if (hasPlans) updateFilterStatus();
+}
+
+function rerenderTable() {
+  const provs = catProviders();
+  document.getElementById('detailBody').innerHTML = compareHtml(provs);
+  updateFilterStatus();
+}
+
+function buildFilterBar(provs) {
+  const sel = document.getElementById('fPlatform');
+  const prev = filters.platform;
+  sel.innerHTML = '<option value="">全部平台</option>' + provs.map(p => `<option value="${p.id}"${p.id===prev?' selected':''}>${p.name}</option>`).join('');
+
+  const modelSet = new Set();
+  provs.forEach(p => plansFor(p.id).forEach(pl => (pl.models || []).forEach(m => modelSet.add(m.code))));
+  const mc = document.getElementById('fModels');
+  const prevModel = filters.model;
+  mc.innerHTML = '<option value="">全部模型</option>' + [...modelSet].map(code => `<option value="${code}"${code===prevModel?' selected':''}>${code}</option>`).join('');
+  mc.onchange = () => { filters.model = mc.value; rerenderTable(); };
+
+  const wire = (id, key) => {
+    const el = document.getElementById(id);
+    el.value = filters[key] != null ? filters[key] : '';
+    el.oninput = () => {
+      const v = el.value.trim();
+      filters[key] = v === '' ? null : Number(v);
+      rerenderTable();
+    };
+  };
+  wire('fMonthly', 'monthly');
+  wire('fQuarterly', 'quarterly');
+  wire('fAnnual', 'annual');
+
+  sel.onchange = () => {
+    filters.platform = sel.value;
+    selectedProvider = sel.value || null;
+    renderCards();
+    rerenderTable();
+  };
+
+  const allPlans = provs.flatMap(p => plansFor(p.id));
+  document.getElementById('cntAll').textContent = allPlans.length;
+  document.getElementById('cntCall').textContent = allPlans.filter(p => p.billingMode === 'CALL').length;
+  document.getElementById('cntToken').textContent = allPlans.filter(p => p.billingMode === 'TOKEN').length;
+
+  document.querySelectorAll('.billing-tab').forEach(tab => {
+    tab.onclick = () => {
+      document.querySelectorAll('.billing-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      filters.billing = tab.dataset.billing;
+      rerenderTable();
+    };
+  });
+
+  const reset = document.getElementById('fReset');
+  reset.onclick = () => {
+    selectedProvider = null;
+    filters.platform = ''; filters.model = ''; filters.monthly = filters.quarterly = filters.annual = null;
+    filters.billing = '';
+    document.querySelectorAll('.billing-tab').forEach(t => t.classList.toggle('active', !t.dataset.billing));
+    buildFilterBar(provs); renderCards(); rerenderTable();
+  };
+}
+
+function updateFilterStatus() {
+  const provs = catProviders();
+  const all = provs.flatMap(p => plansFor(p.id));
+  const inScope = filters.billing ? all.filter(p => p.billingMode === filters.billing) : all;
+  const vis = inScope.filter(passesFilters).length;
+  const active = filters.platform || filters.model || filters.monthly != null || filters.quarterly != null || filters.annual != null;
+  const st = document.getElementById('fStatus');
+  st.innerHTML = active ? `筛选后 <span class="n">${vis}</span> / ${inScope.length} 个套餐` : `共 <span class="n">${inScope.length}</span> 个套餐`;
+  document.getElementById('fReset').disabled = !active;
+}
+
+function priceHtml() { return ''; }
+function quotaHtml() { return ''; }
+function singleDetailHtml() { return ''; }
+
+// 价格单元格（月付 / 季付均价 / 年付均价）
+function priceCell(plan) {
+  const bc = plan.billingCycles || {};
+  const fmt = v => Number.isInteger(v) ? v : (v != null ? v.toFixed(v < 10 ? 2 : 0) : null);
+  const sym = curSym(plan);
+  const conv = v => (plan.currency === 'USD' && v != null && v > 0) ? '<span class="price-conv">≈¥'+Math.round(v*USD_TO_CNY)+'</span>' : '';
+  let monthly;
+  if (plan.price === 0) monthly = '<span class="price-free">免费</span>';
+  else if (plan.price != null) {
+    let orig = '';
+    if (plan.originalPrice) orig = '<span class="price-orig">'+sym+fmt(plan.originalPrice)+'</span>';
+    monthly = '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(plan.price)+'</span>'+conv(plan.price)+orig;
+  } else if (plan.inputPricePerMillion === 0) monthly = '<span class="price-free">免费</span>';
+  else if (plan.inputPricePerMillion != null) monthly = '<span class="price-val"><span class="cur">'+sym+'</span>'+plan.inputPricePerMillion+'<span class="cur">/M in</span></span>'+conv(plan.inputPricePerMillion);
+  else monthly = '<span class="price-na">—</span>';
+  const q = bc.quarterly, a = bc.annual;
+  const qHtml = q != null ? '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(q)+'</span>' : (bc.note ? '<span class="ph">'+bc.note+'</span>' : '<span class="price-na">—</span>');
+  const aHtml = a != null ? '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(a)+'</span>' : (bc.note ? '<span class="ph">'+bc.note+'</span>' : '<span class="price-na">—</span>');
+  return monthly+(bc.note && plan.price != null ? '<span class="price-note">'+bc.note+'</span>' : '')+'|||'+qHtml+'|||'+aHtml;
+}
+
+function reqCell(plan) {
+  const u = plan.usageWindow || {};
+  const fmtN = v => v == null ? null : (v >= 10000 ? (v/10000).toFixed(v % 10000 ? 1 : 0) + '万' : v.toLocaleString());
+  const h5 = u.fiveHour != null ? '<span class="req-num">'+fmtN(u.fiveHour)+'</span>' : '<span class="ph">待核实</span>';
+  const wk = u.weekly != null ? '<span class="req-num">'+fmtN(u.weekly)+'</span>' : '<span class="ph">待核实</span>';
+  let mo;
+  if (u.monthly != null) mo = '<span class="req-num">'+fmtN(u.monthly)+'<span class="u">'+(plan.quotaUnit === 'call' ? '次' : '')+'</span></span>';
+  else if (u.totalTokens != null) mo = '<span class="req-num">'+fmtN(u.totalTokens)+'<span class="u">token</span></span>';
+  else mo = '<span class="price-na">—</span>';
+  return h5+'|||'+wk+'|||'+mo;
+}
+
+function modelCell(plan) {
+  const models = plan.models || [];
+  if (!models.length) return '<span class="price-na">-</span>';
+  const withSpecs = models.filter(m => m.version || m.context || m.concurrency != null);
+  const noSpecs = models.filter(m => !m.version && !m.context && m.concurrency == null);
+  let html = '';
+  // 有规格的：chip + inline 规格
+  if (withSpecs.length) {
+    html += withSpecs.map(m => {
+      const cls = m.isBonus ? 'mchip bonus' : 'mchip';
+      const calls = m.calls != null ? ' ×'+m.calls.toLocaleString() : '';
+      const bonus = m.isBonus ? '<span class="mb-bonus">赠送</span>' : '';
+      const specs = [];
+      if (m.version) specs.push('v'+m.version);
+      if (m.context) specs.push(m.context);
+      if (m.concurrency != null) specs.push('并发 '+m.concurrency);
+      return '<div class="model-block"><div class="mb-head"><span class="'+cls+'">'+m.code+calls+'</span>'+bonus+'</div><span class="mb-spec">'+specs.join(' · ')+'</span></div>';
+    }).join('');
+  }
+  // 无规格的：chips 流式 + 一条待核实
+  if (noSpecs.length) {
+    const chips = noSpecs.map(m => {
+      const cls = m.isBonus ? 'mchip bonus' : 'mchip';
+      const calls = m.calls != null ? ' ×'+m.calls.toLocaleString() : '';
+      const bonus = m.isBonus ? '<span class="mb-bonus">赠送</span>' : '';
+      return '<span class="'+cls+'">'+m.code+calls+'</span>'+bonus;
+    }).join('');
+    html += '<div class="mb-no-specs">'+chips+'<span class="mb-spec-na">规格待核实</span></div>';
+  }
+  return html;
+}
+
+function benefitsCell(plan) {
+  const b = plan.benefits || [];
+  if (!b.length) return '<span class="price-na">—</span>';
+  return '<ul class="benefit-list">'+b.map(x => '<li>'+x+'</li>').join('')+'</ul>';
+}
+
+function remarkCell(plan) {
+  const parts = [];
+  if (plan.highlight) parts.push(plan.highlight);
+  if (plan.tags && plan.tags.length) parts.push(plan.tags.map(t => '#'+t).join(' '));
+  const src = '<div class="src">'+(plan.isPlaceholder ? '<span class="ph"></span>' : '')+(plan.sourceType === 'manual' ? '<span class="manual">手动</span>' : 'API')+' · <a href="'+plan.source+'" target="_blank" rel="noopener">来源</a></div>';
+  return (parts.length ? '<div class="remark">'+parts.join(' · ')+'</div>' : '') + src;
+}
+
+function planMonthly(plan) {
+  let v;
+  if (plan.price === 0) return 0;
+  if (plan.price != null) v = plan.price;
+  else if (plan.inputPricePerMillion != null) v = plan.inputPricePerMillion;
+  else return null;
+  return plan.currency === 'USD' ? v * USD_TO_CNY : v;
+}
+function planCycVal(plan, key) {
+  const bc = plan.billingCycles || {};
+  return bc[key] != null ? bc[key] : null;  // null = 该周期未提供
+}
+
+function passesFilters(plan) {
+  if (filters.billing && plan.billingMode !== filters.billing) return false;
+  if (filters.platform && plan.providerId !== filters.platform) return false;
+  // 模型：套餐须包含所选模型
+  if (filters.model) {
+    const codes = (plan.models || []).map(m => m.code);
+    if (!codes.includes(filters.model)) return false;
+  }
+  // 价格上限：null 视为"该周期未提供"，不参与过滤（除非填了值且周期有值则需 ≤）
+  const m = planMonthly(plan);
+  if (filters.monthly != null && m != null && m > filters.monthly) return false;
+  const q = planCycVal(plan, 'quarterly');
+  if (filters.quarterly != null && q != null && q > filters.quarterly) return false;
+  const a = planCycVal(plan, 'annual');
+  if (filters.annual != null && a != null && a > filters.annual) return false;
+  return true;
+}
+
+function compareHtml(provs) {
+  const allPlans = provs.flatMap(p => plansFor(p.id));
+  const provOrder = new Map(provs.map((p,i) => [p.id, i]));
+  allPlans.sort((a, b) => {
+    const oa = provOrder.get(a.providerId) ?? 0, ob = provOrder.get(b.providerId) ?? 0;
+    if (oa !== ob) return oa - ob;
+    return (planMonthly(a) ?? 0) - (planMonthly(b) ?? 0);
+  });
+  const codingPlans = allPlans.filter(passesFilters);
+  const anyPlans = allPlans.length > 0;
+
+  const headerChips = provs.map(p => {
+    const col = colorOf(p.id);
+    return '<span class="ch" style="--c:'+col.c+'"><span class="m">'+col.mark+'</span>'+p.name+'</span>';
+  }).join('');
+
+  if (!anyPlans) {
+    const emptyText = {
+      video: '视频生成平台多为按次/按积分计费，无固定套餐档位。此处仅做平台概览对比。',
+      image: '图片生成平台多为按次/按积分计费，无固定套餐档位。此处仅做平台概览对比。',
+      audio: '音频生成平台多为按次/按积分计费，无固定套餐档位。此处仅做平台概览对比。',
+      relay: '中转站为按量充值模式，统一协议接入多模型，无固定套餐档位。',
+      discontinued: '已下架平台，仅保留历史信息。已购套餐在有效期内仍可使用，但停止新购/续费。'
+    };
+    const et = emptyText[currentCategory] || '本类别暂无套餐详情，数据整理中。';
+    return '<div class="cmp-card"><div class="cmp-head">'+headerChips+'</div><div class="group-label">'+CAT_LABELS[currentCategory]+' <span class="pill">概览</span></div><div class="group-empty"><div class="big">本类别暂无套餐详情</div>'+et+'</div></div>';
+  }
+
+  const rowsHtml = codingPlans.map(plan => {
+    const prov = provs.find(p => p.id === plan.providerId);
+    const col = colorOf(prov.id);
+    const platCell = '<td class="col-platform" style="--c:'+col.c+'"><div class="cell-plat"><div class="mk">'+col.mark+'</div><div><div class="pn">'+prov.name+'</div><div class="pt">'+typeLabel(prov.type)+' · '+prov.rating+'/5</div></div></div></td>';
+    const [monthly, quarterly, annual] = priceCell(plan).split('|||');
+    const [h5, weekly, monthlyReq] = reqCell(plan).split('|||');
+    const sub = '<a class="sub-btn" style="--c:'+col.c+'" href="'+(plan.subscribeUrl || prov.url||'#')+'" target="_blank" rel="noopener">开通 <span class="arr">↗</span></a>';
+    return '<tr>'+platCell+
+      '<td class="col-plan"><div class="plan-name">'+plan.planName+badgeHtml(plan.badge)+'</div>'+(plan.tier ? '<div class="plan-tier">'+plan.tier+' · '+plan.billingLabel+'</div>' : '<div class="plan-tier">'+plan.billingLabel+'</div>')+'</td>'+
+      '<td>'+sub+'</td>'+
+      '<td>'+monthly+'</td><td>'+quarterly+'</td><td>'+annual+'</td>'+
+      '<td>'+h5+'</td><td>'+weekly+'</td><td>'+monthlyReq+'</td>'+
+      '<td>'+modelCell(plan)+'</td><td>'+benefitsCell(plan)+'</td><td>'+remarkCell(plan)+'</td>'+
+      '</tr>';
+  }).join('');
+
+  const emptyFiltered = codingPlans.length === 0;
+  const tblHtml = emptyFiltered
+    ? '<div class="group-empty">没有套餐符合当前筛选条件。点「重置」恢复。</div>'
+    : '<div class="cmp-tbl-wrap"><table class="cmp-tbl"><colgroup><col class="c-platform"><col class="c-plan"><col class="c-sub"><col class="c-price"><col class="c-price"><col class="c-price"><col class="c-req"><col class="c-req"><col class="c-req"><col class="c-models"><col class="c-benefits"><col class="c-remark"></colgroup><thead><tr><th>平台</th><th>方案</th><th>开通</th><th>月付</th><th>季付均价</th><th>年付均价</th><th>5h 请求数</th><th>周请求数</th><th>月总请求数</th><th>支持模型</th><th>额外权益</th><th>备注</th></tr></thead><tbody>'+rowsHtml+'</tbody></table></div>';
+
+  const catLabel = CAT_LABELS[currentCategory] || currentCategory;
+  return '<div class="cmp-card"><div class="cmp-head">'+headerChips+'</div><div class="group-label">'+catLabel+' · 每行一个档位 <span class="pill">直接列出</span></div>'+tblHtml+'<div class="cmp-note"><strong>读法：</strong>每行一个套餐档位。聚合平台为模型二次转售，可与厂商原价对照。「开通」走官方/邀请链接。<strong>橙色 = 数据待人工核实</strong>。数据来源：AIPlanHub。</div></div>';
+}
+
+function renderHeroStats() {
+  const el = document.getElementById('heroStats');
+  if (!el) return;
+  const provs = catProviders();
+  const plans = catPlans();
+  const totalProvs = PROVIDERS.length;
+  const totalPlans = PLANS.length;
+  const catNames = { coding:'Coding 编程', token:'Token 凭证', video:'Video 视频', image:'Image 图片', audio:'Audio 音频', relay:'中转站' };
+  el.innerHTML =
+    '<div class="stat-item"><div class="stat-num">'+totalProvs+'<span class="u">家</span></div><div class="stat-label">全部平台</div></div>'+
+    '<div class="stat-item"><div class="stat-num">'+totalPlans+'<span class="u">个</span></div><div class="stat-label">套餐档位</div></div>'+
+    '<div class="stat-item"><div class="stat-num">'+provs.length+'<span class="u">家</span></div><div class="stat-label">当前：'+catNames[currentCategory]+'</div></div>'+
+    '<div class="stat-item"><div class="stat-num">'+plans.length+'<span class="u">个</span></div><div class="stat-label">当前套餐</div></div>';
+}
+
+function renderAll() {
+  renderCatTabs();
+  renderCards();
+  renderDetail();
+  renderHeroStats();
+}
+
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+// On page load
+Promise.all([
+  fetch('data/providers.json').then(r => r.json()),
+  fetch('data/plans.json').then(r => r.json())
+]).then(([prov, plans]) => {
+  PROVIDERS = prov; PLANS = plans;
+  // Check hash for category
+  const hash = window.location.hash.replace('#','');
+  if (hash && CATEGORIES.some(c => c.key === hash)) {
+    currentCategory = hash;
+  }
+  renderAll();
+  const dates = [...PROVIDERS.map(p => p.asOf), ...PLANS.map(p => p.asOf)].filter(Boolean).sort();
+  document.getElementById('updatedTime').textContent = dates.length ? '更新于 ' + dates[dates.length-1] : '—';
+  document.getElementById('detailSub').textContent = CAT_LABELS[currentCategory] + ' · 每行一个套餐 · 可按平台/模型/价格上限筛选';
+}).catch(e => {
+  document.getElementById('cardsGrid').innerHTML = `<div style="padding:48px;text-align:center;color:var(--ink-4);grid-column:1/-1">数据加载失败：${e.message}<br>请用本地服务器打开（<code>python3 -m http.server 8765</code>）</div>`;
+});
+</script>
+
+</body>
+</html>

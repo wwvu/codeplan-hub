@@ -1,0 +1,15 @@
+# 依赖与临时
+node_modules/
+*.log
+.DS_Store
+
+# Claude 本地配置
+.claude/
+
+# 旧布局草稿（探索阶段产物，非当前站点）
+layout-*.html
+
+# 临时截图
+*.png
+*.jpg
+boke-*.html
