@@ -1172,7 +1172,7 @@
     "quotaAmount": null,
     "quotaUnit": "call",
     "billingCycles": {
-      "monthly": 26.6,
+      "monthly": 20,
       "quarterly": null,
       "annual": null,
       "note": "仅月付"
@@ -1198,7 +1198,7 @@
       "GPT-5.4 全功能"
     ],
     "tags": [],
-    "highlight": "$20/月 · GPT-5.4 全功能",
+    "highlight": "$20/月",
     "subscribeUrl": "https://openai.com/chatgpt/pricing/",
     "source": "https://openai.com/chatgpt/pricing/",
     "sourceType": "manual",
@@ -1223,7 +1223,7 @@
     "quotaAmount": null,
     "quotaUnit": "call",
     "billingCycles": {
-      "monthly": 28.8,
+      "monthly": 25,
       "quarterly": null,
       "annual": null,
       "note": "仅月付"
@@ -1249,7 +1249,7 @@
       "团队协作"
     ],
     "tags": [],
-    "highlight": "$25/用户/月 · 团队协作",
+    "highlight": "$25/用户/月",
     "subscribeUrl": "https://openai.com/chatgpt/pricing/",
     "source": "https://openai.com/chatgpt/pricing/",
     "sourceType": "manual",
@@ -3447,7 +3447,7 @@
     "quotaAmount": null,
     "quotaUnit": "call",
     "billingCycles": {
-      "monthly": 28.8,
+      "monthly": 100,
       "quarterly": null,
       "annual": null,
       "note": "仅月付"
@@ -3471,11 +3471,10 @@
     ],
     "benefits": [
       "100 刀额度",
-      "暂时售罄",
-      "GPT-5.4/GPT-Image-2/GPT-5.3-Codex"
+      "暂时售罄"
     ],
     "tags": [],
-    "highlight": "$100 Token 包 · 暂时售罄",
+    "highlight": "$100·暂时售罄",
     "subscribeUrl": "https://openai.com/chatgpt/pricing/",
     "source": "https://openai.com/chatgpt/pricing/",
     "sourceType": "manual",

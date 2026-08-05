@@ -14,8 +14,7 @@
       "图片生成"
     ],
     "asOf": "2026-07-31",
-    "review": "OpenAI 官方，GPT-5.4/Codex/Image-2 全覆盖。Plus 月付 ¥26.6（走幻境代付渠道，非官方原价）",
-    "featured": false
+    "review": "OpenAI 官方，GPT-5.4/Codex/Image-2 全覆盖"
   },
   {
     "id": "coding-sensenova",
@@ -31,8 +30,7 @@
       "自研模型"
     ],
     "asOf": "2026-07-31",
-    "review": "商汤自研 SenseNova 6.7 Flash-Lite / U1 Fast，免费公测中，性价比极高，编程体验优秀",
-    "featured": false
+    "review": "商汤自研 SenseNova 6.7 Flash-Lite / U1 Fast，免费公测中，性价比极高，编程体验优秀"
   },
   {
     "id": "coding-zhipu",
@@ -49,8 +47,7 @@
       "涨价"
     ],
     "asOf": "2026-07-31",
-    "review": "⚠️ 新版积分制价格大幅上调：Lite ¥118 / Pro ¥538 / Max ¥1078；MCP 与模型共享额度，OpenClaw 采用次级调度，当前性价比很差",
-    "featured": false
+    "review": "⚠️ 新版积分制价格大幅上调：Lite ¥118 / Pro ¥538 / Max ¥1078；MCP 与模型共享额度，OpenClaw 采用次级调度，当前性价比很差"
   },
   {
     "id": "coding-wenming",
@@ -66,9 +63,9 @@
       "按 token",
       "新用户低价"
     ],
+    "featured": true,
     "asOf": "2026-07-31",
-    "review": "AI 应用商城转售，GLM-5.2 + DeepSeek-V4-Flash 双线并行，按次和按 token 两种套餐可切换，新用户 ¥29.9 活动价有竞争力",
-    "featured": true
+    "review": "AI 应用商城转售，GLM-5.2 + DeepSeek-V4-Flash 双线并行，按次和按 token 两种套餐可切换，新用户 ¥29.9 活动价有竞争力"
   },
   {
     "id": "coding-bytedance",
@@ -85,8 +82,7 @@
       "不透明"
     ],
     "asOf": "2026-07-31",
-    "review": "⚠️ 双层计费：名义按调用次数，实际 Token 消耗大会被按 2-3 次甚至更多次扣费，计费不透明，无用量明细（蓝点网/V2EX/微博多源证实）",
-    "featured": false
+    "review": "⚠️ 双层计费：名义按调用次数，实际 Token 消耗大会被按 2-3 次甚至更多次扣费，计费不透明，无用量明细（蓝点网/V2EX/微博多源证实）"
   },
   {
     "id": "coding-charm",
@@ -103,8 +99,7 @@
       "美元"
     ],
     "asOf": "2026-07-31",
-    "review": "海外聚合平台，含免费档和 Bundle 充值，$0/$5/$10/$20 多档，适合美元结算用户",
-    "featured": false
+    "review": "海外聚合平台，含免费档和 Bundle 充值，$0/$5/$10/$20 多档，适合美元结算用户"
   },
   {
     "id": "coding-meituan",
@@ -120,8 +115,7 @@
       "美团"
     ],
     "asOf": "2026-07-31",
-    "review": "美团出品，免费版需下载客户端，公司内部接入较方便",
-    "featured": false
+    "review": "美团出品，免费版需下载客户端，公司内部接入较方便"
   },
   {
     "id": "coding-kimi",
@@ -137,8 +131,7 @@
       "Coding"
     ],
     "asOf": "2026-07-31",
-    "review": "月之暗面四档方案（Andante/Moderato/Allegretto/Allegro），网友反馈额度消耗较快，¥39 起",
-    "featured": false
+    "review": "月之暗面四档方案（Andante/Moderato/Allegretto/Allegro），网友反馈额度消耗较快，¥39 起"
   },
   {
     "id": "coding-aliyun",
@@ -154,8 +147,7 @@
       "按量"
     ],
     "asOf": "2026-07-31",
-    "review": "Pro 专属 Qwen3.6-Plus，Pro 固定 ¥200/月，每周 45,000 次请求，模型单一但稳定",
-    "featured": false
+    "review": "Pro 专属 Qwen3.6-Plus，Pro 固定 ¥200/月，每周 45,000 次请求，模型单一但稳定"
   },
   {
     "id": "coding-lanyun",
@@ -172,8 +164,7 @@
       "高峰期限流"
     ],
     "asOf": "2026-07-31",
-    "review": "高峰与非高峰差异化扣额，GLM-5.1 没有 429 限流但调用速度较慢，¥49 起三档",
-    "featured": false
+    "review": "高峰与非高峰差异化扣额，GLM-5.1 没有 429 限流但调用速度较慢，¥49 起三档"
   },
   {
     "id": "coding-tencent",
@@ -190,8 +181,7 @@
       "MiniMax"
     ],
     "asOf": "2026-07-31",
-    "review": "腾讯云出品，GLM-5/Kimi-K2.5/MiniMax-M2.5 三模型，首月 ¥7.9 优惠价吸引新用户",
-    "featured": false
+    "review": "腾讯云出品，GLM-5/Kimi-K2.5/MiniMax-M2.5 三模型，首月 ¥7.9 优惠价吸引新用户"
   },
   {
     "id": "coding-baidu",
@@ -209,8 +199,7 @@
       "Token计费"
     ],
     "asOf": "2026-07-31",
-    "review": "百度千帆，GLM/DeepSeek/Kimi 全系，¥4.9 起四档，按 Token 量计费而非按次",
-    "featured": false
+    "review": "百度千帆，GLM/DeepSeek/Kimi 全系，¥4.9 起四档，按 Token 量计费而非按次"
   },
   {
     "id": "coding-iflytek",
@@ -227,8 +216,7 @@
       "Kimi"
     ],
     "asOf": "2026-07-31",
-    "review": "讯飞星辰平台，GLM-5.2/Spark X2 Agent/Kimi-K2.7-Code，高效版 ¥199 起",
-    "featured": false
+    "review": "讯飞星辰平台，GLM-5.2/Spark X2 Agent/Kimi-K2.7-Code，高效版 ¥199 起"
   },
   {
     "id": "coding-jieyue",
@@ -244,8 +232,7 @@
       "四档"
     ],
     "asOf": "2026-07-31",
-    "review": "阶跃星辰自研 Step-3.5-Flash-2603，四档从 ¥49 到 ¥699，低端性价比不错",
-    "featured": false
+    "review": "阶跃星辰自研 Step-3.5-Flash-2603，四档从 ¥49 到 ¥699，低端性价比不错"
   },
   {
     "id": "coding-kuaishou",
@@ -261,8 +248,7 @@
       "Prompts计费"
     ],
     "asOf": "2026-07-31",
-    "review": "快手 StreamLake 平台，KAT-Coder-Pro V2.5，按 Prompts 计费（非标准 Token），¥29 起四档",
-    "featured": false
+    "review": "快手 StreamLake 平台，KAT-Coder-Pro V2.5，按 Prompts 计费（非标准 Token），¥29 起四档"
   },
   {
     "id": "coding-ollama",
@@ -278,8 +264,7 @@
       "本地部署"
     ],
     "asOf": "2026-07-31",
-    "review": "开源本地部署平台，GLM-5.1/DeepSeek-V4-Flash/MiniMax-M2.7，免费档适合自建",
-    "featured": false
+    "review": "开源本地部署平台，GLM-5.1/DeepSeek-V4-Flash/MiniMax-M2.7，免费档适合自建"
   },
   {
     "id": "coding-atomcode",
@@ -296,8 +281,7 @@
       "DeepSeek"
     ],
     "asOf": "2026-07-31",
-    "review": "GLM-5.2/DeepSeek-V4-Flash，三档含免费，起步门槛低",
-    "featured": false
+    "review": "GLM-5.2/DeepSeek-V4-Flash，三档含免费，起步门槛低"
   },
   {
     "id": "coding-zai",
@@ -314,8 +298,7 @@
       "涨价"
     ],
     "asOf": "2026-07-31",
-    "review": "⚠️ GLM-5.1 国际版，2026.04.11 价格暴涨：月付涨至 $18 / $72 / $160，美元计费后性价比明显下降",
-    "featured": false
+    "review": "⚠️ GLM-5.1 国际版，2026.04.11 价格暴涨：月付涨至 $18 / $72 / $160，美元计费后性价比明显下降"
   },
   {
     "id": "coding-minimax",
@@ -331,8 +314,7 @@
       "M3"
     ],
     "asOf": "2026-07-31",
-    "review": "2026.06.01 全面升级 M3 体系，Plus ¥49/Max ¥119/Ultra ¥469 三档（年付立省2月），M2.7 参考 1500/4500/15000 次/5h，月 6~55 亿 token",
-    "featured": false
+    "review": "2026.06.01 全面升级 M3 体系，Plus ¥49/Max ¥119/Ultra ¥469 三档（年付立省2月），M2.7 参考 1500/4500/15000 次/5h，月 6~55 亿 token"
   },
   {
     "id": "coding-liantong",
@@ -349,8 +331,7 @@
       "禁止API"
     ],
     "asOf": "2026-07-31",
-    "review": "⚠️ 当前资源紧张 GLM-5.1 很慢 + 429 限流；支持 DeepSeek-V4 全系列；测试发现多数模型调用工具有问题，默认关闭思考模式；没有异常扣费挺耐用；禁止 API 调用",
-    "featured": false
+    "review": "⚠️ 当前资源紧张 GLM-5.1 很慢 + 429 限流；支持 DeepSeek-V4 全系列；测试发现多数模型调用工具有问题，默认关闭思考模式；没有异常扣费挺耐用；禁止 API 调用"
   },
   {
     "id": "coding-taotoken",
@@ -365,8 +346,7 @@
       "GLM"
     ],
     "asOf": "2026-07-31",
-    "review": "GLM-5.2 为主，Lite/Pro/Max 三档，¥39 起，聚合平台性价比一般",
-    "featured": false
+    "review": "GLM-5.2 为主，Lite/Pro/Max 三档，¥39 起，聚合平台性价比一般"
   },
   {
     "id": "coding-yidong",
@@ -383,8 +363,7 @@
       "禁止API"
     ],
     "asOf": "2026-07-31",
-    "review": "⚠️ 已支持 MiniMax-M2.5 与 GLM-5.1；GLM-5.1 按 4x 抵扣额度消耗更快；支持华北-呼和浩特/湖北-武汉/华南-广州资源池；Coding Plan 禁止 API 调用",
-    "featured": false
+    "review": "⚠️ 已支持 MiniMax-M2.5 与 GLM-5.1；GLM-5.1 按 4x 抵扣额度消耗更快；支持华北-呼和浩特/湖北-武汉/华南-广州资源池；Coding Plan 禁止 API 调用"
   },
   {
     "id": "coding-supercomp",
@@ -400,8 +379,7 @@
       "Qwen"
     ],
     "asOf": "2026-07-31",
-    "review": "国家超算互联网平台，MiniMax-M2.5/Qwen3-235B，¥20 起 Lite/Pro 双档，性价比突出",
-    "featured": false
+    "review": "国家超算互联网平台，MiniMax-M2.5/Qwen3-235B，¥20 起 Lite/Pro 双档，性价比突出"
   },
   {
     "id": "coding-youyun",
@@ -420,8 +398,7 @@
       "Kimi"
     ],
     "asOf": "2026-07-31",
-    "review": "模型最多：GLM-5.2/DeepSeek-V4-Pro/Flash/Qwen3.6-Plus/MiniMax-M2.7/Kimi-K2.6 全系，¥49 起六档",
-    "featured": false
+    "review": "模型最多：GLM-5.2/DeepSeek-V4-Pro/Flash/Qwen3.6-Plus/MiniMax-M2.7/Kimi-K2.6 全系，¥49 起六档"
   },
   {
     "id": "coding-openstarry",
@@ -440,8 +417,7 @@
       "Qwen"
     ],
     "asOf": "2026-07-31",
-    "review": "含免费档，模型覆盖广（GLM/Kimi/DeepSeek/MiniMax/Qwen），但评分最低，稳定性存疑",
-    "featured": false
+    "review": "含免费档，模型覆盖广（GLM/Kimi/DeepSeek/MiniMax/Qwen），但评分最低，稳定性存疑"
   },
   {
     "id": "coding-opencode",
@@ -458,8 +434,8 @@
       "Grok"
     ],
     "asOf": "2026-07-31",
-    "review": "OpenCode Go 平台，Grok-4.5/GLM-5.2/GPT-5.6-Luna/Kimi-K3/Hy3 等 17 款模型，$10/月起，按量计费",
-    "featured": true
+    "featured": true,
+    "review": "OpenCode Go 平台，Grok-4.5/GLM-5.2/GPT-5.6-Luna/Kimi-K3/Hy3 等 17 款模型，$10/月起，按量计费"
   },
   {
     "id": "discontinued-jdcloud",
@@ -474,8 +450,7 @@
       "已下架"
     ],
     "asOf": "2026-07-31",
-    "review": "⚠️ Coding Plan 已于 2026.07.29 停止新购、续费及升级；已购套餐有效期内可用，历史套餐见站内「已下架」页面",
-    "featured": false
+    "review": ""
   },
   {
     "id": "token-chatgpt",
@@ -491,8 +466,7 @@
       "暂时售罄"
     ],
     "asOf": "2026-08-01",
-    "review": "OpenAI 官方 Token 方案，GPT-5.4/Image-2/Codex，¥28.8/月，暂时售罄",
-    "featured": false
+    "review": "OpenAI 官方 Token 方案，GPT-5.4/Image-2/Codex，¥28.8/月，暂时售罄"
   },
   {
     "id": "token-opencode",
@@ -509,8 +483,7 @@
       "按量"
     ],
     "asOf": "2026-08-01",
-    "review": "OpenCode Go，GLM-5.2/GPT-5.6-Luna/DeepSeek-V4-Pro/Kimi-K2.6 等 17 款，$10/月起",
-    "featured": false
+    "review": "OpenCode Go，GLM-5.2/GPT-5.6-Luna/DeepSeek-V4-Pro/Kimi-K2.6 等 17 款，$10/月起"
   },
   {
     "id": "token-aliyun",
@@ -527,8 +500,7 @@
       "按 Credits"
     ],
     "asOf": "2026-08-01",
-    "review": "按坐席订阅，qwen3.8-max/Qwen3.7-Max/DeepSeek-V4-Pro/GLM-5.2/Kimi-K2.6，Credits 统一计量，不支持退款；标准坐席 ¥150 限时 10 倍加量，尊享坐席 ¥1,398",
-    "featured": false
+    "review": "按坐席订阅，qwen3.8-max/Qwen3.7-Max/DeepSeek-V4-Pro/GLM-5.2/Kimi-K2.6，Credits 统一计量，不支持退款；标准坐席 ¥150 限时 10 倍加量，尊享坐席 ¥1,398"
   },
   {
     "id": "token-taotoken",
@@ -546,8 +518,7 @@
       "Kimi"
     ],
     "asOf": "2026-08-01",
-    "review": "DeepSeek-V4-Pro/Kimi-K3/GLM-5.2，¥59 起按 Credits 计费，三档含加油包",
-    "featured": false
+    "review": "DeepSeek-V4-Pro/Kimi-K3/GLM-5.2，¥59 起按 Credits 计费，三档含加油包"
   },
   {
     "id": "token-fangzhou",
@@ -564,8 +535,7 @@
       "四档"
     ],
     "asOf": "2026-08-01",
-    "review": "AFP 积分制，覆盖文本/向量/图像/视频与联网搜索 Harness，兼容编程和 Agent 工具，¥40 起四档",
-    "featured": false
+    "review": "AFP 积分制，覆盖文本/向量/图像/视频与联网搜索 Harness，兼容编程和 Agent 工具，¥40 起四档"
   },
   {
     "id": "token-tencent",
@@ -582,8 +552,7 @@
       "禁止API"
     ],
     "asOf": "2026-08-01",
-    "review": "⚠️ 仅限 AI 工具（Cursor/Claude Code 等）使用，禁止 API 调用（违者封禁）；暂不支持多模态；8 档方案 ¥28 起，但无公开用量计算器透明度差",
-    "featured": false
+    "review": "⚠️ 仅限 AI 工具（Cursor/Claude Code 等）使用，禁止 API 调用（违者封禁）；暂不支持多模态；8 档方案 ¥28 起，但无公开用量计算器透明度差"
   },
   {
     "id": "token-tianyi",
@@ -600,8 +569,7 @@
       "3x抵扣"
     ],
     "asOf": "2026-08-01",
-    "review": "⚠️ 高阶 GLM 模型在高峰期按 3 倍、非高峰期按 2 倍抵扣额度，实际可用量明显低于表面档位；当前页面长期显示售罄/补货",
-    "featured": false
+    "review": "⚠️ 高阶 GLM 模型在高峰期按 3 倍、非高峰期按 2 倍抵扣额度，实际可用量明显低于表面档位；当前页面长期显示售罄/补货"
   },
   {
     "id": "token-alaya",
@@ -617,8 +585,7 @@
       "DeepSeek"
     ],
     "asOf": "2026-08-01",
-    "review": "Alaya Code，GLM-5.2/GLM-5.1/DeepSeek-V4-Flash，¥199 起三档",
-    "featured": false
+    "review": "Alaya Code，GLM-5.2/GLM-5.1/DeepSeek-V4-Flash，¥199 起三档"
   },
   {
     "id": "token-xiaomi",
@@ -635,8 +602,7 @@
       "四档"
     ],
     "asOf": "2026-08-01",
-    "review": "⚠️ Credit ≠ Token！MiMo-V2.5-Pro 输入/输出按 300/600 Credits 抵扣，属于 Token Plan 不进入 Coding 请求数表；¥39 起四档",
-    "featured": false
+    "review": "⚠️ Credit ≠ Token！MiMo-V2.5-Pro 输入/输出按 300/600 Credits 抵扣，属于 Token Plan 不进入 Coding 请求数表；¥39 起四档"
   },
   {
     "id": "video-kling",
@@ -653,8 +619,7 @@
       "视频生成"
     ],
     "asOf": "2026-08-01",
-    "review": "快手可灵 Kling 3.0 Omni，国产视频生成标杆，五档含免费",
-    "featured": false
+    "review": "快手可灵 Kling 3.0 Omni，国产视频生成标杆，五档含免费"
   },
   {
     "id": "video-vidu",
@@ -670,8 +635,7 @@
       "免费档"
     ],
     "asOf": "2026-08-01",
-    "review": "Vidu 视频生成，四档含免费，效果好但额度消耗快",
-    "featured": false
+    "review": "Vidu 视频生成，四档含免费，效果好但额度消耗快"
   },
   {
     "id": "video-hailuo",
@@ -688,8 +652,7 @@
       "年付优惠"
     ],
     "asOf": "2026-08-01",
-    "review": "海螺AI，Hailuo 2.3/Seedance 2.0 双引擎，年付 ¥55/月起",
-    "featured": false
+    "review": "海螺AI，Hailuo 2.3/Seedance 2.0 双引擎，年付 ¥55/月起"
   },
   {
     "id": "video-paivideo",
@@ -705,8 +668,7 @@
       "免费档"
     ],
     "asOf": "2026-08-01",
-    "review": "PixVerse 平台，五档含免费",
-    "featured": false
+    "review": "PixVerse 平台，五档含免费"
   },
   {
     "id": "video-jimeng",
@@ -723,8 +685,7 @@
       "字节"
     ],
     "asOf": "2026-08-01",
-    "review": "字节即梦，Seedance 2.0/2.0 Mini 双引擎，季度首购价优惠",
-    "featured": false
+    "review": "字节即梦，Seedance 2.0/2.0 Mini 双引擎，季度首购价优惠"
   },
   {
     "id": "video-tongyi",
@@ -741,8 +702,7 @@
       "阿里"
     ],
     "asOf": "2026-08-01",
-    "review": "阿里通义万相 2.6，三档含免费",
-    "featured": false
+    "review": "阿里通义万相 2.6，三档含免费"
   },
   {
     "id": "video-runninghub",
@@ -759,8 +719,7 @@
       "多档"
     ],
     "asOf": "2026-08-01",
-    "review": "云端 ComfyUI 工作流平台，10 档方案，团队优惠/进阶版月价下调",
-    "featured": false
+    "review": "云端 ComfyUI 工作流平台，10 档方案，团队优惠/进阶版月价下调"
   },
   {
     "id": "video-hunyuan",
@@ -777,8 +736,7 @@
       "腾讯"
     ],
     "asOf": "2026-08-01",
-    "review": "腾讯混元视频 API，四档方案",
-    "featured": false
+    "review": "腾讯混元视频 API，四档方案"
   },
   {
     "id": "image-jimeng",
@@ -795,8 +753,7 @@
       "字节"
     ],
     "asOf": "2026-08-01",
-    "review": "字节即梦 Seedance 2.0，¥69/月起四档",
-    "featured": false
+    "review": "字节即梦 Seedance 2.0，¥69/月起四档"
   },
   {
     "id": "image-midjourney",
@@ -813,8 +770,7 @@
       "图片生成"
     ],
     "asOf": "2026-08-01",
-    "review": "MJ V7，$10/月起（≈¥70），Cloudflare 拦截严重但 Zendesk API 可确认价格",
-    "featured": false
+    "review": "MJ V7，$10/月起（≈¥70），Cloudflare 拦截严重但 Zendesk API 可确认价格"
   },
   {
     "id": "image-liblib",
@@ -831,8 +787,7 @@
       "年付"
     ],
     "asOf": "2026-08-01",
-    "review": "Liblib AI，WebUI/ComfyUI/Kling/Seedream 多引擎，年付 ¥429/年起，新增 Seedance 2.5 预售限时赠送",
-    "featured": false
+    "review": "Liblib AI，WebUI/ComfyUI/Kling/Seedream 多引擎，年付 ¥429/年起，新增 Seedance 2.5 预售限时赠送"
   },
   {
     "id": "image-tongyi",
@@ -848,8 +803,7 @@
       "阿里"
     ],
     "asOf": "2026-08-01",
-    "review": "阿里通义万相 2.6，¥72/月起三档",
-    "featured": false
+    "review": "阿里通义万相 2.6，¥72/月起三档"
   },
   {
     "id": "image-runninghub",
@@ -865,8 +819,7 @@
       "工作流"
     ],
     "asOf": "2026-08-01",
-    "review": "云端 ComfyUI 工作流平台",
-    "featured": false
+    "review": "云端 ComfyUI 工作流平台"
   },
   {
     "id": "image-duiyou",
@@ -882,8 +835,7 @@
       "设计"
     ],
     "asOf": "2026-08-01",
-    "review": "堆友，国风/设计风格，年付 ¥399/年起",
-    "featured": false
+    "review": "堆友，国风/设计风格，年付 ¥399/年起"
   },
   {
     "id": "audio-suno",
@@ -900,8 +852,7 @@
       "v5.5"
     ],
     "asOf": "2026-08-01",
-    "review": "Suno v5.5 AI 音乐生成，三档含免费，口碑最好的 AI 音乐平台",
-    "featured": false
+    "review": "Suno v5.5 AI 音乐生成，三档含免费，口碑最好的 AI 音乐平台"
   },
   {
     "id": "audio-udio",
@@ -917,8 +868,7 @@
       "免费档"
     ],
     "asOf": "2026-08-01",
-    "review": "Udio AI 音乐生成，三档含免费",
-    "featured": false
+    "review": "Udio AI 音乐生成，三档含免费"
   },
   {
     "id": "audio-acestudio",
@@ -934,8 +884,7 @@
       "年付"
     ],
     "asOf": "2026-08-01",
-    "review": "Ace Studio AI 歌声合成，年付制",
-    "featured": false
+    "review": "Ace Studio AI 歌声合成，年付制"
   },
   {
     "id": "audio-hailuo",
@@ -952,8 +901,7 @@
       "免费档"
     ],
     "asOf": "2026-08-01",
-    "review": "海螺AI，Music 2.6/Speech 2.8 双引擎，五档含免费",
-    "featured": false
+    "review": "海螺AI，Music 2.6/Speech 2.8 双引擎，五档含免费"
   },
   {
     "id": "relay-mirage",
@@ -971,7 +919,6 @@
       "半公益"
     ],
     "asOf": "2026-07-05",
-    "review": "gpt-5.4/deepseek-v4-pro/gemini-2.5-flash/agnes-2.0-flash 等 37 款模型，按量充值半公益中转站，基于 New API 统一协议，pay.ldxp.cn 充值",
-    "featured": false
+    "review": "gpt-5.4/deepseek-v4-pro/gemini-2.5-flash/agnes-2.0-flash 等 37 款模型，按量充值半公益中转站，基于 New API 统一协议，pay.ldxp.cn 充值"
   }
 ]

@@ -4,7 +4,7 @@ import json
 
 REVIEWS = {
     # === Coding 平台 ===
-    "coding-chatgpt": "OpenAI 官方，GPT-5.4/Codex/Image-2 全覆盖。Plus 月付 ¥26.6（走幻境代付渠道，非官方原价）",
+    "coding-chatgpt": "OpenAI 官方，GPT-5.4/Codex/Image-2 全覆盖",
     "coding-sensenova": "商汤自研 SenseNova 6.7 Flash-Lite / U1 Fast，免费公测中，性价比极高，编程体验优秀",
     "coding-zhipu": "⚠️ 新版积分制价格大幅上调：Lite ¥118 / Pro ¥538 / Max ¥1078；MCP 与模型共享额度，OpenClaw 采用次级调度，当前性价比很差",
     "coding-wenming": "AI 应用商城转售，GLM-5.2 + DeepSeek-V4-Flash 双线并行，按次和按 token 两种套餐可切换，新用户 ¥29.9 活动价有竞争力",
