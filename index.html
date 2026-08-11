@@ -914,10 +914,16 @@ function planCycVal(plan, key) {
 function passesFilters(plan) {
   if (filters.billing && plan.billingMode !== filters.billing) return false;
   if (filters.platform && plan.providerId !== filters.platform) return false;
-  // 模型：套餐须包含所选模型
+  // 模型：套餐须包含所选模型；支持系列匹配（聚合平台常用品牌级 code，
+  // 如 xKiro 的 glm 可命中筛选 glm-5.2，反之 glm-5.2 平台的套餐也命中筛选 glm）
   if (filters.model) {
     const codes = (plan.models || []).map(m => m.code);
-    if (!codes.includes(filters.model)) return false;
+    const hit = codes.some(c =>
+      c === filters.model ||
+      c.startsWith(filters.model + '-') ||
+      filters.model.startsWith(c + '-')
+    );
+    if (!hit) return false;
   }
   // 价格上限：null 视为"该周期未提供"，不参与过滤（除非填了值且周期有值则需 ≤）
   const m = planMonthly(plan);
