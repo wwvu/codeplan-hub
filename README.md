@@ -56,8 +56,8 @@ python3 -m http.server 8765
 codeplan-hub/
 ├── index.html                  # 站点主体（HTML + CSS + JS 单文件）
 ├── data/
-│   ├── providers.json          # 55 家平台数据
-│   ├── plans.json              # 89 个套餐档位
+│   ├── providers.json          # 56 家平台数据
+│   ├── plans.json              # 95 个套餐档位
 │   ├── _generate_data.py       # 数据生成脚本（源）
 │   └── _add_reviews.py         # 编辑点评补充脚本
 ├── docs/

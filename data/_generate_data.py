@@ -31,6 +31,7 @@ PROVIDERS = [
     {"id": "coding-youyun", "category": "coding", "name": "优云智算", "type": "aggregator", "url": "https://passport.compshare.cn/register", "blurb": "GLM-5.2 / DeepSeek-V4-Pro / DeepSeek-V4-Flash / Qwen3.6-Plus / MiniMax-M2.7 / Kimi-K2.6，六档方案", "rating": 2.0, "headline": "¥49/月起 · 六档", "tags": ["GLM", "DeepSeek", "Qwen", "MiniMax", "Kimi"], "asOf": "2026-07-31"},
     {"id": "coding-openstarry", "category": "coding", "name": "OpenStarry", "type": "aggregator", "url": "https://api.openstarry.com/auth?mode=register&aff=X6K8", "blurb": "GLM-5.2 / Kimi-K3 / DeepSeek-V4-Pro / MiniMax-M3 / Kimi-K2.7-Code / Qwen3.7-Max，含免费档", "rating": 1.0, "headline": "免费起 · 含免费档", "tags": ["免费", "GLM", "DeepSeek", "Kimi", "Qwen"], "asOf": "2026-07-31"},
     {"id": "coding-opencode", "category": "coding", "name": "OpenCode Go", "type": "aggregator", "url": "https://opencode.ai/", "blurb": "Grok-4.5 / GLM-5.2 / GPT-5.6-Luna / Kimi-K3 / Hy3 等17款模型，按量计费", "rating": 4.0, "headline": "$10/月起 · 17款模型", "tags": ["多模型", "美元", "Grok"], "asOf": "2026-07-31", "featured": True},
+    {"id": "coding-xkiro", "category": "coding", "name": "xKiro", "type": "aggregator", "url": "https://xkiro.com/ref/3Y9VZSF", "blurb": "AI 路由聚合平台，50+ 模型 / 6 供应商 / 1 API key，OpenAI & Anthropic SDK 兼容，比直连省 50–70%", "rating": 4.5, "headline": "$0 起 · 6 档 · 年付 -20%", "tags": ["多模型", "美元", "路由聚合"], "featured": False, "asOf": "2026-08-06"},
     {"id": "discontinued-jdcloud", "category": "discontinued", "name": "京东云（已下架）", "type": "vendor", "url": "", "blurb": "Coding Plan 已于2026.07.29停止新购、续费及升级；已购套餐有效期内可用", "rating": 1.0, "headline": "已下架 · 仅存量可用", "tags": ["已下架"], "asOf": "2026-07-31"},
 
     # ---- Token 平台 (9) ----
@@ -152,6 +153,12 @@ CODING_OVERSEAS = [
     ("coding-zai", "Lite", None, "CALL", "月度按次", 18, None, "USD", 30, 1200, "call", [{"code":"glm-5.1"}], ["1200次/5h"], [], "$18/月", "https://z.ai/subscribe", "入门", "2026-07-31"),
     ("coding-zai", "Pro", None, "CALL", "月度按次", 72, None, "USD", 30, 6000, "call", [{"code":"glm-5.1"}], ["6000次/5h"], [], "$72/月", "https://z.ai/subscribe", "进阶", "2026-07-31"),
     ("coding-zai", "Max", None, "CALL", "月度按次", 160, None, "USD", 30, 24000, "call", [{"code":"glm-5.1"}], ["24000次/5h"], [], "$160/月", "https://z.ai/subscribe", "旗舰", "2026-07-31"),
+    ("coding-xkiro", "Free", None, "TOKEN", "月度订阅", 0, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["免费永久", "100K tokens/天", "20+ 免费模型", "AI 图片生成（有限）", "文本转语音 · 148 种 AI 语音"], [], "永久免费", "https://xkiro.com/ref/3Y9VZSF", "免费", "2026-08-06"),
+    ("coding-xkiro", "Pro", None, "TOKEN", "月度订阅", 5, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $67", "60+ 模型", "OpenAI & Anthropic SDK 兼容", "智能路由 + 自动故障转移", "AI 图片生成 · GPT Image", "文本转语音 · 148 种 AI 语音"], [], "入门 · $5/月", "https://xkiro.com/ref/3Y9VZSF", "入门", "2026-08-06"),
+    ("coding-xkiro", "Pro+", None, "TOKEN", "月度订阅", 10, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $132", "60+ 模型", "双倍配额", "更多并发请求", "详细用量分析"], [], "性价比 · $10/月", "https://xkiro.com/ref/3Y9VZSF", "性价比", "2026-08-06"),
+    ("coding-xkiro", "Max", None, "TOKEN", "月度订阅", 20, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $264", "60+ 模型", "4 倍配额", "更多并发请求", "开发者生产力工具"], [], "进阶 · $20/月", "https://xkiro.com/ref/3Y9VZSF", "进阶", "2026-08-06"),
+    ("coding-xkiro", "Ultra", None, "TOKEN", "月度订阅", 100, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $1,320", "60+ 模型", "20 倍配额", "极高并发请求", "提前体验新功能", "高峰时段优先"], [], "旗舰 · $100/月", "https://xkiro.com/ref/3Y9VZSF", "旗舰", "2026-08-06"),
+    ("coding-xkiro", "Power", None, "TOKEN", "月度订阅", 200, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $2,640", "60+ 模型", "40 倍配额", "最大并发请求", "最高输出限制", "最高优先级支持 · 12h"], [], "旗舰 · $200/月", "https://xkiro.com/ref/3Y9VZSF", "旗舰", "2026-08-06"),
 ]
 
 # Token Plans
@@ -249,6 +256,34 @@ for t in all_plan_tuples:
         plan["id"] = base + "-" + str(counter[base])
     seen_ids.add(plan["id"])
     PLANS.append(plan)
+
+# ---- xKiro 后处理：修正 id（Pro+ 与 Pro 冲突）+ 季付-10% / 年付-20% ----
+XKIRO_PLAN_IDS = {"Free": "free", "Pro": "pro", "Pro+": "proplus", "Max": "max", "Ultra": "ultra", "Power": "power"}
+XKIRO_DISCOUNTS = {  # (quarterly 月均价, annual 月均价) = price*0.9 / price*0.8
+    "free":    (0, 0),
+    "pro":     (4.5, 4),
+    "proplus": (9, 8),
+    "max":     (18, 16),
+    "ultra":   (90, 80),
+    "power":   (180, 160),
+}
+XKIRO_NOTES = {  # 保留周预算信息 + 折扣
+    "free":    "100K tokens/天 · 季付-10% 年付-20%",
+    "pro":     "周预算 $67 · 季付-10% 年付-20%",
+    "proplus": "周预算 $132 · 季付-10% 年付-20%",
+    "max":     "周预算 $264 · 季付-10% 年付-20%",
+    "ultra":   "周预算 $1,320 · 季付-10% 年付-20%",
+    "power":   "周预算 $2,640 · 季付-10% 年付-20%",
+}
+for plan in PLANS:
+    if plan["providerId"] == "coding-xkiro":
+        slug = XKIRO_PLAN_IDS[plan["planName"]]
+        plan["id"] = "coding-xkiro-" + slug
+        q, a = XKIRO_DISCOUNTS[slug]
+        plan["billingCycles"]["quarterly"] = q
+        plan["billingCycles"]["annual"] = a
+        plan["billingCycles"]["note"] = XKIRO_NOTES[slug]
+        plan["source"] = "https://xkiro.com/#pricing"
 
 # Write JSON files
 with open("providers.json", "w", encoding="utf-8") as f:

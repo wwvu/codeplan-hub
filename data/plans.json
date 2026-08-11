@@ -2994,9 +2994,9 @@
     "quotaUnit": "token",
     "billingCycles": {
       "monthly": 0,
-      "quarterly": null,
-      "annual": null,
-      "note": "100K tokens/天"
+      "quarterly": 0,
+      "annual": 0,
+      "note": "100K tokens/天 · 季付-10% 年付-20%"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -3046,9 +3046,9 @@
     "quotaUnit": "token",
     "billingCycles": {
       "monthly": 5,
-      "quarterly": null,
-      "annual": null,
-      "note": "周预算 $67"
+      "quarterly": 4.5,
+      "annual": 4,
+      "note": "周预算 $67 · 季付-10% 年付-20%"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -3099,9 +3099,9 @@
     "quotaUnit": "token",
     "billingCycles": {
       "monthly": 10,
-      "quarterly": null,
-      "annual": null,
-      "note": "周预算 $132"
+      "quarterly": 9,
+      "annual": 8,
+      "note": "周预算 $132 · 季付-10% 年付-20%"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -3151,9 +3151,9 @@
     "quotaUnit": "token",
     "billingCycles": {
       "monthly": 20,
-      "quarterly": null,
-      "annual": null,
-      "note": "周预算 $264"
+      "quarterly": 18,
+      "annual": 16,
+      "note": "周预算 $264 · 季付-10% 年付-20%"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -3203,9 +3203,9 @@
     "quotaUnit": "token",
     "billingCycles": {
       "monthly": 100,
-      "quarterly": null,
-      "annual": null,
-      "note": "周预算 $1,320"
+      "quarterly": 90,
+      "annual": 80,
+      "note": "周预算 $1,320 · 季付-10% 年付-20%"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -3256,9 +3256,9 @@
     "quotaUnit": "token",
     "billingCycles": {
       "monthly": 200,
-      "quarterly": null,
-      "annual": null,
-      "note": "周预算 $2,640"
+      "quarterly": 180,
+      "annual": 160,
+      "note": "周预算 $2,640 · 季付-10% 年付-20%"
     },
     "usageWindow": {
       "fiveHour": null,

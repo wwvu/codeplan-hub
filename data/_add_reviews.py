@@ -30,6 +30,7 @@ REVIEWS = {
     "coding-youyun": "模型最多：GLM-5.2/DeepSeek-V4-Pro/Flash/Qwen3.6-Plus/MiniMax-M2.7/Kimi-K2.6 全系，¥49 起六档",
     "coding-openstarry": "含免费档，模型覆盖广（GLM/Kimi/DeepSeek/MiniMax/Qwen），但评分最低，稳定性存疑",
     "coding-opencode": "OpenCode Go 平台，Grok-4.5/GLM-5.2/GPT-5.6-Luna/Kimi-K3/Hy3 等 17 款模型，$10/月起，按量计费",
+    "coding-xkiro": "Pro $5/月起，月付价格低于多数 Coding Plan；注册送 $5（认证 TG 后），每天有免费 token 额度；统一 API 接入 50+ 模型、6 家供应商，支持 Claude 和 GPT 最新模型，兼容 OpenAI 与 Anthropic SDK；支持智能路由与自动故障转移，适合 Coding Agent。模型和额度均为动态页面数据，购买前应复核官方价格页。",
     "coding-jdcloud": "⚠️ Coding Plan 已于 2026.07.29 停止新购、续费及升级；已购套餐有效期内可用，历史套餐见站内「已下架」页面",
 
     # === Token 平台 ===
