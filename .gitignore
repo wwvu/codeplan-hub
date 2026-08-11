@@ -3,6 +3,10 @@ node_modules/
 *.log
 .DS_Store
 
+# Python
+__pycache__/
+*.pyc
+
 # Claude 本地配置
 .claude/
 
