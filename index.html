@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CodePlan 比价 · AI 套餐中立对比</title>
-<meta name="description" content="中立、免费的 AI 套餐对比：Coding + Token + Video + Image + Audio 五大场景，56家平台、95+套餐全覆盖。" />
+<meta name="description" content="中立、免费的 AI 套餐对比：Coding + Token + Video + Image + Audio 五大场景，55家平台、95+套餐全覆盖（另有1家中转站未上线）。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -96,6 +96,7 @@
   .stat-num { font-family: var(--mono); font-weight: 600; font-size: 28px; color: var(--ink); line-height: 1; letter-spacing: -0.02em; }
   .stat-num .u { font-size: 14px; color: var(--ink-4); font-weight: 400; margin-left: 3px; }
   .stat-label { font-size: 11px; color: var(--ink-4); margin-top: 6px; font-family: var(--mono); letter-spacing: 0.04em; }
+  .stat-note { display: block; font-size: 10px; color: var(--ink-4); margin-top: 4px; font-family: var(--sans); font-weight: 400; letter-spacing: 0; }
 
   /* 特性条 */
   .features-strip { display: flex; gap: 28px; flex-wrap: wrap; max-width: var(--maxw); margin: 0 auto; padding: 20px 32px 8px; }
@@ -155,7 +156,7 @@
   .card-foot-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); }
   .card-cta { font-size: 11px; color: var(--c); font-weight: 500; display: flex; align-items: center; gap: 2px; transition: gap .15s; }
   .card:hover .card-cta { gap: 5px; }
-  .card-link-ext { width: 28px; height: 28px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--ink-4); transition: all .15s; flex-shrink: 0; cursor: pointer; }
+  .card-link-ext { width: 28px; height: 28px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--ink-4); transition: all .15s; flex-shrink: 0; cursor: pointer; text-decoration: none; }
   .card-link-ext:hover { color: var(--c); background: color-mix(in srgb, var(--c) 10%, transparent); }
   .card-link-ext svg { width: 14px; height: 14px; }
 
@@ -394,7 +395,7 @@
     <span class="live-badge"><span class="live-dot"></span>2026 持续更新</span>
   </div>
   <h1>AI 套餐比价，<em>一个页面全搞定</em>。</h1>
-  <p class="lede">Coding、Token、视频、图片、音频 — 五大场景 56 家平台，中立、免费、人工核对。按平台 / 模型 / 价格上限筛选，直达开通。</p>
+  <p class="lede">Coding、Token、视频、图片、音频 — 五大场景 55 家平台（另有 1 家中转站未上线），中立、免费、人工核对。按平台 / 模型 / 价格上限筛选，直达开通。</p>
   <div class="hero-stats" id="heroStats"></div>
 </section>
 
@@ -464,7 +465,7 @@
   <div class="note-inner">
     <h3>编辑说明</h3>
     <p>卡片上的<strong>数字评分为主观印象</strong>（满分 5），仅代表编辑综合性价比、稳定性、体验后的判断，非客观数据。套餐价格与用量均为公开信息，<strong>橙圈</strong>标记为待核实占位。</p>
-    <p>聚合平台套餐都是对 GLM、DeepSeek 等模型的二次转售，计费单位各异；模型厂商原价请参考各家官方文档。对比表中的「单位成本」按各套餐最低价换算到 ¥/百万 token 或 ¥/次，<strong>仅作量级参考</strong>，实际成本受模型档位、缓存、限速影响。接口同步标 <em>API</em>，需人工标 <em style="color:#d97706">手动</em>。本站不售卖任何套餐，无 affiliate。</p>
+    <p>聚合平台套餐都是对 GLM、DeepSeek 等模型的二次转售，计费单位各异；模型厂商原价请参考各家官方文档。对比表中的「单位成本」按各套餐最低价换算到 ¥/百万 token 或 ¥/次，<strong>仅作量级参考</strong>，实际成本受模型档位、缓存、限速影响。接口同步标 <em>API</em>，需人工标 <em style="color:#d97706">手动</em>。本站不售卖任何套餐；部分平台使用邀请/返利链接，策略透明见 README。</p>
   </div>
 </section>
 
@@ -496,7 +497,9 @@ function catPlans() { return PLANS.filter(p => catProviders().some(pp => pp.id =
 
 // 徽章 -> CSS class
 const BADGE_CLASS = { '入门':'b-entry','性价比':'b-value','进阶':'b-adv','旗舰':'b-flag','活动':'b-promo','免费':'b-free','按量':'b-meter' };
-const badgeHtml = b => b ? '<span class="badge '+(BADGE_CLASS[b]||'b-meter')+'">'+b+'</span>' : '';
+// HTML 转义：所有来自 JSON 数据、将插入 innerHTML（含 URL/属性）的字符串都必须经过 esc
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const badgeHtml = b => b ? '<span class="badge '+(BADGE_CLASS[b]||'b-meter')+'">'+esc(b)+'</span>' : '';
 const USD_TO_CNY = 7.2;
 const curSym = plan => plan.currency === 'USD' ? '$' : '¥';
 
@@ -697,36 +700,30 @@ function renderCards() {
     const minP = providerMinPriceLabel(p);
     const starR = starsHtml(p.rating);
     const rev = p.review || '';
-    const mchips = models.map(m => '<span class="cm-chip">'+m+'</span>').join('');
+    const mchips = models.map(m => '<span class="cm-chip">'+esc(m)+'</span>').join('');
     const sel = selectedProvider === p.id ? ' selected' : '';
-    return `<div class="card${sel}" data-id="${p.id}" style="--c:${col.c}; --c-bg:${col.bg};">
-      <div class="card-stars-row">${starR}<span class="card-type-badge">${typeLabel(p.type)}</span></div>
+    return `<div class="card${sel}" data-id="${esc(p.id)}" style="--c:${col.c}; --c-bg:${col.bg};">
+      <div class="card-stars-row">${starR}<span class="card-type-badge">${esc(typeLabel(p.type))}</span></div>
       <div class="card-top">
         <div class="card-mark">${col.mark}</div>
-        <div class="card-name">${p.name}</div>
+        <div class="card-name">${esc(p.name)}</div>
       </div>
       <div class="card-meta">${cnt?cnt+' 档方案':'—'}<span class="sep">·</span><span class="val">${minP} 起</span></div>
       ${mchips ? '<div class="card-models">'+mchips+'</div>' : ''}
-      ${rev ? '<div class="card-review"><div class="rl"><span class="dot"></span>点评</div><div class="rc">'+rev+'</div></div>' : ''}
+      ${rev ? '<div class="card-review"><div class="rl"><span class="dot"></span>点评</div><div class="rc">'+esc(rev)+'</div></div>' : ''}
       <div class="card-foot-bar">
         <span class="card-cta">${sel ? '已选中 · 取消' : '查看套餐对比 →'}</span>
-        <span class="card-link-ext" data-url="${p.url||'#'}" title="打开官网"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+        <a class="card-link-ext" href="${esc(p.url||'#')}" target="_blank" rel="noopener noreferrer" title="打开官网"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
       </div>
     </div>`;
   }).join('');
 
-  // 绑定事件
+  // 绑定事件（外链已是 <a target="_blank">，点击走浏览器默认新标签打开，无需 window.open）
   grid.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', (e) => {
-      // 不拦截外链按钮
+      // 不拦截外链链接（<a> 默认行为继续触发新标签打开）
       if (e.target.closest('.card-link-ext')) return;
       selectCard(card.dataset.id);
-    });
-  });
-  grid.querySelectorAll('.card-link-ext').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.stopPropagation();
-      window.open(link.dataset.url, '_blank', 'noopener');
     });
   });
 }
@@ -751,13 +748,13 @@ function rerenderTable() {
 function buildFilterBar(provs) {
   const sel = document.getElementById('fPlatform');
   const prev = filters.platform;
-  sel.innerHTML = '<option value="">全部平台</option>' + provs.map(p => `<option value="${p.id}"${p.id===prev?' selected':''}>${p.name}</option>`).join('');
+  sel.innerHTML = '<option value="">全部平台</option>' + provs.map(p => `<option value="${esc(p.id)}"${p.id===prev?' selected':''}>${esc(p.name)}</option>`).join('');
 
   const modelSet = new Set();
   provs.forEach(p => plansFor(p.id).forEach(pl => (pl.models || []).forEach(m => modelSet.add(m.code))));
   const mc = document.getElementById('fModels');
   const prevModel = filters.model;
-  mc.innerHTML = '<option value="">全部模型</option>' + [...modelSet].map(code => `<option value="${code}"${code===prevModel?' selected':''}>${code}</option>`).join('');
+  mc.innerHTML = '<option value="">全部模型</option>' + [...modelSet].map(code => `<option value="${esc(code)}"${code===prevModel?' selected':''}>${esc(code)}</option>`).join('');
   mc.onchange = () => { filters.model = mc.value; rerenderTable(); };
 
   const wire = (id, key) => {
@@ -815,10 +812,6 @@ function updateFilterStatus() {
   document.getElementById('fReset').disabled = !active;
 }
 
-function priceHtml() { return ''; }
-function quotaHtml() { return ''; }
-function singleDetailHtml() { return ''; }
-
 // 价格单元格（月付 / 季付均价 / 年付均价）
 function priceCell(plan) {
   const bc = plan.billingCycles || {};
@@ -835,9 +828,13 @@ function priceCell(plan) {
   else if (plan.inputPricePerMillion != null) monthly = '<span class="price-val"><span class="cur">'+sym+'</span>'+plan.inputPricePerMillion+'<span class="cur">/M in</span></span>'+conv(plan.inputPricePerMillion);
   else monthly = '<span class="price-na">—</span>';
   const q = bc.quarterly, a = bc.annual;
-  const qHtml = q != null ? '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(q)+'</span>' : (bc.note ? '<span class="ph">'+bc.note+'</span>' : '<span class="price-na">—</span>');
-  const aHtml = a != null ? '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(a)+'</span>' : (bc.note ? '<span class="ph">'+bc.note+'</span>' : '<span class="price-na">—</span>');
-  return monthly+(bc.note && plan.price != null ? '<span class="price-note">'+bc.note+'</span>' : '')+'|||'+qHtml+'|||'+aHtml;
+  // 免费档（price===0）：季/年付单元格显示"免费"，不显示 billingCycles.note（如"按量计费"）
+  const cycleHtml = v => v != null
+    ? '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(v)+'</span>'
+    : (plan.price === 0 ? '<span class="price-free">免费</span>' : (bc.note ? '<span class="ph">'+esc(bc.note)+'</span>' : '<span class="price-na">—</span>'));
+  const qHtml = cycleHtml(q), aHtml = cycleHtml(a);
+  const note = (bc.note && plan.price != null && plan.price !== 0) ? '<span class="price-note">'+esc(bc.note)+'</span>' : '';
+  return monthly+note+'|||'+qHtml+'|||'+aHtml;
 }
 
 function reqCell(plan) {
@@ -845,8 +842,12 @@ function reqCell(plan) {
   const fmtN = v => v == null ? null : (v >= 10000 ? (v/10000).toFixed(v % 10000 ? 1 : 0) + '万' : v.toLocaleString());
   const h5 = u.fiveHour != null ? '<span class="req-num">'+fmtN(u.fiveHour)+'</span>' : '<span class="ph">待核实</span>';
   const wk = u.weekly != null ? '<span class="req-num">'+fmtN(u.weekly)+'</span>' : '<span class="ph">待核实</span>';
+  // 请求数单位：call→次、prompt→Prompts、token→token、credit→Credits、afp→AFP
+  const unitMap = { call:'次', prompt:'Prompts', token:'token', credit:'Credits', afp:'AFP' };
+  const unit = unitMap[plan.quotaUnit] || '';
   let mo;
-  if (u.monthly != null) mo = '<span class="req-num">'+fmtN(u.monthly)+'<span class="u">'+(plan.quotaUnit === 'call' ? '次' : '')+'</span></span>';
+  if (u.monthly != null) mo = '<span class="req-num">'+fmtN(u.monthly)+(unit ? '<span class="u">'+unit+'</span>' : '')+'</span>';
+  // token 型：monthly 为 null 且 totalTokens 非空时优先用 totalTokens 显示
   else if (u.totalTokens != null) mo = '<span class="req-num">'+fmtN(u.totalTokens)+'<span class="u">token</span></span>';
   else mo = '<span class="price-na">—</span>';
   return h5+'|||'+wk+'|||'+mo;
@@ -865,10 +866,10 @@ function modelCell(plan) {
       const calls = m.calls != null ? ' ×'+m.calls.toLocaleString() : '';
       const bonus = m.isBonus ? '<span class="mb-bonus">赠送</span>' : '';
       const specs = [];
-      if (m.version) specs.push('v'+m.version);
-      if (m.context) specs.push(m.context);
+      if (m.version) specs.push('v'+esc(m.version));
+      if (m.context) specs.push(esc(m.context));
       if (m.concurrency != null) specs.push('并发 '+m.concurrency);
-      return '<div class="model-block"><div class="mb-head"><span class="'+cls+'">'+m.code+calls+'</span>'+bonus+'</div><span class="mb-spec">'+specs.join(' · ')+'</span></div>';
+      return '<div class="model-block"><div class="mb-head"><span class="'+cls+'">'+esc(m.code)+calls+'</span>'+bonus+'</div><span class="mb-spec">'+specs.join(' · ')+'</span></div>';
     }).join('');
   }
   // 无规格的：chips 流式 + 一条待核实
@@ -877,7 +878,7 @@ function modelCell(plan) {
       const cls = m.isBonus ? 'mchip bonus' : 'mchip';
       const calls = m.calls != null ? ' ×'+m.calls.toLocaleString() : '';
       const bonus = m.isBonus ? '<span class="mb-bonus">赠送</span>' : '';
-      return '<span class="'+cls+'">'+m.code+calls+'</span>'+bonus;
+      return '<span class="'+cls+'">'+esc(m.code)+calls+'</span>'+bonus;
     }).join('');
     html += '<div class="mb-no-specs">'+chips+'<span class="mb-spec-na">规格待核实</span></div>';
   }
@@ -887,14 +888,14 @@ function modelCell(plan) {
 function benefitsCell(plan) {
   const b = plan.benefits || [];
   if (!b.length) return '<span class="price-na">—</span>';
-  return '<ul class="benefit-list">'+b.map(x => '<li>'+x+'</li>').join('')+'</ul>';
+  return '<ul class="benefit-list">'+b.map(x => '<li>'+esc(x)+'</li>').join('')+'</ul>';
 }
 
 function remarkCell(plan) {
   const parts = [];
-  if (plan.highlight) parts.push(plan.highlight);
-  if (plan.tags && plan.tags.length) parts.push(plan.tags.map(t => '#'+t).join(' '));
-  const src = '<div class="src">'+(plan.isPlaceholder ? '<span class="ph"></span>' : '')+(plan.sourceType === 'manual' ? '<span class="manual">手动</span>' : 'API')+' · <a href="'+plan.source+'" target="_blank" rel="noopener">来源</a></div>';
+  if (plan.highlight) parts.push(esc(plan.highlight));
+  if (plan.tags && plan.tags.length) parts.push(plan.tags.map(t => '#'+esc(t)).join(' '));
+  const src = '<div class="src">'+(plan.isPlaceholder ? '<span class="ph"></span>' : '')+(plan.sourceType === 'manual' ? '<span class="manual">手动</span>' : 'API')+' · <a href="'+esc(plan.source || '#')+'" target="_blank" rel="noopener">来源</a></div>';
   return (parts.length ? '<div class="remark">'+parts.join(' · ')+'</div>' : '') + src;
 }
 
@@ -928,9 +929,10 @@ function passesFilters(plan) {
   // 价格上限：null 视为"该周期未提供"，不参与过滤（除非填了值且周期有值则需 ≤）
   const m = planMonthly(plan);
   if (filters.monthly != null && m != null && m > filters.monthly) return false;
-  const q = planCycVal(plan, 'quarterly');
+  const convCycle = v => plan.currency === 'USD' && v != null ? v * USD_TO_CNY : v;
+  const q = convCycle(planCycVal(plan, 'quarterly'));
   if (filters.quarterly != null && q != null && q > filters.quarterly) return false;
-  const a = planCycVal(plan, 'annual');
+  const a = convCycle(planCycVal(plan, 'annual'));
   if (filters.annual != null && a != null && a > filters.annual) return false;
   return true;
 }
@@ -948,7 +950,7 @@ function compareHtml(provs) {
 
   const headerChips = provs.map(p => {
     const col = colorOf(p.id);
-    return '<span class="ch" style="--c:'+col.c+'"><span class="m">'+col.mark+'</span>'+p.name+'</span>';
+    return '<span class="ch" style="--c:'+col.c+'"><span class="m">'+col.mark+'</span>'+esc(p.name)+'</span>';
   }).join('');
 
   if (!anyPlans) {
@@ -966,12 +968,12 @@ function compareHtml(provs) {
   const rowsHtml = codingPlans.map(plan => {
     const prov = provs.find(p => p.id === plan.providerId);
     const col = colorOf(prov.id);
-    const platCell = '<td class="col-platform" style="--c:'+col.c+'"><div class="cell-plat"><div class="mk">'+col.mark+'</div><div><div class="pn">'+prov.name+'</div><div class="pt">'+typeLabel(prov.type)+' · '+prov.rating+'/5</div></div></div></td>';
+    const platCell = '<td class="col-platform" style="--c:'+col.c+'"><div class="cell-plat"><div class="mk">'+col.mark+'</div><div><div class="pn">'+esc(prov.name)+'</div><div class="pt">'+esc(typeLabel(prov.type))+' · '+prov.rating+'/5</div></div></div></td>';
     const [monthly, quarterly, annual] = priceCell(plan).split('|||');
     const [h5, weekly, monthlyReq] = reqCell(plan).split('|||');
-    const sub = '<a class="sub-btn" style="--c:'+col.c+'" href="'+(plan.subscribeUrl || prov.url||'#')+'" target="_blank" rel="noopener">开通 <span class="arr">↗</span></a>';
+    const sub = '<a class="sub-btn" style="--c:'+col.c+'" href="'+esc(plan.subscribeUrl || prov.url||'#')+'" target="_blank" rel="noopener noreferrer">开通 <span class="arr">↗</span></a>';
     return '<tr>'+platCell+
-      '<td class="col-plan"><div class="plan-name">'+plan.planName+badgeHtml(plan.badge)+'</div>'+(plan.tier ? '<div class="plan-tier">'+plan.tier+' · '+plan.billingLabel+'</div>' : '<div class="plan-tier">'+plan.billingLabel+'</div>')+'</td>'+
+      '<td class="col-plan"><div class="plan-name">'+esc(plan.planName)+badgeHtml(plan.badge)+'</div>'+(plan.tier ? '<div class="plan-tier">'+esc(plan.tier)+' · '+esc(plan.billingLabel)+'</div>' : '<div class="plan-tier">'+esc(plan.billingLabel)+'</div>')+'</td>'+
       '<td>'+sub+'</td>'+
       '<td>'+monthly+'</td><td>'+quarterly+'</td><td>'+annual+'</td>'+
       '<td>'+h5+'</td><td>'+weekly+'</td><td>'+monthlyReq+'</td>'+
@@ -993,11 +995,11 @@ function renderHeroStats() {
   if (!el) return;
   const provs = catProviders();
   const plans = catPlans();
-  const totalProvs = PROVIDERS.length;
+  const totalProvs = PROVIDERS.filter(p => CATEGORIES.some(c => c.key === p.category)).length;
   const totalPlans = PLANS.length;
   const catNames = { coding:'Coding 编程', token:'Token 凭证', video:'Video 视频', image:'Image 图片', audio:'Audio 音频', relay:'中转站' };
   el.innerHTML =
-    '<div class="stat-item"><div class="stat-num">'+totalProvs+'<span class="u">家</span></div><div class="stat-label">全部平台</div></div>'+
+    '<div class="stat-item"><div class="stat-num">'+totalProvs+'<span class="u">家</span></div><div class="stat-label">全部平台<span class="stat-note">另有 1 家中转站未上线</span></div></div>'+
     '<div class="stat-item"><div class="stat-num">'+totalPlans+'<span class="u">个</span></div><div class="stat-label">套餐档位</div></div>'+
     '<div class="stat-item"><div class="stat-num">'+provs.length+'<span class="u">家</span></div><div class="stat-label">当前：'+catNames[currentCategory]+'</div></div>'+
     '<div class="stat-item"><div class="stat-num">'+plans.length+'<span class="u">个</span></div><div class="stat-label">当前套餐</div></div>';

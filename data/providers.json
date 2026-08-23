@@ -451,8 +451,8 @@
       "美元",
       "路由聚合"
     ],
-    "asOf": "2026-08-06",
     "featured": false,
+    "asOf": "2026-08-06",
     "review": "Pro $5/月起，月付价格低于多数 Coding Plan；注册送 $5（认证 TG 后），每天有免费 token 额度；统一 API 接入 50+ 模型、6 家供应商，支持 Claude 和 GPT 最新模型，兼容 OpenAI 与 Anthropic SDK；支持智能路由与自动故障转移，适合 Coding Agent。模型和额度均为动态页面数据，购买前应复核官方价格页。"
   },
   {
@@ -468,7 +468,7 @@
       "已下架"
     ],
     "asOf": "2026-07-31",
-    "review": ""
+    "review": "⚠️ Coding Plan 已于 2026.07.29 停止新购、续费及升级；已购套餐有效期内可用，历史套餐见站内「已下架」页面"
   },
   {
     "id": "token-chatgpt",

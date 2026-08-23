@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """给 providers.json 添加 AIPlanHub 的点评(review)数据"""
 import json
+from pathlib import Path
+
+# 基于脚本所在目录（data/）读写，不依赖 CWD
+BASE_DIR = Path(__file__).resolve().parent
+PROVIDERS_PATH = BASE_DIR / "providers.json"
 
 REVIEWS = {
     # === Coding 平台 ===
@@ -31,7 +36,7 @@ REVIEWS = {
     "coding-openstarry": "含免费档，模型覆盖广（GLM/Kimi/DeepSeek/MiniMax/Qwen），但评分最低，稳定性存疑",
     "coding-opencode": "OpenCode Go 平台，Grok-4.5/GLM-5.2/GPT-5.6-Luna/Kimi-K3/Hy3 等 17 款模型，$10/月起，按量计费",
     "coding-xkiro": "Pro $5/月起，月付价格低于多数 Coding Plan；注册送 $5（认证 TG 后），每天有免费 token 额度；统一 API 接入 50+ 模型、6 家供应商，支持 Claude 和 GPT 最新模型，兼容 OpenAI 与 Anthropic SDK；支持智能路由与自动故障转移，适合 Coding Agent。模型和额度均为动态页面数据，购买前应复核官方价格页。",
-    "coding-jdcloud": "⚠️ Coding Plan 已于 2026.07.29 停止新购、续费及升级；已购套餐有效期内可用，历史套餐见站内「已下架」页面",
+    "discontinued-jdcloud": "⚠️ Coding Plan 已于 2026.07.29 停止新购、续费及升级；已购套餐有效期内可用，历史套餐见站内「已下架」页面",
 
     # === Token 平台 ===
     "token-chatgpt": "OpenAI 官方 Token 方案，GPT-5.4/Image-2/Codex，¥28.8/月，暂时售罄",
@@ -72,7 +77,7 @@ REVIEWS = {
     "relay-mirage": "gpt-5.4/deepseek-v4-pro/gemini-2.5-flash/agnes-2.0-flash 等 37 款模型，按量充值半公益中转站，基于 New API 统一协议，pay.ldxp.cn 充值",
 }
 
-with open('providers.json', 'r') as f:
+with open(PROVIDERS_PATH, 'r', encoding='utf-8') as f:
     providers = json.load(f)
 
 updated = 0
@@ -83,7 +88,7 @@ for p in providers:
     else:
         p['review'] = ''  # 空字符串表示无特殊点评
 
-with open('providers.json', 'w') as f:
+with open(PROVIDERS_PATH, 'w', encoding='utf-8') as f:
     json.dump(providers, f, ensure_ascii=False, indent=2)
 
 print(f'Updated {updated}/{len(providers)} providers with review data')

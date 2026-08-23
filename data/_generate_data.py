@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """从 AIPlanHub README 数据生成 providers.json 和 plans.json"""
 import json, re
+from pathlib import Path
+
+# 所有读写都基于本脚本所在目录（data/），不依赖 CWD
+BASE_DIR = Path(__file__).resolve().parent
 
 # ============ Providers ============
 PROVIDERS = [
@@ -194,6 +198,64 @@ TOKEN_PLANS = [
     ("token-fangzhou", "Max", None, "CREDITS", "AFP 积分制", 1000, None, "CNY", 30, 500000, "afp", [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["500,000 AFP/月"], [], "500,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "旗舰", "2026-08-01"),
 ]
 
+def slugify(name):
+    """生成稳定干净的 id slug：ASCII 转小写，连续非字母数字归一化为单个 '-'，首尾去除 '-'。
+    中文等非 ASCII 字符会被剔除；若结果为空串，由外层构建循环用 'plan' + 序号兜底。"""
+    return re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
+
+def build_billing_note(price, periodDays):
+    """billingCycles.note：免费档显示"免费"；付费档按周期语义给说明。"""
+    if price == 0:
+        return "免费"
+    if periodDays == 30:
+        return "仅月付"
+    if periodDays == 7:
+        return "一次性"
+    return "按量计费"
+
+def build_usage_window(quotaAmount, quotaUnit, highlight, benefits):
+    """按配额语义生成 usageWindow，避免同一数字同时进 monthly/totalTokens 造成单位丢失：
+    - fiveHour：从 highlight/benefits 解析 "X次/5h"（call 型无窗口标注时回退到 quotaAmount）
+    - weekly：  解析 "X次/周" / "每周 X 次"
+    - monthly： 仅放请求数型（call/prompt）月度配额，或 credit/afp 型配额
+    - totalTokens：仅 token 型配额（此时 monthly 置 null，避免 UI 单位混淆）"""
+    text = " ".join(filter(None, [highlight] + list(benefits)))
+
+    def num(m):
+        return int(m.group(1).replace(",", ""))
+
+    five, weekly, monthly = None, None, None
+    m = re.search(r'(\d[\d,]*)\s*次/5h', text)
+    if m:
+        five = num(m)
+    m = re.search(r'(\d[\d,]*)\s*(?:次|Prompts?|请求)/周', text)
+    if m:
+        weekly = num(m)
+    m = re.search(r'每周\s*(\d[\d,]*)\s*次', text)
+    if m and weekly is None:
+        weekly = num(m)
+    m = re.search(r'(\d[\d,]*)\s*(?:次|Prompts?|请求)/月', text)
+    if m:
+        monthly = num(m)
+    m = re.search(r'每月\s*(\d[\d,]*)\s*次', text)
+    if m and monthly is None:
+        monthly = num(m)
+
+    if quotaUnit == "token":
+        totalTokens = quotaAmount
+        monthly = None  # token 型只走 totalTokens，避免单位丢失
+    elif quotaUnit in ("credit", "afp"):
+        monthly = quotaAmount
+        totalTokens = None
+    else:  # call / prompt 等请求数型
+        totalTokens = None
+        if five is None and weekly is None and monthly is None and quotaAmount is not None:
+            # 无显式窗口标注：按平台主流口径（5h 窗口）回退
+            five = quotaAmount
+        elif five is None and quotaAmount is not None and "/5h" in text:
+            five = quotaAmount
+    return {"fiveHour": five, "weekly": weekly, "monthly": monthly, "totalTokens": totalTokens}
+
 def build_plan(pid, name, tier, billingMode, billingLabel, price, originalPrice, currency, periodDays, quotaAmount, quotaUnit, models_raw, benefits, tags, highlight, subUrl, badge, asOf):
     prov = next((p for p in PROVIDERS if p["id"] == pid), None)
     if not prov:
@@ -204,8 +266,9 @@ def build_plan(pid, name, tier, billingMode, billingLabel, price, originalPrice,
             models.append(m)
         else:
             models.append({"code": m, "isBonus": False})
+    slug = slugify(name)
     plan = {
-        "id": pid + "-" + re.sub(r'[^a-z0-9-]', '', name.lower().replace(' ','-').replace('¥',''))[:40],
+        "id": pid + (("-" + slug) if slug else ""),
         "providerId": pid,
         "provider": prov["name"],
         "providerType": prov["type"],
@@ -220,8 +283,8 @@ def build_plan(pid, name, tier, billingMode, billingLabel, price, originalPrice,
         "periodDays": periodDays,
         "quotaAmount": quotaAmount,
         "quotaUnit": quotaUnit,
-        "billingCycles": {"monthly": price, "quarterly": None, "annual": None, "note": "仅月付" if periodDays == 30 else ("一次性" if periodDays == 7 else "按量计费")},
-        "usageWindow": {"fiveHour": None, "weekly": None, "monthly": quotaAmount, "totalTokens": quotaAmount if quotaUnit == "token" else None},
+        "billingCycles": {"monthly": price, "quarterly": None, "annual": None, "note": build_billing_note(price, periodDays)},
+        "usageWindow": build_usage_window(quotaAmount, quotaUnit, highlight, benefits),
         "models": models,
         "benefits": benefits,
         "tags": tags,
@@ -233,8 +296,6 @@ def build_plan(pid, name, tier, billingMode, billingLabel, price, originalPrice,
         "badge": badge or "",
         "isPlaceholder": False
     }
-    # Deduplicate id
-    base_id = plan["id"]
     return plan
 
 # Build all plans
@@ -242,6 +303,7 @@ all_plan_tuples = CODING_ENTRY + CODING_MID + CODING_HIGH + CODING_OVERSEAS + TO
 PLANS = []
 seen_ids = set()
 counter = {}
+plan_fallback_counter = {}  # slug 为空（如中文档位名）时用 'plan' + 序号兜底
 for t in all_plan_tuples:
     pid = t[0]
     name = t[1]
@@ -249,8 +311,13 @@ for t in all_plan_tuples:
     if not prov: continue
     plan = build_plan(*t)
     if not plan: continue
-    # Make unique id
     base = plan["id"]
+    # slug 为空时 plan["id"] == pid，改用 'plan' + 序号兜底，避免尾随/双连字符 id
+    if base == pid:
+        plan_fallback_counter[pid] = plan_fallback_counter.get(pid, 0) + 1
+        base = f"{pid}-plan{plan_fallback_counter[pid]}"
+        plan["id"] = base
+    # Make unique id（保持去重逻辑，但 base 已是干净 slug，不会再产生 --1 这类 id）
     if base in seen_ids:
         counter[base] = counter.get(base, 0) + 1
         plan["id"] = base + "-" + str(counter[base])
@@ -277,19 +344,23 @@ XKIRO_NOTES = {  # 保留周预算信息 + 折扣
 }
 for plan in PLANS:
     if plan["providerId"] == "coding-xkiro":
-        slug = XKIRO_PLAN_IDS[plan["planName"]]
+        slug = XKIRO_PLAN_IDS.get(plan["planName"])
+        if slug is None:
+            # 未知档位：跳过价格/note 覆盖，保留默认值，避免 KeyError 中断整脚本
+            print(f"⚠️ 跳过 xKiro 未知档位 {plan['planName']!r} 的后处理（id={plan['id']}）")
+            continue
         plan["id"] = "coding-xkiro-" + slug
-        q, a = XKIRO_DISCOUNTS[slug]
+        q, a = XKIRO_DISCOUNTS.get(slug, (None, None))
         plan["billingCycles"]["quarterly"] = q
         plan["billingCycles"]["annual"] = a
-        plan["billingCycles"]["note"] = XKIRO_NOTES[slug]
+        plan["billingCycles"]["note"] = XKIRO_NOTES.get(slug, plan["billingCycles"]["note"])
         plan["source"] = "https://xkiro.com/#pricing"
 
-# Write JSON files
-with open("providers.json", "w", encoding="utf-8") as f:
+# Write JSON files（基于脚本所在目录，显式 UTF-8）
+with open(BASE_DIR / "providers.json", "w", encoding="utf-8") as f:
     json.dump(PROVIDERS, f, ensure_ascii=False, indent=2)
 
-with open("plans.json", "w", encoding="utf-8") as f:
+with open(BASE_DIR / "plans.json", "w", encoding="utf-8") as f:
     json.dump(PLANS, f, ensure_ascii=False, indent=2)
 
 print(f"Generated {len(PROVIDERS)} providers and {len(PLANS)} plans")

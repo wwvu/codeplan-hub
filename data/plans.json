@@ -67,9 +67,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1200,
       "weekly": null,
-      "monthly": 1200,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -112,7 +112,7 @@
       "monthly": 0,
       "quarterly": null,
       "annual": null,
-      "note": "按量计费"
+      "note": "免费"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -191,7 +191,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-iflytek-",
+    "id": "coding-iflytek-plan1",
     "providerId": "coding-iflytek",
     "provider": "讯飞星辰",
     "providerType": "vendor",
@@ -213,9 +213,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -242,7 +242,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-iflytek--1",
+    "id": "coding-iflytek-plan2",
     "providerId": "coding-iflytek",
     "provider": "讯飞星辰",
     "providerType": "vendor",
@@ -264,9 +264,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 30000,
       "weekly": null,
-      "monthly": 30000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -318,7 +318,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 10000000,
+      "monthly": null,
       "totalTokens": 10000000
     },
     "models": [
@@ -369,7 +369,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 42000000,
+      "monthly": null,
       "totalTokens": 42000000
     },
     "models": [
@@ -418,9 +418,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1200,
       "weekly": null,
-      "monthly": 1200,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -469,9 +469,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1200,
       "weekly": null,
-      "monthly": 1200,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -521,9 +521,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1200,
       "weekly": null,
-      "monthly": 1200,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -567,9 +567,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1200,
       "weekly": null,
-      "monthly": 1200,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -597,7 +597,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-openstarry-",
+    "id": "coding-openstarry-plan1",
     "providerId": "coding-openstarry",
     "provider": "OpenStarry",
     "providerType": "aggregator",
@@ -616,7 +616,7 @@
       "monthly": 0,
       "quarterly": null,
       "annual": null,
-      "note": "按量计费"
+      "note": "免费"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -661,7 +661,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-openstarry--1",
+    "id": "coding-openstarry-plan2",
     "providerId": "coding-openstarry",
     "provider": "OpenStarry",
     "providerType": "aggregator",
@@ -716,7 +716,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-openstarry--2",
+    "id": "coding-openstarry-plan3",
     "providerId": "coding-openstarry",
     "provider": "OpenStarry",
     "providerType": "aggregator",
@@ -738,9 +738,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1000,
       "weekly": null,
-      "monthly": 1000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -770,7 +770,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-lanyun-",
+    "id": "coding-lanyun-plan1",
     "providerId": "coding-lanyun",
     "provider": "蓝耘元生代云",
     "providerType": "aggregator",
@@ -792,9 +792,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1200,
       "weekly": null,
-      "monthly": 1200,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -837,9 +837,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1200,
       "weekly": null,
-      "monthly": 1200,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -882,9 +882,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 200,
       "weekly": null,
-      "monthly": 200,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -990,9 +990,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1500,
       "weekly": null,
-      "monthly": 1500,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1013,7 +1013,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-meituan-",
+    "id": "coding-meituan-plan1",
     "providerId": "coding-meituan",
     "provider": "Meituan CatPaw",
     "providerType": "vendor",
@@ -1032,7 +1032,7 @@
       "monthly": 0,
       "quarterly": null,
       "annual": null,
-      "note": "按量计费"
+      "note": "免费"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -1076,7 +1076,7 @@
       "monthly": 0,
       "quarterly": null,
       "annual": null,
-      "note": "按量计费"
+      "note": "免费"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -1133,9 +1133,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1500,
       "weekly": null,
-      "monthly": 1500,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1258,7 +1258,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-sensenova-free--",
+    "id": "coding-sensenova-free",
     "providerId": "coding-sensenova",
     "provider": "商汤SenseNova",
     "providerType": "vendor",
@@ -1277,12 +1277,12 @@
       "monthly": 0,
       "quarterly": null,
       "annual": null,
-      "note": "按量计费"
+      "note": "免费"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 1500,
       "weekly": null,
-      "monthly": 1500,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1360,7 +1360,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-wenming-",
+    "id": "coding-wenming-plan1",
     "providerId": "coding-wenming",
     "provider": "稳明光语纪",
     "providerType": "aggregator",
@@ -1384,7 +1384,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 50000000,
+      "monthly": null,
       "totalTokens": 50000000
     },
     "models": [
@@ -1569,9 +1569,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1617,9 +1617,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1736,7 +1736,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-openstarry--3",
+    "id": "coding-openstarry-plan4",
     "providerId": "coding-openstarry",
     "provider": "OpenStarry",
     "providerType": "aggregator",
@@ -1758,9 +1758,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 2500,
       "weekly": null,
-      "monthly": 2500,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1790,7 +1790,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-lanyun--1",
+    "id": "coding-lanyun-plan2",
     "providerId": "coding-lanyun",
     "provider": "蓝耘元生代云",
     "providerType": "aggregator",
@@ -1812,9 +1812,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1857,9 +1857,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1902,9 +1902,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 800,
       "weekly": null,
-      "monthly": 800,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -1962,9 +1962,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 22500,
       "weekly": null,
-      "monthly": 22500,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2007,9 +2007,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 4500,
       "weekly": null,
-      "monthly": 4500,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2205,8 +2205,8 @@
     },
     "usageWindow": {
       "fiveHour": null,
-      "weekly": null,
-      "monthly": 45000,
+      "weekly": 45000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2295,7 +2295,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 230000000,
+      "monthly": null,
       "totalTokens": 230000000
     },
     "models": [
@@ -2346,7 +2346,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 700000000,
+      "monthly": null,
       "totalTokens": 700000000
     },
     "models": [
@@ -2395,9 +2395,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2446,9 +2446,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2498,9 +2498,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2545,9 +2545,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 6000,
       "weekly": null,
-      "monthly": 6000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2643,9 +2643,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 15000,
       "weekly": null,
-      "monthly": 15000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2717,7 +2717,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "coding-lanyun--2",
+    "id": "coding-lanyun-plan3",
     "providerId": "coding-lanyun",
     "provider": "蓝耘元生代云",
     "providerType": "aggregator",
@@ -2739,9 +2739,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 24000,
       "weekly": null,
-      "monthly": 24000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2784,9 +2784,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 24000,
       "weekly": null,
-      "monthly": 24000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2830,9 +2830,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": null,
+      "fiveHour": 75000,
       "weekly": null,
-      "monthly": 75000,
+      "monthly": null,
       "totalTokens": null
     },
     "models": [
@@ -2977,6 +2977,141 @@
     "isPlaceholder": false
   },
   {
+    "id": "coding-zai-lite",
+    "providerId": "coding-zai",
+    "provider": "z.ai",
+    "providerType": "aggregator",
+    "providerUrl": "https://z.ai/subscribe",
+    "planName": "Lite",
+    "tier": null,
+    "billingMode": "CALL",
+    "billingLabel": "月度按次",
+    "price": 18,
+    "originalPrice": null,
+    "currency": "USD",
+    "periodDays": 30,
+    "quotaAmount": 1200,
+    "quotaUnit": "call",
+    "billingCycles": {
+      "monthly": 18,
+      "quarterly": null,
+      "annual": null,
+      "note": "仅月付"
+    },
+    "usageWindow": {
+      "fiveHour": 1200,
+      "weekly": null,
+      "monthly": null,
+      "totalTokens": null
+    },
+    "models": [
+      {
+        "code": "glm-5.1"
+      }
+    ],
+    "benefits": [
+      "1200次/5h"
+    ],
+    "tags": [],
+    "highlight": "$18/月",
+    "subscribeUrl": "https://z.ai/subscribe",
+    "source": "https://z.ai/subscribe",
+    "sourceType": "manual",
+    "asOf": "2026-07-31",
+    "badge": "入门",
+    "isPlaceholder": false
+  },
+  {
+    "id": "coding-zai-pro",
+    "providerId": "coding-zai",
+    "provider": "z.ai",
+    "providerType": "aggregator",
+    "providerUrl": "https://z.ai/subscribe",
+    "planName": "Pro",
+    "tier": null,
+    "billingMode": "CALL",
+    "billingLabel": "月度按次",
+    "price": 72,
+    "originalPrice": null,
+    "currency": "USD",
+    "periodDays": 30,
+    "quotaAmount": 6000,
+    "quotaUnit": "call",
+    "billingCycles": {
+      "monthly": 72,
+      "quarterly": null,
+      "annual": null,
+      "note": "仅月付"
+    },
+    "usageWindow": {
+      "fiveHour": 6000,
+      "weekly": null,
+      "monthly": null,
+      "totalTokens": null
+    },
+    "models": [
+      {
+        "code": "glm-5.1"
+      }
+    ],
+    "benefits": [
+      "6000次/5h"
+    ],
+    "tags": [],
+    "highlight": "$72/月",
+    "subscribeUrl": "https://z.ai/subscribe",
+    "source": "https://z.ai/subscribe",
+    "sourceType": "manual",
+    "asOf": "2026-07-31",
+    "badge": "进阶",
+    "isPlaceholder": false
+  },
+  {
+    "id": "coding-zai-max",
+    "providerId": "coding-zai",
+    "provider": "z.ai",
+    "providerType": "aggregator",
+    "providerUrl": "https://z.ai/subscribe",
+    "planName": "Max",
+    "tier": null,
+    "billingMode": "CALL",
+    "billingLabel": "月度按次",
+    "price": 160,
+    "originalPrice": null,
+    "currency": "USD",
+    "periodDays": 30,
+    "quotaAmount": 24000,
+    "quotaUnit": "call",
+    "billingCycles": {
+      "monthly": 160,
+      "quarterly": null,
+      "annual": null,
+      "note": "仅月付"
+    },
+    "usageWindow": {
+      "fiveHour": 24000,
+      "weekly": null,
+      "monthly": null,
+      "totalTokens": null
+    },
+    "models": [
+      {
+        "code": "glm-5.1"
+      }
+    ],
+    "benefits": [
+      "24000次/5h"
+    ],
+    "tags": [],
+    "highlight": "$160/月",
+    "subscribeUrl": "https://z.ai/subscribe",
+    "source": "https://z.ai/subscribe",
+    "sourceType": "manual",
+    "asOf": "2026-07-31",
+    "badge": "旗舰",
+    "isPlaceholder": false
+  },
+  {
     "id": "coding-xkiro-free",
     "providerId": "coding-xkiro",
     "provider": "xKiro",
@@ -3005,12 +3140,24 @@
       "totalTokens": null
     },
     "models": [
-      { "code": "claude" },
-      { "code": "gpt" },
-      { "code": "gemini" },
-      { "code": "deepseek" },
-      { "code": "qwen" },
-      { "code": "glm" }
+      {
+        "code": "claude"
+      },
+      {
+        "code": "gpt"
+      },
+      {
+        "code": "gemini"
+      },
+      {
+        "code": "deepseek"
+      },
+      {
+        "code": "qwen"
+      },
+      {
+        "code": "glm"
+      }
     ],
     "benefits": [
       "免费永久",
@@ -3057,12 +3204,24 @@
       "totalTokens": null
     },
     "models": [
-      { "code": "claude" },
-      { "code": "gpt" },
-      { "code": "gemini" },
-      { "code": "deepseek" },
-      { "code": "qwen" },
-      { "code": "glm" }
+      {
+        "code": "claude"
+      },
+      {
+        "code": "gpt"
+      },
+      {
+        "code": "gemini"
+      },
+      {
+        "code": "deepseek"
+      },
+      {
+        "code": "qwen"
+      },
+      {
+        "code": "glm"
+      }
     ],
     "benefits": [
       "周预算 $67",
@@ -3110,12 +3269,24 @@
       "totalTokens": null
     },
     "models": [
-      { "code": "claude" },
-      { "code": "gpt" },
-      { "code": "gemini" },
-      { "code": "deepseek" },
-      { "code": "qwen" },
-      { "code": "glm" }
+      {
+        "code": "claude"
+      },
+      {
+        "code": "gpt"
+      },
+      {
+        "code": "gemini"
+      },
+      {
+        "code": "deepseek"
+      },
+      {
+        "code": "qwen"
+      },
+      {
+        "code": "glm"
+      }
     ],
     "benefits": [
       "周预算 $132",
@@ -3162,12 +3333,24 @@
       "totalTokens": null
     },
     "models": [
-      { "code": "claude" },
-      { "code": "gpt" },
-      { "code": "gemini" },
-      { "code": "deepseek" },
-      { "code": "qwen" },
-      { "code": "glm" }
+      {
+        "code": "claude"
+      },
+      {
+        "code": "gpt"
+      },
+      {
+        "code": "gemini"
+      },
+      {
+        "code": "deepseek"
+      },
+      {
+        "code": "qwen"
+      },
+      {
+        "code": "glm"
+      }
     ],
     "benefits": [
       "周预算 $264",
@@ -3214,12 +3397,24 @@
       "totalTokens": null
     },
     "models": [
-      { "code": "claude" },
-      { "code": "gpt" },
-      { "code": "gemini" },
-      { "code": "deepseek" },
-      { "code": "qwen" },
-      { "code": "glm" }
+      {
+        "code": "claude"
+      },
+      {
+        "code": "gpt"
+      },
+      {
+        "code": "gemini"
+      },
+      {
+        "code": "deepseek"
+      },
+      {
+        "code": "qwen"
+      },
+      {
+        "code": "glm"
+      }
     ],
     "benefits": [
       "周预算 $1,320",
@@ -3267,12 +3462,24 @@
       "totalTokens": null
     },
     "models": [
-      { "code": "claude" },
-      { "code": "gpt" },
-      { "code": "gemini" },
-      { "code": "deepseek" },
-      { "code": "qwen" },
-      { "code": "glm" }
+      {
+        "code": "claude"
+      },
+      {
+        "code": "gpt"
+      },
+      {
+        "code": "gemini"
+      },
+      {
+        "code": "deepseek"
+      },
+      {
+        "code": "qwen"
+      },
+      {
+        "code": "glm"
+      }
     ],
     "benefits": [
       "周预算 $2,640",
@@ -3288,141 +3495,6 @@
     "source": "https://xkiro.com/#pricing",
     "sourceType": "manual",
     "asOf": "2026-08-06",
-    "badge": "旗舰",
-    "isPlaceholder": false
-  },
-  {
-    "id": "coding-zai-lite",
-    "providerId": "coding-zai",
-    "provider": "z.ai",
-    "providerType": "aggregator",
-    "providerUrl": "https://z.ai/subscribe",
-    "planName": "Lite",
-    "tier": null,
-    "billingMode": "CALL",
-    "billingLabel": "月度按次",
-    "price": 18,
-    "originalPrice": null,
-    "currency": "USD",
-    "periodDays": 30,
-    "quotaAmount": 1200,
-    "quotaUnit": "call",
-    "billingCycles": {
-      "monthly": 18,
-      "quarterly": null,
-      "annual": null,
-      "note": "仅月付"
-    },
-    "usageWindow": {
-      "fiveHour": null,
-      "weekly": null,
-      "monthly": 1200,
-      "totalTokens": null
-    },
-    "models": [
-      {
-        "code": "glm-5.1"
-      }
-    ],
-    "benefits": [
-      "1200次/5h"
-    ],
-    "tags": [],
-    "highlight": "$18/月",
-    "subscribeUrl": "https://z.ai/subscribe",
-    "source": "https://z.ai/subscribe",
-    "sourceType": "manual",
-    "asOf": "2026-07-31",
-    "badge": "入门",
-    "isPlaceholder": false
-  },
-  {
-    "id": "coding-zai-pro",
-    "providerId": "coding-zai",
-    "provider": "z.ai",
-    "providerType": "aggregator",
-    "providerUrl": "https://z.ai/subscribe",
-    "planName": "Pro",
-    "tier": null,
-    "billingMode": "CALL",
-    "billingLabel": "月度按次",
-    "price": 72,
-    "originalPrice": null,
-    "currency": "USD",
-    "periodDays": 30,
-    "quotaAmount": 6000,
-    "quotaUnit": "call",
-    "billingCycles": {
-      "monthly": 72,
-      "quarterly": null,
-      "annual": null,
-      "note": "仅月付"
-    },
-    "usageWindow": {
-      "fiveHour": null,
-      "weekly": null,
-      "monthly": 6000,
-      "totalTokens": null
-    },
-    "models": [
-      {
-        "code": "glm-5.1"
-      }
-    ],
-    "benefits": [
-      "6000次/5h"
-    ],
-    "tags": [],
-    "highlight": "$72/月",
-    "subscribeUrl": "https://z.ai/subscribe",
-    "source": "https://z.ai/subscribe",
-    "sourceType": "manual",
-    "asOf": "2026-07-31",
-    "badge": "进阶",
-    "isPlaceholder": false
-  },
-  {
-    "id": "coding-zai-max",
-    "providerId": "coding-zai",
-    "provider": "z.ai",
-    "providerType": "aggregator",
-    "providerUrl": "https://z.ai/subscribe",
-    "planName": "Max",
-    "tier": null,
-    "billingMode": "CALL",
-    "billingLabel": "月度按次",
-    "price": 160,
-    "originalPrice": null,
-    "currency": "USD",
-    "periodDays": 30,
-    "quotaAmount": 24000,
-    "quotaUnit": "call",
-    "billingCycles": {
-      "monthly": 160,
-      "quarterly": null,
-      "annual": null,
-      "note": "仅月付"
-    },
-    "usageWindow": {
-      "fiveHour": null,
-      "weekly": null,
-      "monthly": 24000,
-      "totalTokens": null
-    },
-    "models": [
-      {
-        "code": "glm-5.1"
-      }
-    ],
-    "benefits": [
-      "24000次/5h"
-    ],
-    "tags": [],
-    "highlight": "$160/月",
-    "subscribeUrl": "https://z.ai/subscribe",
-    "source": "https://z.ai/subscribe",
-    "sourceType": "manual",
-    "asOf": "2026-07-31",
     "badge": "旗舰",
     "isPlaceholder": false
   },
@@ -3451,7 +3523,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 35000000,
+      "monthly": null,
       "totalTokens": 35000000
     },
     "models": [
@@ -3506,7 +3578,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 25000000,
+      "monthly": null,
       "totalTokens": 25000000
     },
     "models": [
@@ -3530,7 +3602,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "token-alaya-",
+    "id": "token-alaya-plan1",
     "providerId": "token-alaya",
     "provider": "Alaya Code",
     "providerType": "aggregator",
@@ -3554,7 +3626,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 32700000,
+      "monthly": null,
       "totalTokens": 32700000
     },
     "models": [
@@ -3822,7 +3894,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 100000000,
+      "monthly": null,
       "totalTokens": 100000000
     },
     "models": [
@@ -3910,7 +3982,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "token-taotoken-",
+    "id": "token-taotoken-plan1",
     "providerId": "token-taotoken",
     "provider": "TaoToken",
     "providerType": "aggregator",
@@ -3986,7 +4058,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 80000000,
+      "monthly": null,
       "totalTokens": 80000000
     },
     "models": [
@@ -4060,7 +4132,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "token-tianyi-18",
+    "id": "token-tianyi-1-8",
     "providerId": "token-tianyi",
     "provider": "天翼云·Token",
     "providerType": "vendor",
@@ -4084,7 +4156,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 180000000,
+      "monthly": null,
       "totalTokens": 180000000
     },
     "models": [
@@ -4260,7 +4332,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "token-tianyi-38",
+    "id": "token-tianyi-3-8",
     "providerId": "token-tianyi",
     "provider": "天翼云·Token",
     "providerType": "vendor",
@@ -4284,7 +4356,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 380000000,
+      "monthly": null,
       "totalTokens": 380000000
     },
     "models": [
@@ -4308,7 +4380,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "token-aliyun-",
+    "id": "token-aliyun-plan1",
     "providerId": "token-aliyun",
     "provider": "阿里·Token Plan",
     "providerType": "vendor",
@@ -4392,7 +4464,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 320000000,
+      "monthly": null,
       "totalTokens": 320000000
     },
     "models": [
@@ -4530,7 +4602,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "token-tianyi-68",
+    "id": "token-tianyi-6-8",
     "providerId": "token-tianyi",
     "provider": "天翼云·Token",
     "providerType": "vendor",
@@ -4554,7 +4626,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 680000000,
+      "monthly": null,
       "totalTokens": 680000000
     },
     "models": [
@@ -4602,7 +4674,7 @@
     "usageWindow": {
       "fiveHour": null,
       "weekly": null,
-      "monthly": 650000000,
+      "monthly": null,
       "totalTokens": 650000000
     },
     "models": [
@@ -4641,7 +4713,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "token-aliyun--1",
+    "id": "token-aliyun-plan2",
     "providerId": "token-aliyun",
     "provider": "阿里·Token Plan",
     "providerType": "vendor",
@@ -4699,7 +4771,7 @@
     "isPlaceholder": false
   },
   {
-    "id": "token-aliyun--2",
+    "id": "token-aliyun-plan3",
     "providerId": "token-aliyun",
     "provider": "阿里·Token Plan",
     "providerType": "vendor",
