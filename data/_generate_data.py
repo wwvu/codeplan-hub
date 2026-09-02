@@ -373,6 +373,14 @@ for plan in PLANS:
         plan["billingCycles"]["note"] = XKIRO_NOTES.get(slug, plan["billingCycles"]["note"])
         plan["source"] = "https://xkiro.com/#pricing"
 
+# 末步：注入编辑点评（REVIEWS 与 _add_reviews.py 共享同一份），单命令即可完整重建数据，
+# 不再需要手动补跑第二步（此前漏跑曾导致全部点评丢失）
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location("_add_reviews", BASE_DIR / "_add_reviews.py")
+_reviews_mod = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_reviews_mod)
+_reviews_updated = _reviews_mod.apply_reviews(PROVIDERS)
+
 # Write JSON files（基于脚本所在目录，显式 UTF-8）
 with open(BASE_DIR / "providers.json", "w", encoding="utf-8") as f:
     json.dump(PROVIDERS, f, ensure_ascii=False, indent=2)
@@ -380,7 +388,7 @@ with open(BASE_DIR / "providers.json", "w", encoding="utf-8") as f:
 with open(BASE_DIR / "plans.json", "w", encoding="utf-8") as f:
     json.dump(PLANS, f, ensure_ascii=False, indent=2)
 
-print(f"Generated {len(PROVIDERS)} providers and {len(PLANS)} plans")
+print(f"Generated {len(PROVIDERS)} providers (incl. { _reviews_updated } reviews) and {len(PLANS)} plans")
 print(f"  Coding: {sum(1 for p in PROVIDERS if p['category']=='coding')} providers")
 print(f"  Token: {sum(1 for p in PROVIDERS if p['category']=='token')} providers")
 print(f"  Video: {sum(1 for p in PROVIDERS if p['category']=='video')} providers")

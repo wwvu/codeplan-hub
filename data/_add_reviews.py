@@ -77,19 +77,23 @@ REVIEWS = {
     "relay-mirage": "gpt-5.4/deepseek-v4-pro/gemini-2.5-flash/agnes-2.0-flash 等 37 款模型，按量充值半公益中转站，基于 New API 统一协议，pay.ldxp.cn 充值",
 }
 
-with open(PROVIDERS_PATH, 'r', encoding='utf-8') as f:
-    providers = json.load(f)
+def apply_reviews(providers):
+    """把 REVIEWS 注入 providers 列表（原地修改），返回注入条数。
+    被 _generate_data.py 复用：单命令即可重建含点评的完整数据。"""
+    updated = 0
+    for p in providers:
+        if p['id'] in REVIEWS:
+            p['review'] = REVIEWS[p['id']]
+            updated += 1
+        else:
+            p['review'] = ''  # 空字符串表示无特殊点评
+    return updated
 
-updated = 0
-for p in providers:
-    if p['id'] in REVIEWS:
-        p['review'] = REVIEWS[p['id']]
-        updated += 1
-    else:
-        p['review'] = ''  # 空字符串表示无特殊点评
-
-with open(PROVIDERS_PATH, 'w', encoding='utf-8') as f:
-    json.dump(providers, f, ensure_ascii=False, indent=2)
-
-print(f'Updated {updated}/{len(providers)} providers with review data')
-print('Done.')
+if __name__ == "__main__":
+    with open(PROVIDERS_PATH, 'r', encoding='utf-8') as f:
+        providers = json.load(f)
+    updated = apply_reviews(providers)
+    with open(PROVIDERS_PATH, 'w', encoding='utf-8') as f:
+        json.dump(providers, f, ensure_ascii=False, indent=2)
+    print(f'Updated {updated}/{len(providers)} providers with review data')
+    print('Done.')

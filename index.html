@@ -18,12 +18,20 @@
 <meta name="twitter:description" content="中立、免费的 AI 套餐对比：Coding + Token + Video + Image + Audio 五大场景，55家平台、95+套餐全覆盖。" />
 <meta name="twitter:image" content="https://codeplan.example.com/og-image.png" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📊</text></svg>" type="image/svg+xml" />
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)" />
+<script>
+/* 尽早应用已存主题，避免深色用户首屏闪白（正常逻辑在页面底部 initTheme） */
+(function(){try{var t=localStorage.getItem('cp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"CodePlan·比价","url":"https://codeplan.example.com/","description":"中立、免费的 AI 套餐对比站，覆盖 Coding/Token/Video/Image/Audio 五大场景"}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!-- 字体 CSS 异步加载：Google Fonts 在部分网络不可达时不再阻塞首屏渲染，回退到系统中文字体 -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 <style>
   :root {
     --bg:       #fbfbfa;
@@ -447,10 +455,10 @@
     </div>
   </div>
   <div class="billing-tabs" id="billingTabs">
-    <button class="billing-tab active" data-billing="">全部 <span class="cnt" id="cntAll">0</span></button>
-    <button class="billing-tab" data-billing="CALL">Coding（按次订阅） <span class="cnt" id="cntCall">0</span></button>
-    <button class="billing-tab" data-billing="TOKEN">Token（按量计费） <span class="cnt" id="cntToken">0</span></button>
-    <button class="billing-tab" data-billing="CREDITS">Credits（积分） <span class="cnt" id="cntCredits">0</span></button>
+    <button class="billing-tab active" data-billing="" aria-pressed="true">全部 <span class="cnt" id="cntAll">0</span></button>
+    <button class="billing-tab" data-billing="CALL" aria-pressed="false">Coding（按次订阅） <span class="cnt" id="cntCall">0</span></button>
+    <button class="billing-tab" data-billing="TOKEN" aria-pressed="false">Token（按量计费） <span class="cnt" id="cntToken">0</span></button>
+    <button class="billing-tab" data-billing="CREDITS" aria-pressed="false">Credits（积分） <span class="cnt" id="cntCredits">0</span></button>
   </div>
   <div class="filter-bar" id="filterBar">
     <div class="fb-group">
@@ -499,6 +507,7 @@
 let PROVIDERS = [], PLANS = [];
 let currentCategory = 'coding';
 let selectedProvider = null; // 当前选中的卡片
+let plansByProvider = new Map(); // providerId -> 该平台套餐（已按折算价升序预排序）
 const filters = { platform: '', model: '', monthly: null, quarterly: null, annual: null, billing: '' };
 
 const CATEGORIES = [
@@ -511,8 +520,30 @@ const CATEGORIES = [
 ];
 const CAT_LABELS = { coding:'Coding 编程', token:'Token 凭证', video:'Video 视频', image:'Image 图片', audio:'Audio 音频', discontinued:'已下架' };
 
-function catProviders() { return PROVIDERS.filter(p => p.category === currentCategory).sort((a,b) => b.rating - a.rating || (b.featured?1:0)-(a.featured?1:0) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)); }
-function catPlans() { return PLANS.filter(p => catProviders().some(pp => pp.id === p.providerId)); }
+// 当前分类平台列表（带缓存：分类/数据不变时直接复用，避免每次渲染重复排序）
+let _catProvKey = null, _catProvCache = [];
+function catProviders() {
+  const key = currentCategory + ':' + PROVIDERS.length;
+  if (_catProvKey !== key) {
+    _catProvCache = PROVIDERS.filter(p => p.category === currentCategory).sort((a,b) => b.rating - a.rating || (b.featured?1:0)-(a.featured?1:0) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+    _catProvKey = key;
+  }
+  return _catProvCache;
+}
+function catPlans() {
+  const ids = new Set(catProviders().map(p => p.id));
+  return PLANS.filter(p => ids.has(p.providerId));
+}
+
+// 数据加载后建立索引：providerId -> 套餐列表（统一折算人民币后升序，$ 与 ¥ 混排不再错序）
+function indexPlans() {
+  plansByProvider = new Map();
+  PLANS.forEach(p => {
+    if (!plansByProvider.has(p.providerId)) plansByProvider.set(p.providerId, []);
+    plansByProvider.get(p.providerId).push(p);
+  });
+  plansByProvider.forEach(arr => arr.sort((a, b) => (planMonthly(a) ?? Infinity) - (planMonthly(b) ?? Infinity)));
+}
 
 // 徽章 -> CSS class
 const BADGE_CLASS = { '入门':'b-entry','性价比':'b-value','进阶':'b-adv','旗舰':'b-flag','活动':'b-promo','免费':'b-free','按量':'b-meter' };
@@ -604,14 +635,7 @@ const COLORS = {
 };
 const colorOf = id => COLORS[id] || COLORS.default;
 
-function plansFor(pid) {
-  return PLANS.filter(p => p.providerId === pid)
-    .sort((a, b) => {
-      const pa = a.price ?? (a.inputPricePerMillion ?? 999999);
-      const pb = b.price ?? (b.inputPricePerMillion ?? 999999);
-      return pa - pb;
-    });
-}
+function plansFor(pid) { return plansByProvider.get(pid) || []; }
 
 function typeLabel(t) {
   if (t === 'vendor') return '官方';
@@ -627,10 +651,19 @@ function renderCatTabs() {
   CATEGORIES.forEach(cat => { counts[cat.key] = PROVIDERS.filter(p => p.category === cat.key).length; });
   el.innerHTML = CATEGORIES.map(cat => {
     const cls = currentCategory === cat.key ? ' active' : '';
-    return `<button class="cat-tab${cls}" data-cat="${cat.key}"><span>${cat.emoji} ${cat.label}</span><span class="cc">${counts[cat.key]}家</span></button>`;
+    return `<button class="cat-tab${cls}" data-cat="${cat.key}" aria-pressed="${cls ? 'true' : 'false'}"><span>${cat.emoji} ${cat.label}</span><span class="cc">${counts[cat.key]}家</span></button>`;
   }).join('');
   el.querySelectorAll('.cat-tab').forEach(btn => {
     btn.onclick = () => { switchCategory(btn.dataset.cat); };
+  });
+}
+
+// 计费 tab 高亮与 aria-pressed 统一同步（依据 filters.billing 当前值）
+function syncBillingTabs() {
+  document.querySelectorAll('.billing-tab').forEach(t => {
+    const on = t.dataset.billing === filters.billing;
+    t.classList.toggle('active', on);
+    t.setAttribute('aria-pressed', String(on));
   });
 }
 
@@ -639,7 +672,7 @@ function switchCategory(cat) {
   selectedProvider = null;
   filters.platform = ''; filters.model = ''; filters.monthly = filters.quarterly = filters.annual = null; filters.billing = '';
   // 计费 tab 高亮同步复位（filters.billing 已清空，残留高亮会误导）
-  document.querySelectorAll('.billing-tab').forEach(t => t.classList.toggle('active', !t.dataset.billing));
+  syncBillingTabs();
   document.getElementById('detailSub').textContent = CAT_LABELS[cat] + ' · 每行一个套餐 · 可按平台/模型/价格上限筛选';
   renderCatTabs();
   renderCards();
@@ -670,28 +703,20 @@ function providerModels(prov) {
 }
 
 function providerPlanCount(prov) { return plansFor(prov.id).length; }
-function providerMinPrice(prov) {
-  const plans = plansFor(prov.id);
-  if (!plans.length) return null;
-  let min = null;
-  plans.forEach(p => {
-    const pm = p.price ?? p.inputPricePerMillion ?? null;
-    if (pm != null && (min == null || pm < min)) min = pm;
-  });
-  return min;
-}
+// 最低价：跨币种统一折算人民币后再比较；展示时保留原始币种与原值
 function providerMinPriceLabel(prov) {
   const plans = plansFor(prov.id);
-  if (!plans.length) return '-';
-  let min = null, cur = 'CNY';
+  let best = null; // {cny, raw, cur}
   plans.forEach(p => {
-    const pm = p.price ?? p.inputPricePerMillion ?? null;
-    if (pm != null && (min == null || pm < min)) { min = pm; cur = p.currency || 'CNY'; }
+    const cny = planMonthly(p);
+    if (cny == null) return;
+    const raw = p.price ?? p.inputPricePerMillion;
+    if (best == null || cny < best.cny) best = { cny, raw, cur: p.currency || 'CNY' };
   });
-  if (min == null) return '-';
-  if (min === 0) return '免费';
-  if (cur === 'USD') return '$' + min + ' ≈¥' + Math.round(min * USD_TO_CNY);
-  return '¥' + min;
+  if (!best) return '-';
+  if (best.raw === 0) return '免费';
+  if (best.cur === 'USD') return '$' + best.raw + ' ≈¥' + Math.round(best.cny);
+  return '¥' + best.raw;
 }
 
 function selectCard(provId) {
@@ -725,13 +750,13 @@ function renderCards() {
     const rev = p.review || '';
     const mchips = models.map(m => '<span class="cm-chip">'+esc(m)+'</span>').join('');
     const sel = selectedProvider === p.id ? ' selected' : '';
-    return `<div class="card${sel}" data-id="${esc(p.id)}" style="--c:${col.c}; --c-bg:${col.bg};">
+    return `<div class="card${sel}" data-id="${esc(p.id)}" style="--c:${col.c}; --c-bg:${col.bg};" role="button" tabindex="0" aria-pressed="${sel ? 'true' : 'false'}" aria-label="${esc(p.name)}，查看套餐对比">
       <div class="card-stars-row">${starR}<span class="card-type-badge">${esc(typeLabel(p.type))}</span></div>
       <div class="card-top">
         <div class="card-mark">${col.mark}</div>
         <div class="card-name">${esc(p.name)}</div>
       </div>
-      <div class="card-meta">${cnt?cnt+' 档方案':'—'}<span class="sep">·</span><span class="val">${minP} 起</span></div>
+      <div class="card-meta">${cnt?cnt+' 档方案':'—'}<span class="sep">·</span><span class="val">${minP === '免费' || minP === '-' ? minP : minP + ' 起'}</span></div>
       ${mchips ? '<div class="card-models">'+mchips+'</div>' : ''}
       ${rev ? '<div class="card-review"><div class="rl"><span class="dot"></span>点评</div><div class="rc">'+esc(rev)+'</div></div>' : ''}
       <div class="card-foot-bar">
@@ -747,6 +772,11 @@ function renderCards() {
       // 不拦截外链链接（<a> 默认行为继续触发新标签打开）
       if (e.target.closest('.card-link-ext')) return;
       selectCard(card.dataset.id);
+    });
+    // 键盘可达：Tab 聚焦卡片后 Enter/空格 即选中
+    card.addEventListener('keydown', (e) => {
+      if (e.target.closest('.card-link-ext')) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectCard(card.dataset.id); }
     });
   });
 }
@@ -808,9 +838,8 @@ function buildFilterBar(provs) {
 
   document.querySelectorAll('.billing-tab').forEach(tab => {
     tab.onclick = () => {
-      document.querySelectorAll('.billing-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
       filters.billing = tab.dataset.billing;
+      syncBillingTabs();
       rerenderTable();
     };
   });
@@ -820,7 +849,7 @@ function buildFilterBar(provs) {
     selectedProvider = null;
     filters.platform = ''; filters.model = ''; filters.monthly = filters.quarterly = filters.annual = null;
     filters.billing = '';
-    document.querySelectorAll('.billing-tab').forEach(t => t.classList.toggle('active', !t.dataset.billing));
+    syncBillingTabs();
     buildFilterBar(provs); renderCards(); rerenderTable();
   };
 }
@@ -854,7 +883,7 @@ function priceCell(plan) {
   const q = bc.quarterly, a = bc.annual;
   // 免费档（price===0）：季/年付单元格显示"免费"，不显示 billingCycles.note（如"按量计费"）
   const cycleHtml = v => v != null
-    ? '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(v)+'</span>'
+    ? '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(v)+'</span>'+conv(v)
     : (plan.price === 0 ? '<span class="price-free">免费</span>' : (bc.note ? '<span class="ph">'+esc(bc.note)+'</span>' : '<span class="price-na">—</span>'));
   const qHtml = cycleHtml(q), aHtml = cycleHtml(a);
   const note = (bc.note && plan.price != null && plan.price !== 0) ? '<span class="price-note">'+esc(bc.note)+'</span>' : '';
@@ -1044,6 +1073,7 @@ Promise.all([
   fetch('data/plans.json').then(r => r.json())
 ]).then(([prov, plans]) => {
   PROVIDERS = prov; PLANS = plans;
+  indexPlans();
   // Check hash for category
   const hash = window.location.hash.replace('#','');
   if (hash && CATEGORIES.some(c => c.key === hash)) {

@@ -38,7 +38,7 @@ Video / Image / Audio / 已下架 / 中转站 类别暂仅含平台概览或保�
 
 - 纯静态单文件 `index.html`（HTML + 内联 CSS + 原生 JS，无框架）
 - 数据：`data/providers.json`（平台）+ `data/plans.json`（套餐）
-- 数据由 `data/_generate_data.py` 生成，`data/_add_reviews.py` 补充编辑点评
+- 数据由 `data/_generate_data.py` **一条命令**生成（内部自动注入编辑点评）；`data/_add_reviews.py` 可单独运行更新点评
 - 字体：Inter + JetBrains Mono（Google Fonts）
 - CSS 变量驱动主题，`color-mix()` 实现深浅色自适应
 
@@ -129,7 +129,7 @@ boke/
 - **其余平台一律官方直链**，不带任何第三方邀请码
 - **ChatGPT** 指向官方定价页 `openai.com/chatgpt/pricing`（美元计价，自动折算人民币对比）
 
-如需更改邀请链接，修改 `data/_generate_data.py` 对应记录后**依次运行** `python3 data/_generate_data.py && python3 data/_add_reviews.py` 重新生成（第二步会把编辑点评写回 providers.json，漏掉会导致卡片点评全部消失），或直接改 `data/providers.json` / `data/plans.json` 的 `subscribeUrl` / `url` 字段。
+如需更改邀请链接，修改 `data/_generate_data.py` 对应记录后运行 `python3 data/_generate_data.py` 重新生成（已自动包含编辑点评注入），或直接改 `data/providers.json` / `data/plans.json` 的 `subscribeUrl` / `url` 字段。
 
 ## 🎨 设计要点
 
