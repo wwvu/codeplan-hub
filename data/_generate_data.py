@@ -78,124 +78,124 @@ PROVIDERS = [
 ]
 
 # ============ Plans ============
-# 格式: providerId, planName, tier, billingMode, billingLabel, price, originalPrice, currency, periodDays, quotaAmount, quotaUnit, models(list of dict), benefits(list), tags, highlight, subscribeUrl, badge, asOf
+# 格式: providerId, planName, tier, billingMode, billingLabel, price, originalPrice, currency, periodDays, quotaAmount, quotaUnit, quotaWindow("5h"/"month"/"week"/None), models(list of dict), benefits(list), tags, highlight, subscribeUrl, badge, asOf
 # Coding Plans -- 入门级 (月付 ≤ ¥50)
 CODING_ENTRY = [
-    ("coding-taotoken", "Lite", None, "CALL", "月度按次", 39, None, "CNY", 30, None, "call", [{"code":"glm-5.2"}], [], ["入门"], "", "https://taotoken.net/", "入门", "2026-07-31"),
-    ("coding-supercomp", "Lite", None, "CALL", "月度按次", 20, None, "CNY", 30, 1200, "call", [{"code":"minimax-m2.5"},{"code":"qwen3-235b-a22b"}], [], ["入门"], "1200次/5h", "https://www.scnet.cn/ac/openapi/doc/2.0/moduleapi/codingplan/subscriptionnotice.html", "入门", "2026-07-31"),
-    ("coding-ollama", "Free", None, "CALL", "免费", 0, None, "USD", None, None, "call", [{"code":"glm-5.1"},{"code":"deepseek-v4-flash"},{"code":"minimax-m2.7"}], ["免费使用"], ["免费"], "免费", "https://ollama.com/pricing", "免费", "2026-07-31"),
-    ("coding-kuaishou", "Mini", None, "CALL", "月度按次", 29, None, "CNY", 30, 40, "prompt", [{"code":"kat-coder-pro-v2.5"}], ["40 Prompts/月"], [], "40 Prompts/月", "https://www.streamlake.com/marketing/coding-plan", "入门", "2026-07-31"),
-    ("coding-iflytek", "高效版", None, "CALL", "月度按次", 199, None, "CNY", 30, 6000, "call", [{"code":"glm-5.2"},{"code":"spark-x2-agent"},{"code":"kimi-k2.7-code"}], ["6000次/5h"], [], "6000次/5h", "https://maas.xfyun.cn/packageSubscription", "", "2026-07-31"),
-    ("coding-iflytek", "速通版", None, "CALL", "月度按次", 999, 699, "CNY", 30, 30000, "call", [{"code":"glm-5.2"},{"code":"spark-x2-agent"},{"code":"kimi-k2.7-code"}], ["30000速通次数/月", "首购¥699"], [], "首购¥699", "https://maas.xfyun.cn/packageSubscription", "活动", "2026-07-31"),
-    ("coding-baidu", "Mini", None, "TOKEN", "按 Token 计费", 4.9, None, "CNY", 30, 10000000, "token", [{"code":"glm"},{"code":"deepseek"},{"code":"kimi"}], ["1000万 Tokens/月"], [], "1000万 Tokens/月", "https://cloud.baidu.com/product/codingplan.html", "入门", "2026-07-31"),
-    ("coding-baidu", "Lite", None, "TOKEN", "按 Token 计费", 19.9, None, "CNY", 30, 42000000, "token", [{"code":"glm"},{"code":"deepseek"},{"code":"kimi"}], ["4200万 Tokens/月"], [], "4200万 Tokens/月", "https://cloud.baidu.com/product/codingplan.html", "入门", "2026-07-31"),
-    ("coding-liantong", "Lite", None, "CALL", "月度按次", 40, None, "CNY", 30, 1200, "call", [{"code":"deepseek-v4-pro"},{"code":"kimi-k2.6"},{"code":"qwen3.6-27b"}], ["1200次/5h"], [], "1200次/5h", "https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7015", "入门", "2026-07-31"),
-    ("coding-tencent", "Lite", None, "CALL", "月度按次", 40, 7.9, "CNY", 30, 1200, "call", [{"code":"glm-5"},{"code":"kimi-k2.5"},{"code":"minimax-m2.5"}], ["1200次/5h", "首月¥7.9"], [], "1200次/5h", "https://console.cloud.tencent.cn/tokenhub/codingplan?regionId=1", "入门", "2026-07-31"),
-    ("coding-yidong", "Lite", None, "CALL", "月度按次", 40, 7.9, "CNY", 30, 1200, "call", [{"code":"minimax-m2.5"}], ["1200次/5h", "首月¥7.9"], [], "1200次/5h", "https://ecloud.10086.cn/portal/act/codingplan", "入门", "2026-07-31"),
-    ("coding-bytedance", "Lite", None, "CALL", "月度按次", 40, 9.9, "CNY", 30, 1200, "call", [{"code":"glm-5.2"},{"code":"doubao-seed-2.1-turbo"},{"code":"kimi-k2.7"}], ["1200次/5h", "首月¥9.9"], [], "1200次/5h", "https://volcengine.com/L/RYnDeTYySYQ/", "入门", "2026-07-31"),
-    ("coding-openstarry", "星痕版(免费)", None, "CALL", "免费", 0, None, "CNY", None, None, "call", [{"code":"glm-5.2"},{"code":"kimi-k3"},{"code":"deepseek-v4-pro"},{"code":"minimax-m3"},{"code":"kimi-k2.7-code"},{"code":"qwen3.7-max"}], ["免费", "赠200次", "不限制请求数"], ["免费"], "免费", "https://api.openstarry.com/auth?mode=register&aff=X6K8", "免费", "2026-07-31"),
-    ("coding-openstarry", "星序版(周)", None, "CALL", "周付", 9.9, None, "CNY", 7, None, "call", [{"code":"glm-5.2"},{"code":"kimi-k3"},{"code":"deepseek-v4-pro"},{"code":"minimax-m3"}], ["赠200次", "周付"], [], "周付¥9.9", "https://api.openstarry.com/auth?mode=register&aff=X6K8", "入门", "2026-07-31"),
-    ("coding-openstarry", "星创版", None, "CALL", "月度按次", 49.9, None, "CNY", 30, 1000, "call", [{"code":"glm-5.2"},{"code":"kimi-k3"},{"code":"deepseek-v4-pro"},{"code":"minimax-m3"}], ["1000次/5h"], [], "1000次/5h", "https://api.openstarry.com/auth?mode=register&aff=X6K8", "入门", "2026-07-31"),
-    ("coding-lanyun", "入门版", None, "CALL", "月度按次", 49, None, "CNY", 30, 1200, "call", [{"code":"glm-5.1"}], ["1200次/5h"], [], "1200次/5h", "https://console.lanyun.net/#/register", "入门", "2026-07-31"),
-    ("coding-zhipu", "Lite", None, "CALL", "月度按次", 49, None, "CNY", 30, 1200, "call", [{"code":"glm-5.2"}], ["1200次/5h"], [], "1200次/5h", "https://www.bigmodel.cn/invite?icode=naEahtDGpOp7hfCi6MPFVunfet45IvM%2BqDogImfeLyI%3D", "入门", "2026-07-31"),
-    ("coding-youyun", "Mini", None, "CALL", "月度按次", 49, None, "CNY", 30, 200, "call", [{"code":"glm-5.2"},{"code":"deepseek-v4-pro"},{"code":"deepseek-v4-flash"},{"code":"qwen3.6-plus"},{"code":"minimax-m2.7"},{"code":"kimi-k2.6"}], ["200次/5h"], [], "200次/5h", "https://passport.compshare.cn/register", "入门", "2026-07-31"),
-    ("coding-kimi", "Andante", None, "CALL", "月度按次", 49, 39, "CNY", 30, None, "call", [{"code":"kimi-k3"},{"code":"kimi-k2.7-code"}], ["首月¥39"], [], "首月¥39", "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A", "入门", "2026-07-31"),
-    ("coding-jieyue", "Flash Mini", None, "CALL", "月度按次", 49, None, "CNY", 30, 1500, "call", [{"code":"step-3.5-flash"}], ["1500次/5h"], [], "1500次/5h", "https://platform.stepfun.com", "入门", "2026-07-31"),
-    ("coding-meituan", "免费版", None, "CALL", "免费", 0, None, "CNY", None, None, "call", [], ["免费使用", "需下载客户端"], ["免费"], "免费", "https://catpaw.meituan.com/", "免费", "2026-07-31"),
-    ("coding-charm", "Free", None, "CALL", "免费", 0, None, "USD", None, None, "call", [{"code":"deepseek-v4-flash"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"}], ["免费使用"], ["免费", "美元"], "$0免费", "https://hyper.charm.land/", "免费", "2026-07-31"),
-    ("coding-minimax", "Plus", None, "CALL", "月度按次", 49, None, "CNY", 30, 1500, "call", [{"code":"minimax-m3"}], ["1500次/5h"], [], "1500次/5h", "https://platform.minimaxi.com/subscribe/token-plan", "入门", "2026-07-31"),
-    ("coding-chatgpt", "Plus", None, "CALL", "月度按次", 20, None, "USD", 30, None, "call", [{"code":"gpt-5.4"},{"code":"gpt-image-2"},{"code":"gpt-5.3-codex"}], ["GPT-5.4 全功能"], [], "$20/月", "https://openai.com/chatgpt/pricing/", "入门", "2026-07-31"),
-    ("coding-chatgpt", "Team", None, "CALL", "月度按次", 25, None, "USD", 30, None, "call", [{"code":"gpt-5.4"},{"code":"gpt-image-2"},{"code":"gpt-5.3-codex"}], ["团队协作"], [], "$25/用户/月", "https://openai.com/chatgpt/pricing/", "团队", "2026-07-31"),
-    ("coding-sensenova", "Free · 公测", None, "CALL", "免费", 0, None, "CNY", None, 1500, "call", [{"code":"sensenova-6.7-flash-lite"},{"code":"sensenova-u1-fast"}], ["免费公测", "1500次/5h"], ["免费"], "免费公测", "https://www.sensenova.cn/token-plan", "免费", "2026-07-31"),
-    ("coding-wenming", "Lite", "LITE", "CALL", "月度按次", 45, None, "CNY", 30, 1000, "call", [{"code":"glm-5.2", "isBonus": False}, {"code":"deepseek-v4-flash", "isBonus": True}], ["每月1000次 GLM-5.2", "赠送 DeepSeek-V4-Flash"], [], "新手尝鲜", "https://wenming7.cn/sales?ref=6FRFQW2D", "入门", "2026-07-31"),
-    ("coding-wenming", "新用户活动套餐", None, "TOKEN", "按 Token 计费", 29.9, 99, "CNY", 7, 50000000, "token", [{"code":"glm-5.2"}], ["GLM-5.2 专属", "2500万token基础+加赠2500万", "有效期7天", "每人限购一次"], ["推荐", "热门"], "29.9元享5000万token", "https://wenming7.cn/sales?ref=6FRFQW2D", "活动", "2026-07-31"),
+    ("coding-taotoken", "Lite", None, "CALL", "月度按次", 39, None, "CNY", 30, None, "call", None, [{"code":"glm-5.2"}], [], ["入门"], "", "https://taotoken.net/", "入门", "2026-07-31"),
+    ("coding-supercomp", "Lite", None, "CALL", "月度按次", 20, None, "CNY", 30, 1200, "call", '5h', [{"code":"minimax-m2.5"},{"code":"qwen3-235b-a22b"}], [], ["入门"], "1200次/5h", "https://www.scnet.cn/ac/openapi/doc/2.0/moduleapi/codingplan/subscriptionnotice.html", "入门", "2026-07-31"),
+    ("coding-ollama", "Free", None, "CALL", "免费", 0, None, "USD", None, None, "call", None, [{"code":"glm-5.1"},{"code":"deepseek-v4-flash"},{"code":"minimax-m2.7"}], ["免费使用"], ["免费"], "免费", "https://ollama.com/pricing", "免费", "2026-07-31"),
+    ("coding-kuaishou", "Mini", None, "CALL", "月度按次", 29, None, "CNY", 30, 40, "prompt", 'month', [{"code":"kat-coder-pro-v2.5"}], ["40 Prompts/月"], [], "40 Prompts/月", "https://www.streamlake.com/marketing/coding-plan", "入门", "2026-07-31"),
+    ("coding-iflytek", "高效版", None, "CALL", "月度按次", 199, None, "CNY", 30, 6000, "call", '5h', [{"code":"glm-5.2"},{"code":"spark-x2-agent"},{"code":"kimi-k2.7-code"}], ["6000次/5h"], [], "6000次/5h", "https://maas.xfyun.cn/packageSubscription", "", "2026-07-31"),
+    ("coding-iflytek", "速通版", None, "CALL", "月度按次", 999, 699, "CNY", 30, 30000, "call", 'month', [{"code":"glm-5.2"},{"code":"spark-x2-agent"},{"code":"kimi-k2.7-code"}], ["30000速通次数/月", "首购¥699"], [], "首购¥699", "https://maas.xfyun.cn/packageSubscription", "活动", "2026-07-31"),
+    ("coding-baidu", "Mini", None, "TOKEN", "按 Token 计费", 4.9, None, "CNY", 30, 10000000, "token", None, [{"code":"glm"},{"code":"deepseek"},{"code":"kimi"}], ["1000万 Tokens/月"], [], "1000万 Tokens/月", "https://cloud.baidu.com/product/codingplan.html", "入门", "2026-07-31"),
+    ("coding-baidu", "Lite", None, "TOKEN", "按 Token 计费", 19.9, None, "CNY", 30, 42000000, "token", None, [{"code":"glm"},{"code":"deepseek"},{"code":"kimi"}], ["4200万 Tokens/月"], [], "4200万 Tokens/月", "https://cloud.baidu.com/product/codingplan.html", "入门", "2026-07-31"),
+    ("coding-liantong", "Lite", None, "CALL", "月度按次", 40, None, "CNY", 30, 1200, "call", '5h', [{"code":"deepseek-v4-pro"},{"code":"kimi-k2.6"},{"code":"qwen3.6-27b"}], ["1200次/5h"], [], "1200次/5h", "https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7015", "入门", "2026-07-31"),
+    ("coding-tencent", "Lite", None, "CALL", "月度按次", 40, 7.9, "CNY", 30, 1200, "call", '5h', [{"code":"glm-5"},{"code":"kimi-k2.5"},{"code":"minimax-m2.5"}], ["1200次/5h", "首月¥7.9"], [], "1200次/5h", "https://console.cloud.tencent.cn/tokenhub/codingplan?regionId=1", "入门", "2026-07-31"),
+    ("coding-yidong", "Lite", None, "CALL", "月度按次", 40, 7.9, "CNY", 30, 1200, "call", '5h', [{"code":"minimax-m2.5"}], ["1200次/5h", "首月¥7.9"], [], "1200次/5h", "https://ecloud.10086.cn/portal/act/codingplan", "入门", "2026-07-31"),
+    ("coding-bytedance", "Lite", None, "CALL", "月度按次", 40, 9.9, "CNY", 30, 1200, "call", '5h', [{"code":"glm-5.2"},{"code":"doubao-seed-2.1-turbo"},{"code":"kimi-k2.7"}], ["1200次/5h", "首月¥9.9"], [], "1200次/5h", "https://volcengine.com/L/RYnDeTYySYQ/", "入门", "2026-07-31"),
+    ("coding-openstarry", "星痕版(免费)", None, "CALL", "免费", 0, None, "CNY", None, None, "call", None, [{"code":"glm-5.2"},{"code":"kimi-k3"},{"code":"deepseek-v4-pro"},{"code":"minimax-m3"},{"code":"kimi-k2.7-code"},{"code":"qwen3.7-max"}], ["免费", "赠200次", "不限制请求数"], ["免费"], "免费", "https://api.openstarry.com/auth?mode=register&aff=X6K8", "免费", "2026-07-31"),
+    ("coding-openstarry", "星序版(周)", None, "CALL", "周付", 9.9, None, "CNY", 7, None, "call", None, [{"code":"glm-5.2"},{"code":"kimi-k3"},{"code":"deepseek-v4-pro"},{"code":"minimax-m3"}], ["赠200次", "周付"], [], "周付¥9.9", "https://api.openstarry.com/auth?mode=register&aff=X6K8", "入门", "2026-07-31"),
+    ("coding-openstarry", "星创版", None, "CALL", "月度按次", 49.9, None, "CNY", 30, 1000, "call", '5h', [{"code":"glm-5.2"},{"code":"kimi-k3"},{"code":"deepseek-v4-pro"},{"code":"minimax-m3"}], ["1000次/5h"], [], "1000次/5h", "https://api.openstarry.com/auth?mode=register&aff=X6K8", "入门", "2026-07-31"),
+    ("coding-lanyun", "入门版", None, "CALL", "月度按次", 49, None, "CNY", 30, 1200, "call", '5h', [{"code":"glm-5.1"}], ["1200次/5h"], [], "1200次/5h", "https://console.lanyun.net/#/register", "入门", "2026-07-31"),
+    ("coding-zhipu", "Lite", None, "CALL", "月度按次", 49, None, "CNY", 30, 1200, "call", '5h', [{"code":"glm-5.2"}], ["1200次/5h"], [], "1200次/5h", "https://www.bigmodel.cn/invite?icode=naEahtDGpOp7hfCi6MPFVunfet45IvM%2BqDogImfeLyI%3D", "入门", "2026-07-31"),
+    ("coding-youyun", "Mini", None, "CALL", "月度按次", 49, None, "CNY", 30, 200, "call", '5h', [{"code":"glm-5.2"},{"code":"deepseek-v4-pro"},{"code":"deepseek-v4-flash"},{"code":"qwen3.6-plus"},{"code":"minimax-m2.7"},{"code":"kimi-k2.6"}], ["200次/5h"], [], "200次/5h", "https://passport.compshare.cn/register", "入门", "2026-07-31"),
+    ("coding-kimi", "Andante", None, "CALL", "月度按次", 49, 39, "CNY", 30, None, "call", None, [{"code":"kimi-k3"},{"code":"kimi-k2.7-code"}], ["首月¥39"], [], "首月¥39", "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A", "入门", "2026-07-31"),
+    ("coding-jieyue", "Flash Mini", None, "CALL", "月度按次", 49, None, "CNY", 30, 1500, "call", '5h', [{"code":"step-3.5-flash"}], ["1500次/5h"], [], "1500次/5h", "https://platform.stepfun.com", "入门", "2026-07-31"),
+    ("coding-meituan", "免费版", None, "CALL", "免费", 0, None, "CNY", None, None, "call", None, [], ["免费使用", "需下载客户端"], ["免费"], "免费", "https://catpaw.meituan.com/", "免费", "2026-07-31"),
+    ("coding-charm", "Free", None, "CALL", "免费", 0, None, "USD", None, None, "call", None, [{"code":"deepseek-v4-flash"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"}], ["免费使用"], ["免费", "美元"], "$0免费", "https://hyper.charm.land/", "免费", "2026-07-31"),
+    ("coding-minimax", "Plus", None, "CALL", "月度按次", 49, None, "CNY", 30, 1500, "call", '5h', [{"code":"minimax-m3"}], ["1500次/5h"], [], "1500次/5h", "https://platform.minimaxi.com/subscribe/token-plan", "入门", "2026-07-31"),
+    ("coding-chatgpt", "Plus", None, "CALL", "月度按次", 20, None, "USD", 30, None, "call", 'month', [{"code":"gpt-5.4"},{"code":"gpt-image-2"},{"code":"gpt-5.3-codex"}], ["GPT-5.4 全功能"], [], "$20/月", "https://openai.com/chatgpt/pricing/", "入门", "2026-07-31"),
+    ("coding-chatgpt", "Team", None, "CALL", "月度按次", 25, None, "USD", 30, None, "call", 'month', [{"code":"gpt-5.4"},{"code":"gpt-image-2"},{"code":"gpt-5.3-codex"}], ["团队协作"], [], "$25/用户/月", "https://openai.com/chatgpt/pricing/", "团队", "2026-07-31"),
+    ("coding-sensenova", "Free · 公测", None, "CALL", "免费", 0, None, "CNY", None, 1500, "call", '5h', [{"code":"sensenova-6.7-flash-lite"},{"code":"sensenova-u1-fast"}], ["免费公测", "1500次/5h"], ["免费"], "免费公测", "https://www.sensenova.cn/token-plan", "免费", "2026-07-31"),
+    ("coding-wenming", "Lite", "LITE", "CALL", "月度按次", 45, None, "CNY", 30, 1000, "call", 'month', [{"code":"glm-5.2", "isBonus": False}, {"code":"deepseek-v4-flash", "isBonus": True}], ["每月1000次 GLM-5.2", "赠送 DeepSeek-V4-Flash"], [], "新手尝鲜", "https://wenming7.cn/sales?ref=6FRFQW2D", "入门", "2026-07-31"),
+    ("coding-wenming", "新用户活动套餐", None, "TOKEN", "按 Token 计费", 29.9, 99, "CNY", 7, 50000000, "token", None, [{"code":"glm-5.2"}], ["GLM-5.2 专属", "2500万token基础+加赠2500万", "有效期7天", "每人限购一次"], ["推荐", "热门"], "29.9元享5000万token", "https://wenming7.cn/sales?ref=6FRFQW2D", "活动", "2026-07-31"),
 ]
 
 # Coding Plans -- 进阶级 (¥51-199)
 CODING_MID = [
-    ("coding-kuaishou", "Starter", None, "CALL", "月度按次", 70, None, "CNY", 30, 100, "prompt", [{"code":"kat-coder-pro-v2.5"}], ["100 Prompts/月"], [], "100 Prompts/月", "https://www.streamlake.com/marketing/coding-plan", "进阶", "2026-07-31"),
-    ("coding-taotoken", "Pro", None, "CALL", "月度按次", 199, None, "CNY", 30, None, "call", [{"code":"glm-5.2"}], [], [], "", "https://taotoken.net/", "进阶", "2026-07-31"),
-    ("coding-kimi", "Moderato", None, "CALL", "月度按次", 99, 79, "CNY", 30, None, "call", [{"code":"kimi-k3"},{"code":"kimi-k2.7-code"}], ["首月¥79"], [], "首月¥79", "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A", "进阶", "2026-07-31"),
-    ("coding-supercomp", "Pro", None, "CALL", "月度按次", 100, None, "CNY", 30, 6000, "call", [{"code":"minimax-m2.5"},{"code":"qwen3-235b-a22b"}], ["6000次/5h"], [], "6000次/5h", "https://www.scnet.cn/ac/openapi/doc/2.0/moduleapi/codingplan/subscriptionnotice.html", "进阶", "2026-07-31"),
-    ("coding-jieyue", "Flash Plus", None, "CALL", "月度按次", 99, None, "CNY", 30, 6000, "call", [{"code":"step-3.5-flash"}], ["6000次/5h"], [], "6000次/5h", "https://platform.stepfun.com", "进阶", "2026-07-31"),
-    ("coding-kuaishou", "Pro", None, "CALL", "月度按次", 140, None, "CNY", 30, 300, "prompt", [{"code":"kat-coder-pro-v2.5"}], ["300 Prompts/月"], [], "300 Prompts/月", "https://www.streamlake.com/marketing/coding-plan", "进阶", "2026-07-31"),
-    ("coding-charm", "Subscription", None, "CALL", "月度按次", 140, None, "CNY", 30, None, "call", [{"code":"deepseek-v4-flash"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"}], [], ["美元"], "$20/月", "https://hyper.charm.land/", "进阶", "2026-07-31"),
-    ("coding-openstarry", "星途版", None, "CALL", "月度按次", 119, None, "CNY", 30, 2500, "call", [{"code":"glm-5.2"},{"code":"kimi-k3"},{"code":"deepseek-v4-pro"},{"code":"minimax-m3"}], ["2500次/5h"], [], "2500次/5h", "https://api.openstarry.com/auth?mode=register&aff=X6K8", "进阶", "2026-07-31"),
-    ("coding-lanyun", "专业版", None, "CALL", "月度按次", 149, None, "CNY", 30, 6000, "call", [{"code":"glm-5.1"}], ["6000次/5h"], [], "6000次/5h", "https://console.lanyun.net/#/register", "进阶", "2026-07-31"),
-    ("coding-zhipu", "Pro", None, "CALL", "月度按次", 149, None, "CNY", 30, 6000, "call", [{"code":"glm-5.2"}], ["6000次/5h"], [], "6000次/5h", "https://www.bigmodel.cn/invite?icode=naEahtDGpOp7hfCi6MPFVunfet45IvM%2BqDogImfeLyI%3D", "进阶", "2026-07-31"),
+    ("coding-kuaishou", "Starter", None, "CALL", "月度按次", 70, None, "CNY", 30, 100, "prompt", 'month', [{"code":"kat-coder-pro-v2.5"}], ["100 Prompts/月"], [], "100 Prompts/月", "https://www.streamlake.com/marketing/coding-plan", "进阶", "2026-07-31"),
+    ("coding-taotoken", "Pro", None, "CALL", "月度按次", 199, None, "CNY", 30, None, "call", None, [{"code":"glm-5.2"}], [], [], "", "https://taotoken.net/", "进阶", "2026-07-31"),
+    ("coding-kimi", "Moderato", None, "CALL", "月度按次", 99, 79, "CNY", 30, None, "call", None, [{"code":"kimi-k3"},{"code":"kimi-k2.7-code"}], ["首月¥79"], [], "首月¥79", "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A", "进阶", "2026-07-31"),
+    ("coding-supercomp", "Pro", None, "CALL", "月度按次", 100, None, "CNY", 30, 6000, "call", '5h', [{"code":"minimax-m2.5"},{"code":"qwen3-235b-a22b"}], ["6000次/5h"], [], "6000次/5h", "https://www.scnet.cn/ac/openapi/doc/2.0/moduleapi/codingplan/subscriptionnotice.html", "进阶", "2026-07-31"),
+    ("coding-jieyue", "Flash Plus", None, "CALL", "月度按次", 99, None, "CNY", 30, 6000, "call", '5h', [{"code":"step-3.5-flash"}], ["6000次/5h"], [], "6000次/5h", "https://platform.stepfun.com", "进阶", "2026-07-31"),
+    ("coding-kuaishou", "Pro", None, "CALL", "月度按次", 140, None, "CNY", 30, 300, "prompt", 'month', [{"code":"kat-coder-pro-v2.5"}], ["300 Prompts/月"], [], "300 Prompts/月", "https://www.streamlake.com/marketing/coding-plan", "进阶", "2026-07-31"),
+    ("coding-charm", "Subscription", None, "CALL", "月度按次", 140, None, "CNY", 30, None, "call", 'month', [{"code":"deepseek-v4-flash"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"}], [], ["美元"], "$20/月", "https://hyper.charm.land/", "进阶", "2026-07-31"),
+    ("coding-openstarry", "星途版", None, "CALL", "月度按次", 119, None, "CNY", 30, 2500, "call", '5h', [{"code":"glm-5.2"},{"code":"kimi-k3"},{"code":"deepseek-v4-pro"},{"code":"minimax-m3"}], ["2500次/5h"], [], "2500次/5h", "https://api.openstarry.com/auth?mode=register&aff=X6K8", "进阶", "2026-07-31"),
+    ("coding-lanyun", "专业版", None, "CALL", "月度按次", 149, None, "CNY", 30, 6000, "call", '5h', [{"code":"glm-5.1"}], ["6000次/5h"], [], "6000次/5h", "https://console.lanyun.net/#/register", "进阶", "2026-07-31"),
+    ("coding-zhipu", "Pro", None, "CALL", "月度按次", 149, None, "CNY", 30, 6000, "call", '5h', [{"code":"glm-5.2"}], ["6000次/5h"], [], "6000次/5h", "https://www.bigmodel.cn/invite?icode=naEahtDGpOp7hfCi6MPFVunfet45IvM%2BqDogImfeLyI%3D", "进阶", "2026-07-31"),
     # 高效版已在上方入门级记录，此处去重跳过
-    ("coding-youyun", "Basic", None, "CALL", "月度按次", 199, None, "CNY", 30, 800, "call", [{"code":"glm-5.2"},{"code":"deepseek-v4-pro"},{"code":"deepseek-v4-flash"},{"code":"qwen3.6-plus"},{"code":"minimax-m2.7"},{"code":"kimi-k2.6"}], ["800次/5h"], [], "800次/5h", "https://passport.compshare.cn/register", "进阶", "2026-07-31"),
-    ("coding-jieyue", "Flash Pro", None, "CALL", "月度按次", 199, None, "CNY", 30, 22500, "call", [{"code":"step-3.5-flash"}], ["22500次/5h"], [], "22500次/5h", "https://platform.stepfun.com", "进阶", "2026-07-31"),
-    ("coding-minimax", "Max", None, "CALL", "月度按次", 119, None, "CNY", 30, 4500, "call", [{"code":"minimax-m3"}], ["4500次/5h"], [], "4500次/5h", "https://platform.minimaxi.com/subscribe/token-plan", "进阶", "2026-07-31"),
-    ("coding-kimi", "Allegretto", None, "CALL", "月度按次", 199, 159, "CNY", 30, None, "call", [{"code":"kimi-k3"},{"code":"kimi-k2.7-code"}], ["首月¥159"], [], "首月¥159", "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A", "进阶", "2026-07-31"),
-    ("coding-wenming", "Pro", "PRO", "CALL", "月度按次", 125, None, "CNY", 30, 5000, "call", [{"code":"glm-5.2", "isBonus": False}, {"code":"deepseek-v4-flash", "isBonus": True}], ["每月5000次", "赠送 DeepSeek-V4-Flash"], [], "高性价比", "https://wenming7.cn/sales?ref=6FRFQW2D", "性价比", "2026-07-31"),
-    ("coding-wenming", "Plus", None, "CALL", "月度按次", 249, None, "CNY", 30, 15000, "call", [{"code":"glm-5.2", "isBonus": False}, {"code":"deepseek-v4-flash", "isBonus": True}], ["每月15000次", "赠送 DeepSeek-V4-Flash"], ["推荐"], "进阶高额度", "https://wenming7.cn/sales?ref=6FRFQW2D", "进阶", "2026-07-31"),
+    ("coding-youyun", "Basic", None, "CALL", "月度按次", 199, None, "CNY", 30, 800, "call", '5h', [{"code":"glm-5.2"},{"code":"deepseek-v4-pro"},{"code":"deepseek-v4-flash"},{"code":"qwen3.6-plus"},{"code":"minimax-m2.7"},{"code":"kimi-k2.6"}], ["800次/5h"], [], "800次/5h", "https://passport.compshare.cn/register", "进阶", "2026-07-31"),
+    ("coding-jieyue", "Flash Pro", None, "CALL", "月度按次", 199, None, "CNY", 30, 22500, "call", '5h', [{"code":"step-3.5-flash"}], ["22500次/5h"], [], "22500次/5h", "https://platform.stepfun.com", "进阶", "2026-07-31"),
+    ("coding-minimax", "Max", None, "CALL", "月度按次", 119, None, "CNY", 30, 4500, "call", '5h', [{"code":"minimax-m3"}], ["4500次/5h"], [], "4500次/5h", "https://platform.minimaxi.com/subscribe/token-plan", "进阶", "2026-07-31"),
+    ("coding-kimi", "Allegretto", None, "CALL", "月度按次", 199, 159, "CNY", 30, None, "call", None, [{"code":"kimi-k3"},{"code":"kimi-k2.7-code"}], ["首月¥159"], [], "首月¥159", "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A", "进阶", "2026-07-31"),
+    ("coding-wenming", "Pro", "PRO", "CALL", "月度按次", 125, None, "CNY", 30, 5000, "call", 'month', [{"code":"glm-5.2", "isBonus": False}, {"code":"deepseek-v4-flash", "isBonus": True}], ["每月5000次", "赠送 DeepSeek-V4-Flash"], [], "高性价比", "https://wenming7.cn/sales?ref=6FRFQW2D", "性价比", "2026-07-31"),
+    ("coding-wenming", "Plus", None, "CALL", "月度按次", 249, None, "CNY", 30, 15000, "call", 'month', [{"code":"glm-5.2", "isBonus": False}, {"code":"deepseek-v4-flash", "isBonus": True}], ["每月15000次", "赠送 DeepSeek-V4-Flash"], ["推荐"], "进阶高额度", "https://wenming7.cn/sales?ref=6FRFQW2D", "进阶", "2026-07-31"),
 ]
 
 # Coding Plans -- 高阶级 (≥ ¥200)
 CODING_HIGH = [
-    ("coding-aliyun", "Pro", None, "CALL", "月度按次", 200, None, "CNY", 30, 45000, "call", [{"code":"qwen3.6-plus"}], ["每周 45,000 次请求", "Qwen3.6-Plus 专属"], [], "¥200/月", "https://bailian.console.aliyun.com/", "旗舰", "2026-07-31"),
-    ("coding-taotoken", "Max", None, "CALL", "月度按次", 388, None, "CNY", 30, None, "call", [{"code":"glm-5.2"}], [], [], "", "https://taotoken.net/", "旗舰", "2026-07-31"),
-    ("coding-baidu", "Pro", None, "TOKEN", "按 Token 计费", 99.9, None, "CNY", 30, 230000000, "token", [{"code":"glm"},{"code":"deepseek"},{"code":"kimi"}], ["2.3亿 Tokens/月"], [], "2.3亿 Tokens/月", "https://cloud.baidu.com/product/codingplan.html", "进阶", "2026-07-31"),
-    ("coding-baidu", "Max", None, "TOKEN", "按 Token 计费", 299.9, None, "CNY", 30, 700000000, "token", [{"code":"glm"},{"code":"deepseek"},{"code":"kimi"}], ["7亿 Tokens/月"], [], "7亿 Tokens/月", "https://cloud.baidu.com/product/codingplan.html", "旗舰", "2026-07-31"),
-    ("coding-liantong", "Pro", None, "CALL", "月度按次", 200, None, "CNY", 30, 6000, "call", [{"code":"deepseek-v4-pro"},{"code":"kimi-k2.6"},{"code":"qwen3.6-27b"}], ["6000次/5h"], [], "6000次/5h", "https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7015", "旗舰", "2026-07-31"),
-    ("coding-tencent", "Pro", None, "CALL", "月度按次", 200, 39.9, "CNY", 30, 6000, "call", [{"code":"glm-5"},{"code":"kimi-k2.5"},{"code":"minimax-m2.5"}], ["6000次/5h", "首月¥39.9"], [], "6000次/5h", "https://console.cloud.tencent.cn/tokenhub/codingplan?regionId=1", "旗舰", "2026-07-31"),
-    ("coding-yidong", "Pro", None, "CALL", "月度按次", 200, 39.9, "CNY", 30, 6000, "call", [{"code":"minimax-m2.5"}], ["6000次/5h", "首月¥39.9", "GLM-5.1 4x抵扣"], [], "6000次/5h", "https://ecloud.10086.cn/portal/act/codingplan", "旗舰", "2026-07-31"),
-    ("coding-bytedance", "Pro", None, "CALL", "月度按次", 200, 49.9, "CNY", 30, 6000, "call", [{"code":"glm-5.2"},{"code":"doubao-seed-2.1-turbo"},{"code":"kimi-k2.7"}], ["6000次/5h", "首月¥49.9", "注意:双层计费不透明"], [], "⚠计费不透明", "https://volcengine.com/L/RYnDeTYySYQ/", "旗舰", "2026-07-31"),
-    ("coding-kuaishou", "Max", None, "CALL", "月度按次", 350, None, "CNY", 30, 1000, "prompt", [{"code":"kat-coder-pro-v2.5"}], ["1000 Prompts/月"], [], "1000 Prompts/月", "https://www.streamlake.com/marketing/coding-plan", "旗舰", "2026-07-31"),
-    ("coding-minimax", "Ultra", None, "CALL", "月度按次", 469, None, "CNY", 30, 15000, "call", [{"code":"minimax-m3"}], ["15000次/5h"], [], "15000次/5h", "https://platform.minimaxi.com/subscribe/token-plan", "旗舰", "2026-07-31"),
-    ("coding-wenming", "Max", "MAX", "CALL", "月度按次", 429, None, "CNY", 30, 40000, "call", [{"code":"glm-5.2", "isBonus": False}, {"code":"deepseek-v4-flash", "isBonus": True}], ["每月40000次", "赠送 DeepSeek-V4-Flash"], [], "高频AI开发", "https://wenming7.cn/sales?ref=6FRFQW2D", "旗舰", "2026-07-31"),
-    ("coding-lanyun", "高级版", None, "CALL", "月度按次", 469, None, "CNY", 30, 24000, "call", [{"code":"glm-5.1"}], ["24000次/5h"], [], "24000次/5h", "https://console.lanyun.net/#/register", "旗舰", "2026-07-31"),
-    ("coding-zhipu", "Max", None, "CALL", "月度按次", 469, None, "CNY", 30, 24000, "call", [{"code":"glm-5.2"}], ["24000次/5h", "积分制"], [], "24000次/5h", "https://www.bigmodel.cn/invite?icode=naEahtDGpOp7hfCi6MPFVunfet45IvM%2BqDogImfeLyI%3D", "旗舰", "2026-07-31"),
-    ("coding-jieyue", "Flash Max", None, "CALL", "月度按次", 699, None, "CNY", 30, 75000, "call", [{"code":"step-3.5-flash"}], ["75000次/5h"], [], "75000次/5h", "https://platform.stepfun.com", "旗舰", "2026-07-31"),
-    ("coding-kimi", "Allegro", None, "CALL", "月度按次", 699, 559, "CNY", 30, None, "call", [{"code":"kimi-k3"},{"code":"kimi-k2.7-code"}], ["首月¥559"], [], "首月¥559", "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A", "旗舰", "2026-07-31"),
+    ("coding-aliyun", "Pro", None, "CALL", "月度按次", 200, None, "CNY", 30, 45000, "call", 'week', [{"code":"qwen3.6-plus"}], ["每周 45,000 次请求", "Qwen3.6-Plus 专属"], [], "¥200/月", "https://bailian.console.aliyun.com/", "旗舰", "2026-07-31"),
+    ("coding-taotoken", "Max", None, "CALL", "月度按次", 388, None, "CNY", 30, None, "call", None, [{"code":"glm-5.2"}], [], [], "", "https://taotoken.net/", "旗舰", "2026-07-31"),
+    ("coding-baidu", "Pro", None, "TOKEN", "按 Token 计费", 99.9, None, "CNY", 30, 230000000, "token", None, [{"code":"glm"},{"code":"deepseek"},{"code":"kimi"}], ["2.3亿 Tokens/月"], [], "2.3亿 Tokens/月", "https://cloud.baidu.com/product/codingplan.html", "进阶", "2026-07-31"),
+    ("coding-baidu", "Max", None, "TOKEN", "按 Token 计费", 299.9, None, "CNY", 30, 700000000, "token", None, [{"code":"glm"},{"code":"deepseek"},{"code":"kimi"}], ["7亿 Tokens/月"], [], "7亿 Tokens/月", "https://cloud.baidu.com/product/codingplan.html", "旗舰", "2026-07-31"),
+    ("coding-liantong", "Pro", None, "CALL", "月度按次", 200, None, "CNY", 30, 6000, "call", '5h', [{"code":"deepseek-v4-pro"},{"code":"kimi-k2.6"},{"code":"qwen3.6-27b"}], ["6000次/5h"], [], "6000次/5h", "https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7015", "旗舰", "2026-07-31"),
+    ("coding-tencent", "Pro", None, "CALL", "月度按次", 200, 39.9, "CNY", 30, 6000, "call", '5h', [{"code":"glm-5"},{"code":"kimi-k2.5"},{"code":"minimax-m2.5"}], ["6000次/5h", "首月¥39.9"], [], "6000次/5h", "https://console.cloud.tencent.cn/tokenhub/codingplan?regionId=1", "旗舰", "2026-07-31"),
+    ("coding-yidong", "Pro", None, "CALL", "月度按次", 200, 39.9, "CNY", 30, 6000, "call", '5h', [{"code":"minimax-m2.5"}], ["6000次/5h", "首月¥39.9", "GLM-5.1 4x抵扣"], [], "6000次/5h", "https://ecloud.10086.cn/portal/act/codingplan", "旗舰", "2026-07-31"),
+    ("coding-bytedance", "Pro", None, "CALL", "月度按次", 200, 49.9, "CNY", 30, 6000, "call", '5h', [{"code":"glm-5.2"},{"code":"doubao-seed-2.1-turbo"},{"code":"kimi-k2.7"}], ["6000次/5h", "首月¥49.9", "注意:双层计费不透明"], [], "⚠计费不透明", "https://volcengine.com/L/RYnDeTYySYQ/", "旗舰", "2026-07-31"),
+    ("coding-kuaishou", "Max", None, "CALL", "月度按次", 350, None, "CNY", 30, 1000, "prompt", 'month', [{"code":"kat-coder-pro-v2.5"}], ["1000 Prompts/月"], [], "1000 Prompts/月", "https://www.streamlake.com/marketing/coding-plan", "旗舰", "2026-07-31"),
+    ("coding-minimax", "Ultra", None, "CALL", "月度按次", 469, None, "CNY", 30, 15000, "call", '5h', [{"code":"minimax-m3"}], ["15000次/5h"], [], "15000次/5h", "https://platform.minimaxi.com/subscribe/token-plan", "旗舰", "2026-07-31"),
+    ("coding-wenming", "Max", "MAX", "CALL", "月度按次", 429, None, "CNY", 30, 40000, "call", 'month', [{"code":"glm-5.2", "isBonus": False}, {"code":"deepseek-v4-flash", "isBonus": True}], ["每月40000次", "赠送 DeepSeek-V4-Flash"], [], "高频AI开发", "https://wenming7.cn/sales?ref=6FRFQW2D", "旗舰", "2026-07-31"),
+    ("coding-lanyun", "高级版", None, "CALL", "月度按次", 469, None, "CNY", 30, 24000, "call", '5h', [{"code":"glm-5.1"}], ["24000次/5h"], [], "24000次/5h", "https://console.lanyun.net/#/register", "旗舰", "2026-07-31"),
+    ("coding-zhipu", "Max", None, "CALL", "月度按次", 469, None, "CNY", 30, 24000, "call", '5h', [{"code":"glm-5.2"}], ["24000次/5h", "积分制"], [], "24000次/5h", "https://www.bigmodel.cn/invite?icode=naEahtDGpOp7hfCi6MPFVunfet45IvM%2BqDogImfeLyI%3D", "旗舰", "2026-07-31"),
+    ("coding-jieyue", "Flash Max", None, "CALL", "月度按次", 699, None, "CNY", 30, 75000, "call", '5h', [{"code":"step-3.5-flash"}], ["75000次/5h"], [], "75000次/5h", "https://platform.stepfun.com", "旗舰", "2026-07-31"),
+    ("coding-kimi", "Allegro", None, "CALL", "月度按次", 699, 559, "CNY", 30, None, "call", None, [{"code":"kimi-k3"},{"code":"kimi-k2.7-code"}], ["首月¥559"], [], "首月¥559", "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A", "旗舰", "2026-07-31"),
 ]
 
 # Coding Plans -- 海外/美元
 CODING_OVERSEAS = [
-    ("coding-opencode", "Go", None, "TOKEN", "按量计费", 10, None, "USD", 30, None, "call", [{"code":"grok-4.5"},{"code":"glm-5.2"},{"code":"gpt-5.6-luna"},{"code":"kimi-k3"},{"code":"hy3"},{"code":"deepseek-v4-pro"},{"code":"kimi-k2.6"},{"code":"deepseek-v4-flash"},{"code":"minimax-m2.7"},{"code":"gemini-2.5-flash"}], ["17款模型", "$12/5h", "$30/周", "$60/月", "首月$5"], [], "17款模型·首月$5", "https://opencode.ai/", "进阶", "2026-07-31"),
-    ("coding-zai", "Lite", None, "CALL", "月度按次", 18, None, "USD", 30, 1200, "call", [{"code":"glm-5.1"}], ["1200次/5h"], [], "$18/月", "https://z.ai/subscribe", "入门", "2026-07-31"),
-    ("coding-zai", "Pro", None, "CALL", "月度按次", 72, None, "USD", 30, 6000, "call", [{"code":"glm-5.1"}], ["6000次/5h"], [], "$72/月", "https://z.ai/subscribe", "进阶", "2026-07-31"),
-    ("coding-zai", "Max", None, "CALL", "月度按次", 160, None, "USD", 30, 24000, "call", [{"code":"glm-5.1"}], ["24000次/5h"], [], "$160/月", "https://z.ai/subscribe", "旗舰", "2026-07-31"),
-    ("coding-xkiro", "Free", None, "TOKEN", "月度订阅", 0, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["免费永久", "100K tokens/天", "20+ 免费模型", "AI 图片生成（有限）", "文本转语音 · 148 种 AI 语音"], [], "永久免费", "https://xkiro.com/ref/3Y9VZSF", "免费", "2026-08-06"),
-    ("coding-xkiro", "Pro", None, "TOKEN", "月度订阅", 5, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $67", "60+ 模型", "OpenAI & Anthropic SDK 兼容", "智能路由 + 自动故障转移", "AI 图片生成 · GPT Image", "文本转语音 · 148 种 AI 语音"], [], "入门 · $5/月", "https://xkiro.com/ref/3Y9VZSF", "入门", "2026-08-06"),
-    ("coding-xkiro", "Pro+", None, "TOKEN", "月度订阅", 10, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $132", "60+ 模型", "双倍配额", "更多并发请求", "详细用量分析"], [], "性价比 · $10/月", "https://xkiro.com/ref/3Y9VZSF", "性价比", "2026-08-06"),
-    ("coding-xkiro", "Max", None, "TOKEN", "月度订阅", 20, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $264", "60+ 模型", "4 倍配额", "更多并发请求", "开发者生产力工具"], [], "进阶 · $20/月", "https://xkiro.com/ref/3Y9VZSF", "进阶", "2026-08-06"),
-    ("coding-xkiro", "Ultra", None, "TOKEN", "月度订阅", 100, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $1,320", "60+ 模型", "20 倍配额", "极高并发请求", "提前体验新功能", "高峰时段优先"], [], "旗舰 · $100/月", "https://xkiro.com/ref/3Y9VZSF", "旗舰", "2026-08-06"),
-    ("coding-xkiro", "Power", None, "TOKEN", "月度订阅", 200, None, "USD", 30, None, "token", [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $2,640", "60+ 模型", "40 倍配额", "最大并发请求", "最高输出限制", "最高优先级支持 · 12h"], [], "旗舰 · $200/月", "https://xkiro.com/ref/3Y9VZSF", "旗舰", "2026-08-06"),
+    ("coding-opencode", "Go", None, "TOKEN", "按量计费", 10, None, "USD", 30, None, "call", '5h', [{"code":"grok-4.5"},{"code":"glm-5.2"},{"code":"gpt-5.6-luna"},{"code":"kimi-k3"},{"code":"hy3"},{"code":"deepseek-v4-pro"},{"code":"kimi-k2.6"},{"code":"deepseek-v4-flash"},{"code":"minimax-m2.7"},{"code":"gemini-2.5-flash"}], ["17款模型", "$12/5h", "$30/周", "$60/月", "首月$5"], [], "17款模型·首月$5", "https://opencode.ai/", "进阶", "2026-07-31"),
+    ("coding-zai", "Lite", None, "CALL", "月度按次", 18, None, "USD", 30, 1200, "call", '5h', [{"code":"glm-5.1"}], ["1200次/5h"], [], "$18/月", "https://z.ai/subscribe", "入门", "2026-07-31"),
+    ("coding-zai", "Pro", None, "CALL", "月度按次", 72, None, "USD", 30, 6000, "call", '5h', [{"code":"glm-5.1"}], ["6000次/5h"], [], "$72/月", "https://z.ai/subscribe", "进阶", "2026-07-31"),
+    ("coding-zai", "Max", None, "CALL", "月度按次", 160, None, "USD", 30, 24000, "call", '5h', [{"code":"glm-5.1"}], ["24000次/5h"], [], "$160/月", "https://z.ai/subscribe", "旗舰", "2026-07-31"),
+    ("coding-xkiro", "Free", None, "TOKEN", "月度订阅", 0, None, "USD", 30, None, "token", None, [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["免费永久", "100K tokens/天", "20+ 免费模型", "AI 图片生成（有限）", "文本转语音 · 148 种 AI 语音"], [], "永久免费", "https://xkiro.com/ref/3Y9VZSF", "免费", "2026-08-06"),
+    ("coding-xkiro", "Pro", None, "TOKEN", "月度订阅", 5, None, "USD", 30, None, "token", None, [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $67", "60+ 模型", "OpenAI & Anthropic SDK 兼容", "智能路由 + 自动故障转移", "AI 图片生成 · GPT Image", "文本转语音 · 148 种 AI 语音"], [], "入门 · $5/月", "https://xkiro.com/ref/3Y9VZSF", "入门", "2026-08-06"),
+    ("coding-xkiro", "Pro+", None, "TOKEN", "月度订阅", 10, None, "USD", 30, None, "token", None, [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $132", "60+ 模型", "双倍配额", "更多并发请求", "详细用量分析"], [], "性价比 · $10/月", "https://xkiro.com/ref/3Y9VZSF", "性价比", "2026-08-06"),
+    ("coding-xkiro", "Max", None, "TOKEN", "月度订阅", 20, None, "USD", 30, None, "token", None, [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $264", "60+ 模型", "4 倍配额", "更多并发请求", "开发者生产力工具"], [], "进阶 · $20/月", "https://xkiro.com/ref/3Y9VZSF", "进阶", "2026-08-06"),
+    ("coding-xkiro", "Ultra", None, "TOKEN", "月度订阅", 100, None, "USD", 30, None, "token", None, [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $1,320", "60+ 模型", "20 倍配额", "极高并发请求", "提前体验新功能", "高峰时段优先"], [], "旗舰 · $100/月", "https://xkiro.com/ref/3Y9VZSF", "旗舰", "2026-08-06"),
+    ("coding-xkiro", "Power", None, "TOKEN", "月度订阅", 200, None, "USD", 30, None, "token", None, [{"code":"claude"},{"code":"gpt"},{"code":"gemini"},{"code":"deepseek"},{"code":"qwen"},{"code":"glm"}], ["周预算 $2,640", "60+ 模型", "40 倍配额", "最大并发请求", "最高输出限制", "最高优先级支持 · 12h"], [], "旗舰 · $200/月", "https://xkiro.com/ref/3Y9VZSF", "旗舰", "2026-08-06"),
 ]
 
 # Token Plans
 TOKEN_PLANS = [
     # Token 入门 (月付 ≤ ¥100)
-    ("token-tencent", "Lite", None, "TOKEN", "按 Token 计费", 39, None, "CNY", 30, 35000000, "token", [{"code":"auto"},{"code":"deepseek-v4-flash"},{"code":"glm-5.1"},{"code":"kimi-k2.5"}], ["3500万 Tokens/月", "仅限AI工具使用"], [], "3500万/月", "https://console.cloud.tencent.cn/tokenhub/", "入门", "2026-08-01"),
-    ("token-tianyi", "2500万", None, "TOKEN", "按 Token 计费", 29, None, "CNY", 30, 25000000, "token", [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["2500万 Tokens/月"], [], "2500万/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "入门", "2026-08-01"),
-    ("token-alaya", "入门版", None, "TOKEN", "按 Token 计费", 199, None, "CNY", 30, 32700000, "token", [{"code":"glm-5.2"},{"code":"glm-5.1"},{"code":"deepseek-v4-flash"}], ["3270万 Tokens/月"], [], "3270万/月", "https://codingplan.alayanew.com/docs/billing", "入门", "2026-08-01"),
-    ("token-xiaomi", "Lite", None, "CREDITS", "Credit 计费", 39, 34.32, "CNY", 30, 4100000000, "credit", [{"code":"mimo-v2.5-pro"},{"code":"mimo-v2.5"}], ["4.1B Credits/月", "Credit ≠ Token", "首月¥34.32"], [], "4.1B Credits", "https://platform.xiaomimimo.com/#/token-plan", "入门", "2026-08-01"),
-    ("token-fangzhou", "Small", None, "CREDITS", "AFP 积分制", 40, None, "CNY", 30, 20000, "afp", [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["20,000 AFP/月"], [], "20,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "入门", "2026-08-01"),
-    ("token-opencode", "Go", None, "TOKEN", "按量计费", 10, None, "USD", 30, None, "call", [{"code":"glm-5.2"},{"code":"gpt-5.6-luna"},{"code":"deepseek-v4-pro"},{"code":"kimi-k2.6"},{"code":"grok-4.5"},{"code":"hy3"}], ["17款模型", "$12/5h", "$30/周", "$60/月", "首月$5"], [], "17款·首月$5", "https://opencode.ai/", "进阶", "2026-08-01"),
-    ("token-chatgpt", "Token", None, "TOKEN", "按量计费", 100, None, "USD", 30, None, "call", [{"code":"gpt-5.4"},{"code":"gpt-image-2"},{"code":"gpt-5.3-codex"}], ["100 刀额度", "暂时售罄"], [], "$100·暂时售罄", "https://openai.com/chatgpt/pricing/", "售罄", "2026-08-01"),
-    ("token-tencent", "Standard", None, "TOKEN", "按 Token 计费", 99, None, "CNY", 30, 100000000, "token", [{"code":"auto"},{"code":"deepseek-v4-flash"},{"code":"glm-5.1"},{"code":"kimi-k2.5"},{"code":"deepseek-v4-pro"},{"code":"hy3"}], ["1亿 Tokens/月", "仅限AI工具使用"], [], "1亿/月", "https://console.cloud.tencent.cn/tokenhub/", "进阶", "2026-08-01"),
-    ("token-taotoken", "Lite", None, "CREDITS", "Credit 计费", 59, None, "CNY", 30, 5000, "credit", [{"code":"deepseek-v4-pro"},{"code":"kimi-k3"},{"code":"glm-5.2"}], ["5,000 Credits/月"], [], "5,000 Credits", "https://taotoken.net/", "入门", "2026-08-01"),
-    ("token-taotoken", "加油包", None, "CREDITS", "Credit 计费", 99, None, "CNY", 30, 10000, "credit", [{"code":"deepseek-v4-pro"},{"code":"kimi-k3"},{"code":"glm-5.2"}], ["10,000 Credits/月", "附加购"], [], "附加购", "https://taotoken.net/", "", "2026-08-01"),
-    ("token-tianyi", "8000万", None, "TOKEN", "按 Token 计费", 89, None, "CNY", 30, 80000000, "token", [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["8000万 Tokens/月"], [], "8000万/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "进阶", "2026-08-01"),
-    ("token-xiaomi", "Standard", None, "CREDITS", "Credit 计费", 99, 87.12, "CNY", 30, 11000000000, "credit", [{"code":"mimo-v2.5-pro"},{"code":"mimo-v2.5"}], ["11B Credits/月", "Credit ≠ Token", "首月¥87.12"], [], "11B Credits", "https://platform.xiaomimimo.com/#/token-plan", "进阶", "2026-08-01"),
+    ("token-tencent", "Lite", None, "TOKEN", "按 Token 计费", 39, None, "CNY", 30, 35000000, "token", None, [{"code":"auto"},{"code":"deepseek-v4-flash"},{"code":"glm-5.1"},{"code":"kimi-k2.5"}], ["3500万 Tokens/月", "仅限AI工具使用"], [], "3500万/月", "https://console.cloud.tencent.cn/tokenhub/", "入门", "2026-08-01"),
+    ("token-tianyi", "2500万", None, "TOKEN", "按 Token 计费", 29, None, "CNY", 30, 25000000, "token", None, [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["2500万 Tokens/月"], [], "2500万/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "入门", "2026-08-01"),
+    ("token-alaya", "入门版", None, "TOKEN", "按 Token 计费", 199, None, "CNY", 30, 32700000, "token", None, [{"code":"glm-5.2"},{"code":"glm-5.1"},{"code":"deepseek-v4-flash"}], ["3270万 Tokens/月"], [], "3270万/月", "https://codingplan.alayanew.com/docs/billing", "入门", "2026-08-01"),
+    ("token-xiaomi", "Lite", None, "CREDITS", "Credit 计费", 39, 34.32, "CNY", 30, 4100000000, "credit", 'month', [{"code":"mimo-v2.5-pro"},{"code":"mimo-v2.5"}], ["4.1B Credits/月", "Credit ≠ Token", "首月¥34.32"], [], "4.1B Credits", "https://platform.xiaomimimo.com/#/token-plan", "入门", "2026-08-01"),
+    ("token-fangzhou", "Small", None, "CREDITS", "AFP 积分制", 40, None, "CNY", 30, 20000, "afp", 'month', [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["20,000 AFP/月"], [], "20,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "入门", "2026-08-01"),
+    ("token-opencode", "Go", None, "TOKEN", "按量计费", 10, None, "USD", 30, None, "call", '5h', [{"code":"glm-5.2"},{"code":"gpt-5.6-luna"},{"code":"deepseek-v4-pro"},{"code":"kimi-k2.6"},{"code":"grok-4.5"},{"code":"hy3"}], ["17款模型", "$12/5h", "$30/周", "$60/月", "首月$5"], [], "17款·首月$5", "https://opencode.ai/", "进阶", "2026-08-01"),
+    ("token-chatgpt", "Token", None, "TOKEN", "按量计费", 100, None, "USD", 30, None, "call", None, [{"code":"gpt-5.4"},{"code":"gpt-image-2"},{"code":"gpt-5.3-codex"}], ["100 刀额度", "暂时售罄"], [], "$100·暂时售罄", "https://openai.com/chatgpt/pricing/", "售罄", "2026-08-01"),
+    ("token-tencent", "Standard", None, "TOKEN", "按 Token 计费", 99, None, "CNY", 30, 100000000, "token", None, [{"code":"auto"},{"code":"deepseek-v4-flash"},{"code":"glm-5.1"},{"code":"kimi-k2.5"},{"code":"deepseek-v4-pro"},{"code":"hy3"}], ["1亿 Tokens/月", "仅限AI工具使用"], [], "1亿/月", "https://console.cloud.tencent.cn/tokenhub/", "进阶", "2026-08-01"),
+    ("token-taotoken", "Lite", None, "CREDITS", "Credit 计费", 59, None, "CNY", 30, 5000, "credit", 'month', [{"code":"deepseek-v4-pro"},{"code":"kimi-k3"},{"code":"glm-5.2"}], ["5,000 Credits/月"], [], "5,000 Credits", "https://taotoken.net/", "入门", "2026-08-01"),
+    ("token-taotoken", "加油包", None, "CREDITS", "Credit 计费", 99, None, "CNY", 30, 10000, "credit", 'month', [{"code":"deepseek-v4-pro"},{"code":"kimi-k3"},{"code":"glm-5.2"}], ["10,000 Credits/月", "附加购"], [], "附加购", "https://taotoken.net/", "", "2026-08-01"),
+    ("token-tianyi", "8000万", None, "TOKEN", "按 Token 计费", 89, None, "CNY", 30, 80000000, "token", None, [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["8000万 Tokens/月"], [], "8000万/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "进阶", "2026-08-01"),
+    ("token-xiaomi", "Standard", None, "CREDITS", "Credit 计费", 99, 87.12, "CNY", 30, 11000000000, "credit", 'month', [{"code":"mimo-v2.5-pro"},{"code":"mimo-v2.5"}], ["11B Credits/月", "Credit ≠ Token", "首月¥87.12"], [], "11B Credits", "https://platform.xiaomimimo.com/#/token-plan", "进阶", "2026-08-01"),
     # Token 进阶级 (¥101-500)
-    ("token-tianyi", "1.8亿", None, "TOKEN", "按 Token 计费", 199, None, "CNY", 30, 180000000, "token", [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["1.8亿 Tokens/月"], [], "1.8亿/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "进阶", "2026-08-01"),
-    ("token-taotoken", "Pro", None, "CREDITS", "Credit 计费", 149, None, "CNY", 30, 14000, "credit", [{"code":"deepseek-v4-pro"},{"code":"kimi-k3"},{"code":"glm-5.2"}], ["14,000 Credits/月"], [], "14,000 Credits", "https://taotoken.net/", "进阶", "2026-08-01"),
-    ("token-fangzhou", "Medium", None, "CREDITS", "AFP 积分制", 200, None, "CNY", 30, 100000, "afp", [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["100,000 AFP/月"], [], "100,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "进阶", "2026-08-01"),
-    ("token-xiaomi", "Pro", None, "CREDITS", "Credit 计费", 329, 289.52, "CNY", 30, 38000000000, "credit", [{"code":"mimo-v2.5-pro"},{"code":"mimo-v2.5"}], ["38B Credits/月", "Credit ≠ Token", "首月¥289.52"], [], "38B Credits", "https://platform.xiaomimimo.com/#/token-plan", "进阶", "2026-08-01"),
-    ("token-tianyi", "3.8亿", None, "TOKEN", "按 Token 计费", 399, None, "CNY", 30, 380000000, "token", [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["3.8亿 Tokens/月"], [], "3.8亿/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "进阶", "2026-08-01"),
+    ("token-tianyi", "1.8亿", None, "TOKEN", "按 Token 计费", 199, None, "CNY", 30, 180000000, "token", None, [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["1.8亿 Tokens/月"], [], "1.8亿/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "进阶", "2026-08-01"),
+    ("token-taotoken", "Pro", None, "CREDITS", "Credit 计费", 149, None, "CNY", 30, 14000, "credit", 'month', [{"code":"deepseek-v4-pro"},{"code":"kimi-k3"},{"code":"glm-5.2"}], ["14,000 Credits/月"], [], "14,000 Credits", "https://taotoken.net/", "进阶", "2026-08-01"),
+    ("token-fangzhou", "Medium", None, "CREDITS", "AFP 积分制", 200, None, "CNY", 30, 100000, "afp", 'month', [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["100,000 AFP/月"], [], "100,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "进阶", "2026-08-01"),
+    ("token-xiaomi", "Pro", None, "CREDITS", "Credit 计费", 329, 289.52, "CNY", 30, 38000000000, "credit", 'month', [{"code":"mimo-v2.5-pro"},{"code":"mimo-v2.5"}], ["38B Credits/月", "Credit ≠ Token", "首月¥289.52"], [], "38B Credits", "https://platform.xiaomimimo.com/#/token-plan", "进阶", "2026-08-01"),
+    ("token-tianyi", "3.8亿", None, "TOKEN", "按 Token 计费", 399, None, "CNY", 30, 380000000, "token", None, [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["3.8亿 Tokens/月"], [], "3.8亿/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "进阶", "2026-08-01"),
     # Token 高阶级 (≥ ¥500)
-    ("token-aliyun", "标准坐席", None, "CREDITS", "坐席制", 150, None, "CNY", 30, 25000, "credit", [{"code":"qwen3.8-max-preview"},{"code":"qwen3.7-max"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"},{"code":"kimi-k2.6"}], ["25,000 Credits/月", "原价¥198·限时10倍加量"], ["推荐"], "限时10倍加量", "https://common-buy.aliyun.com/token-plan", "活动", "2026-08-01"),
-    ("token-tencent", "Pro", None, "TOKEN", "按 Token 计费", 299, None, "CNY", 30, 320000000, "token", [{"code":"auto"},{"code":"deepseek-v4-flash"},{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.5"},{"code":"hy3"}], ["3.2亿 Tokens/月", "仅限AI工具使用"], [], "3.2亿/月", "https://console.cloud.tencent.cn/tokenhub/", "旗舰", "2026-08-01"),
-    ("token-fangzhou", "Large", None, "CREDITS", "AFP 积分制", 500, None, "CNY", 30, 250000, "afp", [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["250,000 AFP/月"], [], "250,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "旗舰", "2026-08-01"),
-    ("token-xiaomi", "Max", None, "CREDITS", "Credit 计费", 659, 579.92, "CNY", 30, 82000000000, "credit", [{"code":"mimo-v2.5-pro"},{"code":"mimo-v2.5"}], ["82B Credits/月", "Credit ≠ Token", "首月¥579.92"], [], "82B Credits", "https://platform.xiaomimimo.com/#/token-plan", "旗舰", "2026-08-01"),
-    ("token-tianyi", "6.8亿", None, "TOKEN", "按 Token 计费", 699, None, "CNY", 30, 680000000, "token", [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["6.8亿 Tokens/月"], [], "6.8亿/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "旗舰", "2026-08-01"),
-    ("token-tencent", "Max", None, "TOKEN", "按 Token 计费", 599, None, "CNY", 30, 650000000, "token", [{"code":"auto"},{"code":"deepseek-v4-flash"},{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.5"},{"code":"hy3"},{"code":"hy3-preview"}], ["6.5亿 Tokens/月"], [], "6.5亿/月", "https://console.cloud.tencent.cn/tokenhub/", "旗舰", "2026-08-01"),
-    ("token-aliyun", "高级坐席", None, "CREDITS", "坐席制", 550, None, "CNY", 30, 100000, "credit", [{"code":"qwen3.8-max-preview"},{"code":"qwen3.7-max"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"},{"code":"kimi-k2.6"}], ["100,000 Credits/月", "原价¥698·限时10倍加量"], [], "限时10倍加量", "https://common-buy.aliyun.com/token-plan", "旗舰", "2026-08-01"),
-    ("token-aliyun", "尊享坐席", None, "CREDITS", "坐席制", 1398, None, "CNY", 30, 250000, "credit", [{"code":"qwen3.8-max-preview"},{"code":"qwen3.7-max"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"},{"code":"kimi-k2.6"}], ["250,000 Credits/月"], [], "250,000 Credits", "https://common-buy.aliyun.com/token-plan", "旗舰", "2026-08-01"),
-    ("token-fangzhou", "Max", None, "CREDITS", "AFP 积分制", 1000, None, "CNY", 30, 500000, "afp", [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["500,000 AFP/月"], [], "500,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "旗舰", "2026-08-01"),
+    ("token-aliyun", "标准坐席", None, "CREDITS", "坐席制", 150, None, "CNY", 30, 25000, "credit", 'month', [{"code":"qwen3.8-max-preview"},{"code":"qwen3.7-max"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"},{"code":"kimi-k2.6"}], ["25,000 Credits/月", "原价¥198·限时10倍加量"], ["推荐"], "限时10倍加量", "https://common-buy.aliyun.com/token-plan", "活动", "2026-08-01"),
+    ("token-tencent", "Pro", None, "TOKEN", "按 Token 计费", 299, None, "CNY", 30, 320000000, "token", None, [{"code":"auto"},{"code":"deepseek-v4-flash"},{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.5"},{"code":"hy3"}], ["3.2亿 Tokens/月", "仅限AI工具使用"], [], "3.2亿/月", "https://console.cloud.tencent.cn/tokenhub/", "旗舰", "2026-08-01"),
+    ("token-fangzhou", "Large", None, "CREDITS", "AFP 积分制", 500, None, "CNY", 30, 250000, "afp", 'month', [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["250,000 AFP/月"], [], "250,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "旗舰", "2026-08-01"),
+    ("token-xiaomi", "Max", None, "CREDITS", "Credit 计费", 659, 579.92, "CNY", 30, 82000000000, "credit", 'month', [{"code":"mimo-v2.5-pro"},{"code":"mimo-v2.5"}], ["82B Credits/月", "Credit ≠ Token", "首月¥579.92"], [], "82B Credits", "https://platform.xiaomimimo.com/#/token-plan", "旗舰", "2026-08-01"),
+    ("token-tianyi", "6.8亿", None, "TOKEN", "按 Token 计费", 699, None, "CNY", 30, 680000000, "token", None, [{"code":"glm-5"},{"code":"deepseek-v3.2"}], ["6.8亿 Tokens/月"], [], "6.8亿/月", "https://www.ctyun.cn/act/AI/zhuanxiang", "旗舰", "2026-08-01"),
+    ("token-tencent", "Max", None, "TOKEN", "按 Token 计费", 599, None, "CNY", 30, 650000000, "token", None, [{"code":"auto"},{"code":"deepseek-v4-flash"},{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.5"},{"code":"hy3"},{"code":"hy3-preview"}], ["6.5亿 Tokens/月"], [], "6.5亿/月", "https://console.cloud.tencent.cn/tokenhub/", "旗舰", "2026-08-01"),
+    ("token-aliyun", "高级坐席", None, "CREDITS", "坐席制", 550, None, "CNY", 30, 100000, "credit", 'month', [{"code":"qwen3.8-max-preview"},{"code":"qwen3.7-max"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"},{"code":"kimi-k2.6"}], ["100,000 Credits/月", "原价¥698·限时10倍加量"], [], "限时10倍加量", "https://common-buy.aliyun.com/token-plan", "旗舰", "2026-08-01"),
+    ("token-aliyun", "尊享坐席", None, "CREDITS", "坐席制", 1398, None, "CNY", 30, 250000, "credit", 'month', [{"code":"qwen3.8-max-preview"},{"code":"qwen3.7-max"},{"code":"deepseek-v4-pro"},{"code":"glm-5.2"},{"code":"kimi-k2.6"}], ["250,000 Credits/月"], [], "250,000 Credits", "https://common-buy.aliyun.com/token-plan", "旗舰", "2026-08-01"),
+    ("token-fangzhou", "Max", None, "CREDITS", "AFP 积分制", 1000, None, "CNY", 30, 500000, "afp", 'month', [{"code":"deepseek-v4-pro"},{"code":"glm-5.1"},{"code":"kimi-k2.6"}], ["500,000 AFP/月"], [], "500,000 AFP/月", "https://www.volcengine.com/docs/82379/2366394?lang=zh", "旗舰", "2026-08-01"),
 ]
 
 def slugify(name):
@@ -213,18 +213,36 @@ def build_billing_note(price, periodDays):
         return "一次性"
     return "按量计费"
 
-def build_usage_window(quotaAmount, quotaUnit, highlight, benefits):
-    """按配额语义生成 usageWindow，避免同一数字同时进 monthly/totalTokens 造成单位丢失：
-    - fiveHour：从 highlight/benefits 解析 "X次/5h"（call 型无窗口标注时回退到 quotaAmount）
-    - weekly：  解析 "X次/周" / "每周 X 次"
-    - monthly： 仅放请求数型（call/prompt）月度配额，或 credit/afp 型配额
-    - totalTokens：仅 token 型配额（此时 monthly 置 null，避免 UI 单位混淆）"""
+def build_usage_window(quotaAmount, quotaUnit, quotaWindow, highlight, benefits):
+    """按配额语义生成 usageWindow，优先使用显式 quotaWindow 字段：
+    - quotaWindow=="5h"   → fiveHour=quotaAmount
+    - quotaWindow=="month" → monthly=quotaAmount
+    - quotaWindow=="week"  → weekly=quotaAmount
+    - quotaWindow==None    → 不再默认回填 fiveHour，保持 null（显示"待核实"）
+    保留原有正则解析作为 fallback（当 quotaWindow 未提供时）。
+    token/credit/afp 分支逻辑不变。"""
     text = " ".join(filter(None, [highlight] + list(benefits)))
 
     def num(m):
         return int(m.group(1).replace(",", ""))
 
-    five, weekly, monthly = None, None, None
+    five, weekly, monthly, totalTokens = None, None, None, None
+
+    # === 优先路径：显式 quotaWindow ===
+    if quotaWindow is not None:
+        if quotaUnit == "token":
+            totalTokens = quotaAmount
+        elif quotaUnit in ("credit", "afp"):
+            monthly = quotaAmount
+        elif quotaWindow == "5h":
+            five = quotaAmount
+        elif quotaWindow == "week":
+            weekly = quotaAmount
+        elif quotaWindow == "month":
+            monthly = quotaAmount
+        return {"fiveHour": five, "weekly": weekly, "monthly": monthly, "totalTokens": totalTokens}
+
+    # === Fallback：正则解析（兼容旧数据或未标注 quotaWindow 的情况）===
     m = re.search(r'(\d[\d,]*)\s*次/5h', text)
     if m:
         five = num(m)
@@ -243,20 +261,18 @@ def build_usage_window(quotaAmount, quotaUnit, highlight, benefits):
 
     if quotaUnit == "token":
         totalTokens = quotaAmount
-        monthly = None  # token 型只走 totalTokens，避免单位丢失
+        monthly = None
     elif quotaUnit in ("credit", "afp"):
         monthly = quotaAmount
-        totalTokens = None
-    else:  # call / prompt 等请求数型
-        totalTokens = None
+    else:
+        # Fallback: 无显式窗口标注时仍尝试回退到 5h（仅 fallback 路径）
         if five is None and weekly is None and monthly is None and quotaAmount is not None:
-            # 无显式窗口标注：按平台主流口径（5h 窗口）回退
             five = quotaAmount
         elif five is None and quotaAmount is not None and "/5h" in text:
             five = quotaAmount
     return {"fiveHour": five, "weekly": weekly, "monthly": monthly, "totalTokens": totalTokens}
 
-def build_plan(pid, name, tier, billingMode, billingLabel, price, originalPrice, currency, periodDays, quotaAmount, quotaUnit, models_raw, benefits, tags, highlight, subUrl, badge, asOf):
+def build_plan(pid, name, tier, billingMode, billingLabel, price, originalPrice, currency, periodDays, quotaAmount, quotaUnit, quotaWindow, models_raw, benefits, tags, highlight, subUrl, badge, asOf):
     prov = next((p for p in PROVIDERS if p["id"] == pid), None)
     if not prov:
         return None
@@ -283,8 +299,9 @@ def build_plan(pid, name, tier, billingMode, billingLabel, price, originalPrice,
         "periodDays": periodDays,
         "quotaAmount": quotaAmount,
         "quotaUnit": quotaUnit,
+        "quotaWindow": quotaWindow,
         "billingCycles": {"monthly": price, "quarterly": None, "annual": None, "note": build_billing_note(price, periodDays)},
-        "usageWindow": build_usage_window(quotaAmount, quotaUnit, highlight, benefits),
+        "usageWindow": build_usage_window(quotaAmount, quotaUnit, quotaWindow, highlight, benefits),
         "models": models,
         "benefits": benefits,
         "tags": tags,
@@ -326,8 +343,8 @@ for t in all_plan_tuples:
 
 # ---- xKiro 后处理：修正 id（Pro+ 与 Pro 冲突）+ 季付-10% / 年付-20% ----
 XKIRO_PLAN_IDS = {"Free": "free", "Pro": "pro", "Pro+": "proplus", "Max": "max", "Ultra": "ultra", "Power": "power"}
-XKIRO_DISCOUNTS = {  # (quarterly 月均价, annual 月均价) = price*0.9 / price*0.8
-    "free":    (0, 0),
+XKIRO_DISCOUNTS = {  # (quarterly 月均价, annual 月均价) = price*0.9 / price*0.8；免费档无季/年付，置 None 显示「免费」
+    "free":    (None, None),
     "pro":     (4.5, 4),
     "proplus": (9, 8),
     "max":     (18, 16),
@@ -335,7 +352,7 @@ XKIRO_DISCOUNTS = {  # (quarterly 月均价, annual 月均价) = price*0.9 / pri
     "power":   (180, 160),
 }
 XKIRO_NOTES = {  # 保留周预算信息 + 折扣
-    "free":    "100K tokens/天 · 季付-10% 年付-20%",
+    "free":    "100K tokens/天 · 无季/年付",
     "pro":     "周预算 $67 · 季付-10% 年付-20%",
     "proplus": "周预算 $132 · 季付-10% 年付-20%",
     "max":     "周预算 $264 · 季付-10% 年付-20%",

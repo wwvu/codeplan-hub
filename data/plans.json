@@ -15,6 +15,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 39,
       "quarterly": null,
@@ -60,6 +61,7 @@
     "periodDays": 30,
     "quotaAmount": 1200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 20,
       "quarterly": null,
@@ -108,6 +110,7 @@
     "periodDays": null,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 0,
       "quarterly": null,
@@ -161,6 +164,7 @@
     "periodDays": 30,
     "quotaAmount": 40,
     "quotaUnit": "prompt",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 29,
       "quarterly": null,
@@ -206,6 +210,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 199,
       "quarterly": null,
@@ -257,6 +262,7 @@
     "periodDays": 30,
     "quotaAmount": 30000,
     "quotaUnit": "call",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 999,
       "quarterly": null,
@@ -264,9 +270,9 @@
       "note": "仅月付"
     },
     "usageWindow": {
-      "fiveHour": 30000,
+      "fiveHour": null,
       "weekly": null,
-      "monthly": null,
+      "monthly": 30000,
       "totalTokens": null
     },
     "models": [
@@ -309,6 +315,7 @@
     "periodDays": 30,
     "quotaAmount": 10000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 4.9,
       "quarterly": null,
@@ -360,6 +367,7 @@
     "periodDays": 30,
     "quotaAmount": 42000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 19.9,
       "quarterly": null,
@@ -411,6 +419,7 @@
     "periodDays": 30,
     "quotaAmount": 1200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 40,
       "quarterly": null,
@@ -462,6 +471,7 @@
     "periodDays": 30,
     "quotaAmount": 1200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 40,
       "quarterly": null,
@@ -514,6 +524,7 @@
     "periodDays": 30,
     "quotaAmount": 1200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 40,
       "quarterly": null,
@@ -560,6 +571,7 @@
     "periodDays": 30,
     "quotaAmount": 1200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 40,
       "quarterly": null,
@@ -612,6 +624,7 @@
     "periodDays": null,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 0,
       "quarterly": null,
@@ -676,6 +689,7 @@
     "periodDays": 7,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 9.9,
       "quarterly": null,
@@ -731,6 +745,7 @@
     "periodDays": 30,
     "quotaAmount": 1000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 49.9,
       "quarterly": null,
@@ -785,6 +800,7 @@
     "periodDays": 30,
     "quotaAmount": 1200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 49,
       "quarterly": null,
@@ -830,6 +846,7 @@
     "periodDays": 30,
     "quotaAmount": 1200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 49,
       "quarterly": null,
@@ -875,6 +892,7 @@
     "periodDays": 30,
     "quotaAmount": 200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 49,
       "quarterly": null,
@@ -935,6 +953,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 49,
       "quarterly": null,
@@ -983,6 +1002,7 @@
     "periodDays": 30,
     "quotaAmount": 1500,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 49,
       "quarterly": null,
@@ -1028,6 +1048,7 @@
     "periodDays": null,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 0,
       "quarterly": null,
@@ -1072,6 +1093,7 @@
     "periodDays": null,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 0,
       "quarterly": null,
@@ -1126,6 +1148,7 @@
     "periodDays": 30,
     "quotaAmount": 1500,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 49,
       "quarterly": null,
@@ -1171,6 +1194,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 20,
       "quarterly": null,
@@ -1222,6 +1246,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 25,
       "quarterly": null,
@@ -1273,6 +1298,7 @@
     "periodDays": null,
     "quotaAmount": 1500,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 0,
       "quarterly": null,
@@ -1324,6 +1350,7 @@
     "periodDays": 30,
     "quotaAmount": 1000,
     "quotaUnit": "call",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 45,
       "quarterly": null,
@@ -1375,6 +1402,7 @@
     "periodDays": 7,
     "quotaAmount": 50000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 29.9,
       "quarterly": null,
@@ -1426,6 +1454,7 @@
     "periodDays": 30,
     "quotaAmount": 100,
     "quotaUnit": "prompt",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 70,
       "quarterly": null,
@@ -1471,6 +1500,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 199,
       "quarterly": null,
@@ -1514,6 +1544,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 99,
       "quarterly": null,
@@ -1562,6 +1593,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 100,
       "quarterly": null,
@@ -1610,6 +1642,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 99,
       "quarterly": null,
@@ -1655,6 +1688,7 @@
     "periodDays": 30,
     "quotaAmount": 300,
     "quotaUnit": "prompt",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 140,
       "quarterly": null,
@@ -1700,6 +1734,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 140,
       "quarterly": null,
@@ -1751,6 +1786,7 @@
     "periodDays": 30,
     "quotaAmount": 2500,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 119,
       "quarterly": null,
@@ -1805,6 +1841,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 149,
       "quarterly": null,
@@ -1850,6 +1887,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 149,
       "quarterly": null,
@@ -1895,6 +1933,7 @@
     "periodDays": 30,
     "quotaAmount": 800,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 199,
       "quarterly": null,
@@ -1955,6 +1994,7 @@
     "periodDays": 30,
     "quotaAmount": 22500,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 199,
       "quarterly": null,
@@ -2000,6 +2040,7 @@
     "periodDays": 30,
     "quotaAmount": 4500,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 119,
       "quarterly": null,
@@ -2045,6 +2086,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 199,
       "quarterly": null,
@@ -2093,6 +2135,7 @@
     "periodDays": 30,
     "quotaAmount": 5000,
     "quotaUnit": "call",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 125,
       "quarterly": null,
@@ -2144,6 +2187,7 @@
     "periodDays": 30,
     "quotaAmount": 15000,
     "quotaUnit": "call",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 249,
       "quarterly": null,
@@ -2197,6 +2241,7 @@
     "periodDays": 30,
     "quotaAmount": 45000,
     "quotaUnit": "call",
+    "quotaWindow": "week",
     "billingCycles": {
       "monthly": 200,
       "quarterly": null,
@@ -2243,6 +2288,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 388,
       "quarterly": null,
@@ -2286,6 +2332,7 @@
     "periodDays": 30,
     "quotaAmount": 230000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 99.9,
       "quarterly": null,
@@ -2337,6 +2384,7 @@
     "periodDays": 30,
     "quotaAmount": 700000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 299.9,
       "quarterly": null,
@@ -2388,6 +2436,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 200,
       "quarterly": null,
@@ -2439,6 +2488,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 200,
       "quarterly": null,
@@ -2491,6 +2541,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 200,
       "quarterly": null,
@@ -2538,6 +2589,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 200,
       "quarterly": null,
@@ -2591,6 +2643,7 @@
     "periodDays": 30,
     "quotaAmount": 1000,
     "quotaUnit": "prompt",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 350,
       "quarterly": null,
@@ -2636,6 +2689,7 @@
     "periodDays": 30,
     "quotaAmount": 15000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 469,
       "quarterly": null,
@@ -2681,6 +2735,7 @@
     "periodDays": 30,
     "quotaAmount": 40000,
     "quotaUnit": "call",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 429,
       "quarterly": null,
@@ -2732,6 +2787,7 @@
     "periodDays": 30,
     "quotaAmount": 24000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 469,
       "quarterly": null,
@@ -2777,6 +2833,7 @@
     "periodDays": 30,
     "quotaAmount": 24000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 469,
       "quarterly": null,
@@ -2823,6 +2880,7 @@
     "periodDays": 30,
     "quotaAmount": 75000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 699,
       "quarterly": null,
@@ -2868,6 +2926,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 699,
       "quarterly": null,
@@ -2916,6 +2975,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 10,
       "quarterly": null,
@@ -2992,6 +3052,7 @@
     "periodDays": 30,
     "quotaAmount": 1200,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 18,
       "quarterly": null,
@@ -3037,6 +3098,7 @@
     "periodDays": 30,
     "quotaAmount": 6000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 72,
       "quarterly": null,
@@ -3082,6 +3144,7 @@
     "periodDays": 30,
     "quotaAmount": 24000,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 160,
       "quarterly": null,
@@ -3127,11 +3190,12 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 0,
-      "quarterly": 0,
-      "annual": 0,
-      "note": "100K tokens/天 · 季付-10% 年付-20%"
+      "quarterly": null,
+      "annual": null,
+      "note": "100K tokens/天 · 无季/年付"
     },
     "usageWindow": {
       "fiveHour": null,
@@ -3191,6 +3255,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 5,
       "quarterly": 4.5,
@@ -3256,6 +3321,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 10,
       "quarterly": 9,
@@ -3320,6 +3386,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 20,
       "quarterly": 18,
@@ -3384,6 +3451,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 100,
       "quarterly": 90,
@@ -3449,6 +3517,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 200,
       "quarterly": 180,
@@ -3514,6 +3583,7 @@
     "periodDays": 30,
     "quotaAmount": 35000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 39,
       "quarterly": null,
@@ -3569,6 +3639,7 @@
     "periodDays": 30,
     "quotaAmount": 25000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 29,
       "quarterly": null,
@@ -3617,6 +3688,7 @@
     "periodDays": 30,
     "quotaAmount": 32700000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 199,
       "quarterly": null,
@@ -3668,6 +3740,7 @@
     "periodDays": 30,
     "quotaAmount": 4100000000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 39,
       "quarterly": null,
@@ -3718,6 +3791,7 @@
     "periodDays": 30,
     "quotaAmount": 20000,
     "quotaUnit": "afp",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 40,
       "quarterly": null,
@@ -3769,6 +3843,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": "5h",
     "billingCycles": {
       "monthly": 10,
       "quarterly": null,
@@ -3833,6 +3908,7 @@
     "periodDays": 30,
     "quotaAmount": null,
     "quotaUnit": "call",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 100,
       "quarterly": null,
@@ -3885,6 +3961,7 @@
     "periodDays": 30,
     "quotaAmount": 100000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 99,
       "quarterly": null,
@@ -3946,6 +4023,7 @@
     "periodDays": 30,
     "quotaAmount": 5000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 59,
       "quarterly": null,
@@ -3997,6 +4075,7 @@
     "periodDays": 30,
     "quotaAmount": 10000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 99,
       "quarterly": null,
@@ -4049,6 +4128,7 @@
     "periodDays": 30,
     "quotaAmount": 80000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 89,
       "quarterly": null,
@@ -4097,6 +4177,7 @@
     "periodDays": 30,
     "quotaAmount": 11000000000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 99,
       "quarterly": null,
@@ -4147,6 +4228,7 @@
     "periodDays": 30,
     "quotaAmount": 180000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 199,
       "quarterly": null,
@@ -4195,6 +4277,7 @@
     "periodDays": 30,
     "quotaAmount": 14000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 149,
       "quarterly": null,
@@ -4246,6 +4329,7 @@
     "periodDays": 30,
     "quotaAmount": 100000,
     "quotaUnit": "afp",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 200,
       "quarterly": null,
@@ -4297,6 +4381,7 @@
     "periodDays": 30,
     "quotaAmount": 38000000000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 329,
       "quarterly": null,
@@ -4347,6 +4432,7 @@
     "periodDays": 30,
     "quotaAmount": 380000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 399,
       "quarterly": null,
@@ -4395,6 +4481,7 @@
     "periodDays": 30,
     "quotaAmount": 25000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 150,
       "quarterly": null,
@@ -4455,6 +4542,7 @@
     "periodDays": 30,
     "quotaAmount": 320000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 299,
       "quarterly": null,
@@ -4516,6 +4604,7 @@
     "periodDays": 30,
     "quotaAmount": 250000,
     "quotaUnit": "afp",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 500,
       "quarterly": null,
@@ -4567,6 +4656,7 @@
     "periodDays": 30,
     "quotaAmount": 82000000000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 659,
       "quarterly": null,
@@ -4617,6 +4707,7 @@
     "periodDays": 30,
     "quotaAmount": 680000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 699,
       "quarterly": null,
@@ -4665,6 +4756,7 @@
     "periodDays": 30,
     "quotaAmount": 650000000,
     "quotaUnit": "token",
+    "quotaWindow": null,
     "billingCycles": {
       "monthly": 599,
       "quarterly": null,
@@ -4728,6 +4820,7 @@
     "periodDays": 30,
     "quotaAmount": 100000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 550,
       "quarterly": null,
@@ -4786,6 +4879,7 @@
     "periodDays": 30,
     "quotaAmount": 250000,
     "quotaUnit": "credit",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 1398,
       "quarterly": null,
@@ -4843,6 +4937,7 @@
     "periodDays": 30,
     "quotaAmount": 500000,
     "quotaUnit": "afp",
+    "quotaWindow": "month",
     "billingCycles": {
       "monthly": 1000,
       "quarterly": null,

@@ -11,7 +11,7 @@
 - **5 大场景 + 已下架归档**：Coding / Token / Video / Image / Audio / 已下架，分类 tab 切换（中转站 relay 数据保留但未上线，不计入展示）
 - **卡片概览**：每家平台一张卡片，星级评分 + 编辑点评 + 支持模型 + 最低价，点击卡片筛选下方对比表
 - **12 列对比大表**：平台 / 方案 / 开通 / 月付 / 季付均价 / 年付均价 / 5h请求数 / 周请求数 / 月总请求数 / 支持模型 / 额外权益 / 备注
-- **多维度筛选**：平台下拉、模型下拉、月付/季付/年付上限、计费方式（全部/Coding/Token），组合生效
+- **多维度筛选**：平台下拉、模型下拉、月付/季付/年付上限、计费方式（全部/Coding/Token/Credits），组合生效
 - **跨币种折算**：美元套餐自动按 7.2 汇率折算人民币参与排序和价格筛选，显示 `$20 ≈¥144`
 - **排行徽章**：入门 / 性价比 / 进阶 / 旗舰 / 活动 / 免费 / 按量，同分内可置顶 featured 平台
 - **深 / 浅主题**：跟随系统 + 手动切换，localStorage 持久化
@@ -56,7 +56,7 @@ python3 -m http.server 8765
 ## 📁 项目结构
 
 ```
-codeplan-hub/
+boke/
 ├── index.html                  # 站点主体（HTML + CSS + JS 单文件）
 ├── data/
 │   ├── providers.json          # 55 家展示平台 + 1 家中转站保留未上线（共 56 条）
@@ -98,7 +98,8 @@ codeplan-hub/
   "providerId": "coding-wenming",
   "planName": "Pro",
   "tier": "PRO",                   // 可空
-  "billingMode": "CALL",           // CALL 按次 / TOKEN 按量
+  "billingMode": "CALL",           // CALL 按次 / TOKEN 按量 / CREDITS 积分制
+  "quotaUnit": "call",             // call/token/credit/prompt/afp（CREDITS 模式下通常为 credit）
   "billingLabel": "月度按次",
   "price": 125,                    // 主价格
   "currency": "CNY",               // CNY / USD
@@ -118,7 +119,7 @@ codeplan-hub/
 }
 ```
 
-**橙色「待核实」** 标记表示该字段接口未提供或待人工核实，非最终值。
+**橙色「待核实」** 文字出现在对比表中 `usageWindow` 字段为 null 的单元格（如 5h 请求数、周请求数等），表示该配额数据尚未录入或待人工核实。`isPlaceholder` 字段当前全为 false，仅预留未来用于标记整条套餐为占位数据。
 
 ## 🔗 开通链接策略
 
@@ -128,7 +129,7 @@ codeplan-hub/
 - **其余平台一律官方直链**，不带任何第三方邀请码
 - **ChatGPT** 指向官方定价页 `openai.com/chatgpt/pricing`（美元计价，自动折算人民币对比）
 
-如需更改邀请链接，修改 `data/_generate_data.py` 对应记录后重新生成，或直接改 `data/providers.json` / `data/plans.json` 的 `subscribeUrl` / `url` 字段。
+如需更改邀请链接，修改 `data/_generate_data.py` 对应记录后**依次运行** `python3 data/_generate_data.py && python3 data/_add_reviews.py` 重新生成（第二步会把编辑点评写回 providers.json，漏掉会导致卡片点评全部消失），或直接改 `data/providers.json` / `data/plans.json` 的 `subscribeUrl` / `url` 字段。
 
 ## 🎨 设计要点
 
