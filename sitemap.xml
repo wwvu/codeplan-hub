@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 单页应用：分类是 hash fragment，搜索引擎忽略 fragment（视为同一 URL），
+     sitemap 只声明唯一可索引页面，避免 6 条重复 URL 被 SEO 工具判为冗余 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://codeplan.example.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://codeplan.example.com/#coding</loc><priority>0.9</priority></url>
-  <url><loc>https://codeplan.example.com/#token</loc><priority>0.9</priority></url>
-  <url><loc>https://codeplan.example.com/#video</loc><priority>0.8</priority></url>
-  <url><loc>https://codeplan.example.com/#image</loc><priority>0.8</priority></url>
-  <url><loc>https://codeplan.example.com/#audio</loc><priority>0.8</priority></url>
-  <url><loc>https://codeplan.example.com/#discontinued</loc><priority>0.5</priority></url>
 </urlset>

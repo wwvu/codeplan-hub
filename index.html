@@ -472,16 +472,16 @@
       <select class="fb-select" id="fModels"><option value="">全部模型</option></select>
     </div>
     <div class="fb-group">
-      <div class="fb-label">月付上限</div>
+      <div class="fb-label">月付 ≤</div>
       <div class="fb-amount"><span class="cur">¥</span><input type="number" id="fMonthly" min="0" step="1" placeholder="不限" aria-label="月付上限（元）" /></div>
     </div>
     <div class="fb-group">
-      <div class="fb-label">季付上限</div>
-      <div class="fb-amount"><span class="cur">¥</span><input type="number" id="fQuarterly" min="0" step="1" placeholder="不限" aria-label="季付上限（元）" /></div>
+      <div class="fb-label">季付折月均 ≤</div>
+      <div class="fb-amount"><span class="cur">¥</span><input type="number" id="fQuarterly" min="0" step="1" placeholder="不限" aria-label="季付折月均上限（元）" /></div>
     </div>
     <div class="fb-group">
-      <div class="fb-label">年付上限</div>
-      <div class="fb-amount"><span class="cur">¥</span><input type="number" id="fAnnual" min="0" step="1" placeholder="不限" aria-label="年付上限（元）" /></div>
+      <div class="fb-label">年付折月均 ≤</div>
+      <div class="fb-amount"><span class="cur">¥</span><input type="number" id="fAnnual" min="0" step="1" placeholder="不限" aria-label="年付折月均上限（元）" /></div>
     </div>
     <button class="fb-reset" id="fReset">重置</button>
     <span class="fb-status" id="fStatus"></span>
@@ -867,7 +867,7 @@ function updateFilterStatus() {
   document.getElementById('fReset').disabled = !active;
 }
 
-// 价格单元格（月付 / 季付均价 / 年付均价）
+// 价格单元格（月付 / 季付折月均 / 年付折月均）
 function priceCell(plan) {
   const bc = plan.billingCycles || {};
   const fmt = v => Number.isInteger(v) ? v : (v != null ? v.toFixed(v < 10 ? 2 : 0) : null);
@@ -1039,7 +1039,7 @@ function compareHtml(provs) {
   const emptyFiltered = codingPlans.length === 0;
   const tblHtml = emptyFiltered
     ? '<div class="group-empty">没有套餐符合当前筛选条件。点「重置」恢复。</div>'
-    : '<div class="cmp-tbl-wrap"><table class="cmp-tbl"><colgroup><col class="c-platform"><col class="c-plan"><col class="c-sub"><col class="c-price"><col class="c-price"><col class="c-price"><col class="c-req"><col class="c-req"><col class="c-req"><col class="c-models"><col class="c-benefits"><col class="c-remark"></colgroup><thead><tr><th scope="col">平台</th><th scope="col">方案</th><th scope="col">开通</th><th scope="col">月付</th><th scope="col">季付均价</th><th scope="col">年付均价</th><th scope="col">5h 请求数</th><th scope="col">周请求数</th><th scope="col">月总请求数</th><th scope="col">支持模型</th><th scope="col">额外权益</th><th scope="col">备注</th></tr></thead><tbody>'+rowsHtml+'</tbody></table></div>';
+    : '<div class="cmp-tbl-wrap"><table class="cmp-tbl"><colgroup><col class="c-platform"><col class="c-plan"><col class="c-sub"><col class="c-price"><col class="c-price"><col class="c-price"><col class="c-req"><col class="c-req"><col class="c-req"><col class="c-models"><col class="c-benefits"><col class="c-remark"></colgroup><thead><tr><th scope="col">平台</th><th scope="col">方案</th><th scope="col">开通</th><th scope="col">月付</th><th scope="col">季付折月均</th><th scope="col">年付折月均</th><th scope="col">5h 请求数</th><th scope="col">周请求数</th><th scope="col">月总请求数</th><th scope="col">支持模型</th><th scope="col">额外权益</th><th scope="col">备注</th></tr></thead><tbody>'+rowsHtml+'</tbody></table></div>';
 
   const catLabel = CAT_LABELS[currentCategory] || currentCategory;
   return '<div class="cmp-card"><div class="cmp-head">'+headerChips+'</div><div class="group-label">'+catLabel+' · 每行一个档位 <span class="pill">直接列出</span></div>'+tblHtml+'<div class="cmp-note"><strong>读法：</strong>每行一个套餐档位。聚合平台为模型二次转售，可与厂商原价对照。「开通」走官方/邀请链接。<strong>橙色 = 数据待人工核实</strong>。数据来源：AIPlanHub。</div></div>';

@@ -1,8 +1,8 @@
 {
-  "life": 3,
-  "found_total": 3,
-  "round": 2,
-  "rounds_completed": 1,
+  "life": 4,
+  "found_total": 5,
+  "round": 3,
+  "rounds_completed": 2,
   "alive": true,
   "mode": "auto",
   "history": [
@@ -16,6 +16,17 @@
         "数据字段语义填反：15 条套餐 originalPrice 存促销价而非原价，前端渲染出「现价¥40+划线¥7.9」的颠倒促销语义 | 证据：data/_generate_data.py:93（修复前第7位为7.9）+ data/plans.json 15条 originalPrice<price；浏览器复现「¥40¥7.90仅月付」 | 根因：元组第7位填了首月促销价 | 修复：源头置 None，重跑管线红测试转绿",
         "移动端横向溢出：375px 视口整页溢出 67px（scrollWidth 442>375）| 证据：index.html:255（.billing-tabs width:fit-content 无响应式处理）；浏览器 getBoundingClientRect .billing-tabs 宽 422 | 修复：index.html:382 @media≤860px flex-wrap:wrap，复验 overflow=false",
         "hash 路由单向：浏览器后退/前进后 URL 变但分类不还原 | 证据：index.html:681（switchCategory 写 location.hash 无监听）；tab.back() 后 catTabActive=video 而 hash=#token | 修复：index.html:1085 hashchange 监听，复验后退后页面=hash"
+      ]
+    },
+    {
+      "round": 2,
+      "ts": "2026-09-04",
+      "delta": 1,
+      "credited": 2,
+      "life_after": 4,
+      "findings": [
+        "sitemap.xml 声明 6 条 hash fragment URL：搜索引擎协议忽略 fragment，等于把首页重复声明 6 次，SEO 工具会判为重复/无效 URL | 证据：sitemap.xml:4-9（6 条 #coding 等 URL）| 根因：把 hash 路由当成独立页面提交 | 修复：sitemap.xml 只保留唯一可索引首页（1 条），XML 解析复验无 hash",
+        "季/年付列口径歧义：列显示值为「季/年付折算的每月均价」（xKiro Pro 季付列 $4.50 = $5×0.9），但列头「季付均价」用户会读成季度总价（实际 $13.5，3 倍偏差），筛选器「季付上限」同样口径未标注 | 证据：index.html:1013 修复前列头「季付均价」+ xKiro quarterly=4.5 数据 | 根因：billingCycles.quarterly 语义是月均价但 UI 未标注口径 | 修复：列头/筛选器/README 统一改「季付折月均/年付折月均」，Live 复验 xKiro $4.50 显示于正确口径列"
       ]
     }
   ]

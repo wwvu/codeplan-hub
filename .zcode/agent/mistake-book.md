@@ -168,3 +168,17 @@
 - 反思：凡是往 location.hash 写值的代码，必须配对 hashchange 监听（写路由必监听路由）
 - 同类排查点：所有 SPA 手写 hash 路由；pushState 无 popstate 监听
 - 实例：switchCategory → location.hash = cat
+
+## 2026-09-04 R2（boke 静态站）
+### 4. hash fragment 当独立页面提交 sitemap
+- 现象：sitemap.xml 6 条 #hash URL
+- 根因：SPA hash 路由 ≠ 独立可索引页面，搜索引擎忽略 fragment
+- 反思：sitemap 只收录「服务器返回不同内容的 URL」；hash 路由站点只有一条
+- 同类排查点：所有 SPA 的 sitemap/robots/canonical 生成逻辑
+- 实例：sitemap.xml #coding 等 6 条
+### 5. 单位口径未标注（月均 vs 总价）
+- 现象：列头「季付均价」显示月均值 $4.50，用户误读为季总价（差 3 倍）
+- 根因：billingCycles.quarterly 存月均价，UI 列头没写口径；筛选器输入也同口径未标注
+- 反思：任何「折算值」必须带上口径标签（月均/日均/折后），数字和单位不能分离
+- 同类排查点：所有均价/折算列、筛选器与列的口径一致性
+- 实例：xKiro quarterly=4.5/annual=4
