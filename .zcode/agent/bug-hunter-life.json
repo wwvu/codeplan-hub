@@ -1,8 +1,8 @@
 {
-  "life": 4,
-  "found_total": 5,
-  "round": 3,
-  "rounds_completed": 2,
+  "life": 5,
+  "found_total": 7,
+  "round": 4,
+  "rounds_completed": 3,
   "alive": true,
   "mode": "auto",
   "history": [
@@ -27,6 +27,17 @@
       "findings": [
         "sitemap.xml 声明 6 条 hash fragment URL：搜索引擎协议忽略 fragment，等于把首页重复声明 6 次，SEO 工具会判为重复/无效 URL | 证据：sitemap.xml:4-9（6 条 #coding 等 URL）| 根因：把 hash 路由当成独立页面提交 | 修复：sitemap.xml 只保留唯一可索引首页（1 条），XML 解析复验无 hash",
         "季/年付列口径歧义：列显示值为「季/年付折算的每月均价」（xKiro Pro 季付列 $4.50 = $5×0.9），但列头「季付均价」用户会读成季度总价（实际 $13.5，3 倍偏差），筛选器「季付上限」同样口径未标注 | 证据：index.html:1013 修复前列头「季付均价」+ xKiro quarterly=4.5 数据 | 根因：billingCycles.quarterly 语义是月均价但 UI 未标注口径 | 修复：列头/筛选器/README 统一改「季付折月均/年付折月均」，Live 复验 xKiro $4.50 显示于正确口径列"
+      ]
+    },
+    {
+      "round": 3,
+      "ts": "2026-09-04",
+      "delta": 1,
+      "credited": 2,
+      "life_after": 5,
+      "findings": [
+        "provider headline 与 plans 数据脱节（同根因两表现：档位数+起步价）| 证据：data/_generate_data.py:47 token-tencent 称 8 档实际 4 条（Lite 39/Standard 99/Pro 299/Max 599）；:47 headline ¥28/月起实际最低 ¥39；:19 coding-kimi headline ¥39/月起实际 ¥49（39 为已清除的首月促销价残留）| 根因：headline 手工维护未与 plans 联动校验 | 修复：8→4 档、¥28→39、¥39→49，全量审计 56 家起步价 PASS，Live 复验卡片「4 档方案·¥39 起」「4 档方案·¥49 起」",
+        "badge 枚举映射缺口：数据 badge 含「售罄」「团队」但前端 BADGE_CLASS 无映射，fallback 到灰色 b-meter（按量样式），「售罄」失去警示语义 | 证据：index.html:551 修复前映射表无 '售罄'/'团队'；token-chatgpt badge=售罄 | 根因：数据枚举扩展时前端映射未同步 | 修复：补 b-soldout（红）/b-team（青）映射与深浅色样式，Live 复验售罄徽章 rgb(220,38,38)"
       ]
     }
   ]

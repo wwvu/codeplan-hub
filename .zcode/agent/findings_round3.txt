@@ -1,0 +1,2 @@
+provider headline 与 plans 数据脱节（同根因两表现：档位数+起步价）| 证据：data/_generate_data.py:47 token-tencent 称 8 档实际 4 条（Lite 39/Standard 99/Pro 299/Max 599）；:47 headline ¥28/月起实际最低 ¥39；:19 coding-kimi headline ¥39/月起实际 ¥49（39 为已清除的首月促销价残留）| 根因：headline 手工维护未与 plans 联动校验 | 修复：8→4 档、¥28→39、¥39→49，全量审计 56 家起步价 PASS，Live 复验卡片「4 档方案·¥39 起」「4 档方案·¥49 起」
+badge 枚举映射缺口：数据 badge 含「售罄」「团队」但前端 BADGE_CLASS 无映射，fallback 到灰色 b-meter（按量样式），「售罄」失去警示语义 | 证据：index.html:551 修复前映射表无 '售罄'/'团队'；token-chatgpt badge=售罄 | 根因：数据枚举扩展时前端映射未同步 | 修复：补 b-soldout（红）/b-team（青）映射与深浅色样式，Live 复验售罄徽章 rgb(220,38,38)

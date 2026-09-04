@@ -125,7 +125,7 @@
     "url": "https://kimi-bot.com/activities/zh-cn/invite/share?scenario=invite&from=share_poster&invitation_code=22K28A",
     "blurb": "月之暗面，Kimi-K3/K2.7-Code，四档方案，额度消耗较快",
     "rating": 3.0,
-    "headline": "¥39/月起 · 四档方案",
+    "headline": "¥49/月起 · 四档方案",
     "tags": [
       "Kimi",
       "Coding"
@@ -561,12 +561,12 @@
     "name": "腾讯·Token",
     "type": "vendor",
     "url": "https://console.cloud.tencent.cn/tokenhub/",
-    "blurb": "Auto / DeepSeek-V4-Flash/Pro / GLM-5.1 / Kimi-K2.5 / Hy3 / Hy3 preview，8档方案",
+    "blurb": "Auto / DeepSeek-V4-Flash/Pro / GLM-5.1 / Kimi-K2.5 / Hy3 / Hy3 preview，4档方案",
     "rating": 1.0,
-    "headline": "¥28/月起 · 8档方案",
+    "headline": "¥39/月起 · 4档方案",
     "tags": [
       "多模型",
-      "8档",
+      "4档",
       "禁止API"
     ],
     "asOf": "2026-08-01",

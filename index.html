@@ -278,11 +278,15 @@
   .badge.b-promo { color: #db2777; background: #fce7f3; }
   .badge.b-free { color: #16a34a; background: #dcfce7; }
   .badge.b-meter { color: var(--ink-4); background: var(--rule-2); }
+  .badge.b-soldout { color: #dc2626; background: #fee2e2; }
+  .badge.b-team { color: #0891b2; background: #cffafe; }
   [data-theme="dark"] .badge.b-entry { background: color-mix(in srgb, #0ea5e9 22%, var(--surface)); }
   [data-theme="dark"] .badge.b-value { background: color-mix(in srgb, #16a34a 22%, var(--surface)); }
   [data-theme="dark"] .badge.b-adv { background: color-mix(in srgb, #6366f1 22%, var(--surface)); }
   [data-theme="dark"] .badge.b-flag { background: color-mix(in srgb, #d97706 22%, var(--surface)); }
   [data-theme="dark"] .badge.b-promo { background: color-mix(in srgb, #db2777 22%, var(--surface)); }
+  [data-theme="dark"] .badge.b-soldout { background: color-mix(in srgb, #dc2626 22%, var(--surface)); }
+  [data-theme="dark"] .badge.b-team { background: color-mix(in srgb, #0891b2 22%, var(--surface)); }
 
   /* 对比 · 套餐大表 */
   .cmp-card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
@@ -547,8 +551,8 @@ function indexPlans() {
   plansByProvider.forEach(arr => arr.sort((a, b) => (planMonthly(a) ?? Infinity) - (planMonthly(b) ?? Infinity)));
 }
 
-// 徽章 -> CSS class
-const BADGE_CLASS = { '入门':'b-entry','性价比':'b-value','进阶':'b-adv','旗舰':'b-flag','活动':'b-promo','免费':'b-free','按量':'b-meter' };
+// 徽章 -> CSS class（数据中的 badge 全集：入门/性价比/进阶/旗舰/活动/免费/按量/售罄/团队）
+const BADGE_CLASS = { '入门':'b-entry','性价比':'b-value','进阶':'b-adv','旗舰':'b-flag','活动':'b-promo','免费':'b-free','按量':'b-meter','售罄':'b-soldout','团队':'b-team' };
 // HTML 转义：所有来自 JSON 数据、将插入 innerHTML（含 URL/属性）的字符串都必须经过 esc
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const badgeHtml = b => b ? '<span class="badge '+(BADGE_CLASS[b]||'b-meter')+'">'+esc(b)+'</span>' : '';
