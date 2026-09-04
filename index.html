@@ -378,6 +378,8 @@
     .cards-grid { grid-template-columns: 1fr; }
     .detail-head, .detail-blurb, .plan-row { padding-left: 20px; padding-right: 20px; }
     .plan-row { grid-template-columns: 1fr; gap: 12px; }
+    /* 计费 tabs 4 枚在窄屏放不下一行：允许换行，避免撑出整页横向滚动 */
+    .billing-tabs { flex-wrap: wrap; width: 100%; }
     .cmp-tbl col.c-platform { width: 130px; }
     .cmp-tbl col.c-plan     { width: 120px; }
     .cmp-tbl col.c-models   { width: 200px; }
@@ -1079,6 +1081,18 @@ Promise.all([
   if (hash && CATEGORIES.some(c => c.key === hash)) {
     currentCategory = hash;
   }
+  // 浏览器后退/前进时 hash 变化 → 同步分类（与 switchCategory 写 hash 配对，URL 不再与页面脱节）
+  window.addEventListener('hashchange', () => {
+    const h = window.location.hash.replace('#','');
+    if (h && h !== currentCategory && CATEGORIES.some(c => c.key === h)) {
+      currentCategory = h;
+      selectedProvider = null;
+      filters.platform = ''; filters.model = ''; filters.monthly = filters.quarterly = filters.annual = null; filters.billing = '';
+      syncBillingTabs();
+      document.getElementById('detailSub').textContent = CAT_LABELS[h] + ' · 每行一个套餐 · 可按平台/模型/价格上限筛选';
+      renderCatTabs(); renderCards(); renderDetail(); renderHeroStats();
+    }
+  });
   renderAll();
   const dates = [...PROVIDERS.map(p => p.asOf), ...PLANS.map(p => p.asOf)].filter(Boolean).sort();
   document.getElementById('updatedTime').textContent = dates.length ? '更新于 ' + dates[dates.length-1] : '—';

@@ -1,0 +1,3 @@
+数据字段语义填反：15 条套餐 originalPrice 存促销价而非原价，前端渲染出「现价¥40+划线¥7.9」的颠倒促销语义 | 证据：data/_generate_data.py:93（修复前第7位为7.9）+ data/plans.json 15条 originalPrice<price；浏览器复现「¥40¥7.90仅月付」 | 根因：元组第7位填了首月促销价 | 修复：源头置 None，重跑管线红测试转绿
+移动端横向溢出：375px 视口整页溢出 67px（scrollWidth 442>375）| 证据：index.html:255（.billing-tabs width:fit-content 无响应式处理）；浏览器 getBoundingClientRect .billing-tabs 宽 422 | 修复：index.html:382 @media≤860px flex-wrap:wrap，复验 overflow=false
+hash 路由单向：浏览器后退/前进后 URL 变但分类不还原 | 证据：index.html:681（switchCategory 写 location.hash 无监听）；tab.back() 后 catTabActive=video 而 hash=#token | 修复：index.html:1085 hashchange 监听，复验后退后页面=hash
