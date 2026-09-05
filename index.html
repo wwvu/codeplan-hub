@@ -992,7 +992,8 @@ function renderHeroStats() {
   const plans = catPlans();
   const totalProvs = PROVIDERS.filter(p => CATEGORIES.some(c => c.key === p.category)).length;
   const totalPlans = PLANS.length;
-  const catNames = { coding:'Coding 编程', token:'Token 凭证', video:'Video 视频', image:'Image 图片', audio:'Audio 音频', relay:'中转站' };
+  // 分类名直接复用 CAT_LABELS（含全部 6 类），避免双头维护漏键出现「当前：undefined」
+  const catNames = CAT_LABELS;
   el.innerHTML =
     '<div class="stat-item"><div class="stat-num">'+totalProvs+'<span class="u">家</span></div><div class="stat-label">全部平台<span class="stat-note">另有 1 家中转站未上线</span></div></div>'+
     '<div class="stat-item"><div class="stat-num">'+totalPlans+'<span class="u">个</span></div><div class="stat-label">套餐档位</div></div>'+

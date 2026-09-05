@@ -204,3 +204,17 @@
 - 反思：重构删组件时必须连带删样式（class 引用 grep 一遍）；死 CSS 增体积也易误导后续维护
 - 同类排查点：所有重构过的前端项目——CSS 定义 vs 模板引用差集
 - 实例：index.html 旧 UI 样式块
+
+## 2026-09-04 R5（boke 静态站）
+### 9. 双头映射表漏键（错题 7 变体）
+- 现象：「已下架」分类统计显示「当前：undefined」
+- 根因：CATEGORIES 加新分类时，catNames 独立维护的映射没同步；且含一个不可达的 relay 键掩盖了缺失
+- 反思：同源映射只留一份（catNames 直接 = CAT_LABELS）；新增枚举时 grep 所有 "key 集合" 定义点
+- 同类排查点：所有 X↔Y 映射对（CATEGORIES/CAT_LABELS/catNames/BADGE_CLASS/unitMap）
+- 实例：renderHeroStats catNames
+### 10. 周期字段丢失订阅语义
+- 现象：周付订阅三处显示「一次性」买断价
+- 根因：billingCycles.note 只按 periodDays==7 生成，不区分「每周续订」与「限购一次」
+- 反思：时间段字段（7天/30天）生成的文案必须结合订阅性（billingLabel）判断；同一数值不同语义要在源头分流
+- 同类排查点：所有 periodDays/cycle 相关展示文案；「一次性/永久/每月」类措辞与真实计费周期一致性
+- 实例：coding-openstarry-plan2 星序版(周)

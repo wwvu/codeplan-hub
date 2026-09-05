@@ -203,14 +203,16 @@ def slugify(name):
     中文等非 ASCII 字符会被剔除；若结果为空串，由外层构建循环用 'plan' + 序号兜底。"""
     return re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
 
-def build_billing_note(price, periodDays):
-    """billingCycles.note：免费档显示"免费"；付费档按周期语义给说明。"""
+def build_billing_note(price, periodDays, billingLabel=""):
+    """billingCycles.note：免费档显示"免费"；付费档按周期语义给说明。
+    7 天周期要区分「仅周付」（每周可续订的订阅）与「一次性」（限购一次的短效套餐），
+    按 billingLabel 判定，避免周付订阅被误标成买断价。"""
     if price == 0:
         return "免费"
     if periodDays == 30:
         return "仅月付"
     if periodDays == 7:
-        return "一次性"
+        return "仅周付" if "周付" in billingLabel else "一次性"
     return "按量计费"
 
 def build_usage_window(quotaAmount, quotaUnit, quotaWindow, highlight, benefits):
@@ -300,7 +302,7 @@ def build_plan(pid, name, tier, billingMode, billingLabel, price, originalPrice,
         "quotaAmount": quotaAmount,
         "quotaUnit": quotaUnit,
         "quotaWindow": quotaWindow,
-        "billingCycles": {"monthly": price, "quarterly": None, "annual": None, "note": build_billing_note(price, periodDays)},
+        "billingCycles": {"monthly": price, "quarterly": None, "annual": None, "note": build_billing_note(price, periodDays, billingLabel)},
         "usageWindow": build_usage_window(quotaAmount, quotaUnit, quotaWindow, highlight, benefits),
         "models": models,
         "benefits": benefits,

@@ -694,7 +694,7 @@
       "monthly": 9.9,
       "quarterly": null,
       "annual": null,
-      "note": "一次性"
+      "note": "仅周付"
     },
     "usageWindow": {
       "fiveHour": null,

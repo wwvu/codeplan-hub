@@ -1,0 +1,2 @@
+「已下架」分类首屏统计显示「当前：undefined」| 证据：index.html:995 修复前 catNames 映射缺 discontinued 键（CATEGORIES 有 6 键、catNames 仅 6 键且含不可达的 relay）；浏览器切 #discontinued 复现 heroStat「1家 当前：undefined」| 根因：CATEGORIES 加已下架分类时两个映射表双头维护漏同步（错题 7 同类）| 修复：catNames 复用 CAT_LABELS 单一来源，6 分类绿测试全过、全页无 undefined
+周付订阅被标「一次性」买断价：OpenStarry 星序版(周) 月付列显示「¥9.90一次性」+ 季/年付列「一次性」，用户会误读为 ¥9.9 永久买断（实际每周续订）；同数据稳明 7 天限购活动套餐「一次性」语义成立 | 证据：data/_generate_data.py:206 修复前 build_billing_note 对 periodDays==7 一律返回「一次性」；浏览器复现三列「一次性」| 根因：note 生成只看 periodDays 不看订阅语义 | 修复：按 billingLabel 区分（周付→仅周付），Live 复验「¥9.90仅周付」+ 稳明保留「一次性」
