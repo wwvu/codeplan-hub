@@ -218,3 +218,17 @@
 - 反思：时间段字段（7天/30天）生成的文案必须结合订阅性（billingLabel）判断；同一数值不同语义要在源头分流
 - 同类排查点：所有 periodDays/cycle 相关展示文案；「一次性/永久/每月」类措辞与真实计费周期一致性
 - 实例：coding-openstarry-plan2 星序版(周)
+
+## 2026-09-04 R6（boke 静态站）
+### 11. esc 纪律局部漏应用
+- 现象：4 类数据插槽插入 innerHTML 未转义，注入载荷成为真实 DOM 元素
+- 根因：契约注释写了「必须 esc」但散落在十余个渲染函数里，靠人肉记忆执行必有遗漏
+- 反思：安全契约要么集中（统一渲染层），要么有工具兜底（CI grep 数据字段直接插值的模式）；本次用红测试注入法验证最可靠
+- 同类排查点：所有 innerHTML 拼接点 ×JSON 字段矩阵；textContent 赋值安全
+- 实例：modelCell concurrency/calls、compareHtml rating、priceCell inputPricePerMillion
+### 12. 控件的禁用条件与其自身行为不一致
+- 现象：重置按钮会清 billing 筛选，却在不含 billing 的 active 判定下被禁用
+- 根因：active 判定与 reset 行为分别维护，行为扩展（加 billing tab）时判定没跟
+- 反思：「disabled 条件」=「能被清除的状态集合非空」，两者必须同一来源或同处维护
+- 同类排查点：所有 reset/clear 类按钮的禁用谓词与其清除范围的一致性
+- 实例：fReset 与 filters.billing

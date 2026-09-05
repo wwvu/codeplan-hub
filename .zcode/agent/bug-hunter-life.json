@@ -1,8 +1,8 @@
 {
-  "life": 6,
-  "found_total": 10,
-  "round": 6,
-  "rounds_completed": 5,
+  "life": 7,
+  "found_total": 12,
+  "round": 7,
+  "rounds_completed": 6,
   "alive": true,
   "mode": "auto",
   "history": [
@@ -59,6 +59,17 @@
       "findings": [
         "「已下架」分类首屏统计显示「当前：undefined」| 证据：index.html:995 修复前 catNames 映射缺 discontinued 键（CATEGORIES 有 6 键、catNames 仅 6 键且含不可达的 relay）；浏览器切 #discontinued 复现 heroStat「1家 当前：undefined」| 根因：CATEGORIES 加已下架分类时两个映射表双头维护漏同步（错题 7 同类）| 修复：catNames 复用 CAT_LABELS 单一来源，6 分类绿测试全过、全页无 undefined",
         "周付订阅被标「一次性」买断价：OpenStarry 星序版(周) 月付列显示「¥9.90一次性」+ 季/年付列「一次性」，用户会误读为 ¥9.9 永久买断（实际每周续订）；同数据稳明 7 天限购活动套餐「一次性」语义成立 | 证据：data/_generate_data.py:206 修复前 build_billing_note 对 periodDays==7 一律返回「一次性」；浏览器复现三列「一次性」| 根因：note 生成只看 periodDays 不看订阅语义 | 修复：按 billingLabel 区分（周付→仅周付），Live 复验「¥9.90仅周付」+ 稳明保留「一次性」"
+      ]
+    },
+    {
+      "round": 6,
+      "ts": "2026-09-05",
+      "delta": 1,
+      "credited": 2,
+      "life_after": 7,
+      "findings": [
+        "esc 纪律契约违规（潜在 XSS）：index.html:531 自声明「所有来自 JSON 数据、将插入 innerHTML 的字符串都必须经过 esc」，但 4 类数据插槽未转义——m.concurrency（字符串字段）、m.calls.toLocaleString()、prov.rating、plan.inputPricePerMillion（死字段）| 证据：红测试注入 concurrency='<img src=x onerror>' 后 DOM 出现真实 img 元素（index.html:866 修复前），calls='<b>injected</b>' 渲染为粗体元素 | 根因：esc 纪律在 modelCell/compareHtml 部分插槽漏应用；README 明确鼓励用户直接编辑 JSON，数据面非可信 | 修复：5 处补 esc/Number 约束，绿测试同载荷不再产生 DOM 元素、正常数字显示不变",
+        "fReset 与计费筛选状态矛盾：重置按钮 onclick 会清 filters.billing，但禁用判定 active 不含 billing——仅选 Credits 计费 tab 时重置按钮禁用，与其自身功能矛盾 | 证据：index.html:804 修复前 active 无 filters.billing；浏览器复现 billing-only 时 fReset.disabled=true | 修复：active 补 filters.billing，复验 billing-only 时可用且点击后 tab 复位"
       ]
     }
   ]

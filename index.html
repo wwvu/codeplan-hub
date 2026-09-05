@@ -801,7 +801,7 @@ function updateFilterStatus() {
   const all = provs.flatMap(p => plansFor(p.id));
   const inScope = filters.billing ? all.filter(p => p.billingMode === filters.billing) : all;
   const vis = inScope.filter(passesFilters).length;
-  const active = filters.platform || filters.model || filters.monthly != null || filters.quarterly != null || filters.annual != null;
+  const active = filters.platform || filters.model || filters.billing || filters.monthly != null || filters.quarterly != null || filters.annual != null;
   const st = document.getElementById('fStatus');
   st.innerHTML = active ? `筛选后 <span class="n">${vis}</span> / ${inScope.length} 个套餐` : `共 <span class="n">${inScope.length}</span> 个套餐`;
   document.getElementById('fReset').disabled = !active;
@@ -820,7 +820,7 @@ function priceCell(plan) {
     if (plan.originalPrice) orig = '<span class="price-orig">'+sym+fmt(plan.originalPrice)+'</span>';
     monthly = '<span class="price-val"><span class="cur">'+sym+'</span>'+fmt(plan.price)+'</span>'+conv(plan.price)+orig;
   } else if (plan.inputPricePerMillion === 0) monthly = '<span class="price-free">免费</span>';
-  else if (plan.inputPricePerMillion != null) monthly = '<span class="price-val"><span class="cur">'+sym+'</span>'+plan.inputPricePerMillion+'<span class="cur">/M in</span></span>'+conv(plan.inputPricePerMillion);
+  else if (plan.inputPricePerMillion != null) monthly = '<span class="price-val"><span class="cur">'+sym+'</span>'+esc(plan.inputPricePerMillion)+'<span class="cur">/M in</span></span>'+conv(plan.inputPricePerMillion);
   else monthly = '<span class="price-na">—</span>';
   const q = bc.quarterly, a = bc.annual;
   // 免费档（price===0）：季/年付单元格显示"免费"，不显示 billingCycles.note（如"按量计费"）
@@ -858,12 +858,12 @@ function modelCell(plan) {
   if (withSpecs.length) {
     html += withSpecs.map(m => {
       const cls = m.isBonus ? 'mchip bonus' : 'mchip';
-      const calls = m.calls != null ? ' ×'+m.calls.toLocaleString() : '';
+      const calls = m.calls != null ? ' ×'+esc(Number(m.calls).toLocaleString()) : '';
       const bonus = m.isBonus ? '<span class="mb-bonus">赠送</span>' : '';
       const specs = [];
       if (m.version) specs.push('v'+esc(m.version));
       if (m.context) specs.push(esc(m.context));
-      if (m.concurrency != null) specs.push('并发 '+m.concurrency);
+      if (m.concurrency != null) specs.push('并发 '+esc(m.concurrency));
       return '<div class="model-block"><div class="mb-head"><span class="'+cls+'">'+esc(m.code)+calls+'</span>'+bonus+'</div><span class="mb-spec">'+specs.join(' · ')+'</span></div>';
     }).join('');
   }
@@ -871,7 +871,7 @@ function modelCell(plan) {
   if (noSpecs.length) {
     const chips = noSpecs.map(m => {
       const cls = m.isBonus ? 'mchip bonus' : 'mchip';
-      const calls = m.calls != null ? ' ×'+m.calls.toLocaleString() : '';
+      const calls = m.calls != null ? ' ×'+esc(Number(m.calls).toLocaleString()) : '';
       const bonus = m.isBonus ? '<span class="mb-bonus">赠送</span>' : '';
       return '<span class="'+cls+'">'+esc(m.code)+calls+'</span>'+bonus;
     }).join('');
@@ -963,7 +963,7 @@ function compareHtml(provs) {
   const rowsHtml = codingPlans.map(plan => {
     const prov = provs.find(p => p.id === plan.providerId);
     const col = colorOf(prov.id);
-    const platCell = '<td class="col-platform" style="--c:'+col.c+'"><div class="cell-plat"><div class="mk">'+col.mark+'</div><div><div class="pn">'+esc(prov.name)+'</div><div class="pt">'+esc(typeLabel(prov.type))+' · '+prov.rating+'/5</div></div></div></td>';
+    const platCell = '<td class="col-platform" style="--c:'+col.c+'"><div class="cell-plat"><div class="mk">'+col.mark+'</div><div><div class="pn">'+esc(prov.name)+'</div><div class="pt">'+esc(typeLabel(prov.type))+' · '+esc(prov.rating)+'/5</div></div></div></td>';
     const [monthly, quarterly, annual] = priceCell(plan).split('|||');
     const [h5, weekly, monthlyReq] = reqCell(plan).split('|||');
     const sub = '<a class="sub-btn" style="--c:'+col.c+'" href="'+esc(plan.subscribeUrl || prov.url||'#')+'" target="_blank" rel="noopener noreferrer">开通 <span class="arr">↗</span></a>';
