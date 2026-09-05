@@ -1,0 +1,2 @@
+README 徽章枚举失真：特性列表写「入门/性价比/进阶/旗舰/活动/免费/按量」7 种，实际数据+前端映射（R3 补 b-soldout/b-team 后）共 9 种 | 证据：README.md:16 修复前缺「售罄/团队」；data/plans.json badge 集合含 售罄/团队，index.html BADGE_CLASS 有对应映射 | 根因：R3 扩枚举时只改了前端映射没同步 README 枚举声明 | 修复：README 补全 9 种
+附（不计命）：畸形数据模糊矩阵 14 项变异实测——4 项 THROW（models 含 null / price 字符串 / plans 含 null / providers 含 null）在真实流程均降级到 R7 加固的错误卡（renderAll 异常落 .then→catch），安全可接受；浏览器后退/前进导航回归通过（hash 与页面双向同步）；首轮标签页崩溃无法复现，记环境偶发不立案
