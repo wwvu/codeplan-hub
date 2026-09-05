@@ -1011,9 +1011,14 @@ function renderAll() {
 document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
 // On page load
+const fetchJSON = (url) => fetch(url).then(r => {
+  // 404/500 等 HTML 错误页直接 r.json() 会得到难懂的 SyntaxError，先判状态给出真因
+  if (!r.ok) throw new Error(url + ' 加载失败（HTTP ' + r.status + '）');
+  return r.json();
+});
 Promise.all([
-  fetch('data/providers.json').then(r => r.json()),
-  fetch('data/plans.json').then(r => r.json())
+  fetchJSON('data/providers.json'),
+  fetchJSON('data/plans.json')
 ]).then(([prov, plans]) => {
   PROVIDERS = prov; PLANS = plans;
   indexPlans();
@@ -1039,7 +1044,10 @@ Promise.all([
   document.getElementById('updatedTime').textContent = dates.length ? '更新于 ' + dates[dates.length-1] : '—';
   document.getElementById('detailSub').textContent = CAT_LABELS[currentCategory] + ' · 每行一个套餐 · 可按平台/模型/价格上限筛选';
 }).catch(e => {
-  document.getElementById('cardsGrid').innerHTML = `<div style="padding:48px;text-align:center;color:var(--ink-4);grid-column:1/-1">数据加载失败：${e.message}<br>请用本地服务器打开（<code>python3 -m http.server 8765</code>）</div>`;
+  // 错误态收尾：隐藏空筛选栏与计费 tab（初始 HTML 无 hidden 类，成功路径才会重设），避免残缺控件
+  document.getElementById('filterBar').classList.add('hidden');
+  document.getElementById('billingTabs').style.display = 'none';
+  document.getElementById('cardsGrid').innerHTML = `<div style="padding:48px;text-align:center;color:var(--ink-4);grid-column:1/-1">数据加载失败：${e.message}<br>请确认 data/ 目录完整，或用本地服务器打开（<code>python3 -m http.server 8765</code>）</div>`;
 });
 </script>
 

@@ -13,7 +13,8 @@ __pycache__/
 # 旧布局草稿（探索阶段产物，非当前站点）
 layout-*.html
 
-# 临时截图
+# 临时截图（og-image.png 是站点 SEO 资产，见 index.html meta，勿忽略）
 *.png
+!og-image.png
 *.jpg
 boke-*.html

@@ -1,8 +1,8 @@
 {
-  "life": 7,
-  "found_total": 12,
-  "round": 7,
-  "rounds_completed": 6,
+  "life": 8,
+  "found_total": 14,
+  "round": 8,
+  "rounds_completed": 7,
   "alive": true,
   "mode": "auto",
   "history": [
@@ -70,6 +70,17 @@
       "findings": [
         "esc 纪律契约违规（潜在 XSS）：index.html:531 自声明「所有来自 JSON 数据、将插入 innerHTML 的字符串都必须经过 esc」，但 4 类数据插槽未转义——m.concurrency（字符串字段）、m.calls.toLocaleString()、prov.rating、plan.inputPricePerMillion（死字段）| 证据：红测试注入 concurrency='<img src=x onerror>' 后 DOM 出现真实 img 元素（index.html:866 修复前），calls='<b>injected</b>' 渲染为粗体元素 | 根因：esc 纪律在 modelCell/compareHtml 部分插槽漏应用；README 明确鼓励用户直接编辑 JSON，数据面非可信 | 修复：5 处补 esc/Number 约束，绿测试同载荷不再产生 DOM 元素、正常数字显示不变",
         "fReset 与计费筛选状态矛盾：重置按钮 onclick 会清 filters.billing，但禁用判定 active 不含 billing——仅选 Credits 计费 tab 时重置按钮禁用，与其自身功能矛盾 | 证据：index.html:804 修复前 active 无 filters.billing；浏览器复现 billing-only 时 fReset.disabled=true | 修复：active 补 filters.billing，复验 billing-only 时可用且点击后 tab 复位"
+      ]
+    },
+    {
+      "round": 7,
+      "ts": "2026-09-05",
+      "delta": 1,
+      "credited": 2,
+      "life_after": 8,
+      "findings": [
+        "数据加载失败错误路径不完整：404 时 r.json() 解析 HTML 得到难懂 SyntaxError 且提示误导（用户可能正开着本地服务器）；catch 分支不收尾 UI——初始 HTML 无 hidden 类的 filterBar 与计费 tab（「全部 0/Coding 0」）在错误态仍然可见 | 证据：index.html:1015 修复前直接 r.json()、:1042 catch 仅写 cardsGrid；黑盒实测 404 时 filterBarVisible=true 且消息为「Unexpected token '<'」 | 根因：错误路径只写了错误卡，没判 r.ok、没回收初始态控件 | 修复：fetchJSON 包裹 r.ok 检查（HTTP 状态+文件名入错误消息），catch 隐藏 filterBar/billingTabs；复验 404 提示真因+控件隐藏、正常路径不受影响",
+        ".gitignore *.png 规则会静默忽略规划中的 SEO 资产：index.html og:image/twitter:image 引用 og-image.png（占位域名待上线时补），但「临时截图」通配规则 *.png 使未来添加的 og-image.png 无法入库且无任何报错 | 证据：.gitignore:17 *.png 与 index.html:15 og:image 引用矛盾；git check-ignore 证实 og-image.png 被忽略 | 根因：通配忽略规则与已知待添加资产冲突，无例外声明 | 修复：加 !og-image.png 例外，git check-ignore 复验 og-image.png 放行、临时截图仍忽略"
       ]
     }
   ]

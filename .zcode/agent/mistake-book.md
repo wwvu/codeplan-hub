@@ -232,3 +232,17 @@
 - 反思：「disabled 条件」=「能被清除的状态集合非空」，两者必须同一来源或同处维护
 - 同类排查点：所有 reset/clear 类按钮的禁用谓词与其清除范围的一致性
 - 实例：fReset 与 filters.billing
+
+## 2026-09-04 R7（boke 静态站）
+### 13. 错误路径只写错误卡不收尾初始态
+- 现象：数据 404 时错误提示难懂且空筛选控件残留
+- 根因：初始 HTML 的可见控件（filterBar/billingTabs）由成功路径 JS 收纳，catch 分支漏做反向收纳；fetch 未判 r.ok
+- 反思：每个「初始可见、成功后才收拢」的控件，catch 里必须有镜像隐藏；fetch 永远先判 r.ok 再 json()
+- 同类排查点：所有依赖 JS 成功路径才归位的初始 DOM；fetch/axios 裸 .json()
+- 实例：Promise.all catch 分支
+### 14. 忽略规则与规划资产冲突
+- 现象：*.png 通配会静默吞掉规划中的 og-image.png
+- 根因：为临时截图加通配时没考虑仓库既有引用的同类文件
+- 反思：通配忽略规则加的时候扫一遍「仓库引用过但尚不存在的文件名」（meta/配置/文档里引用的资产路径）
+- 同类排查点：gitignore/dockerignore 与代码引用资产的交集
+- 实例：og-image.png
