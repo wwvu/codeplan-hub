@@ -196,3 +196,11 @@
 - 反思：枚举值在数据端新增时，grep 消费端所有 switch/map；或消费端用显式默认+审计
 - 同类排查点：BADGE_CLASS、quotaUnit unitMap、typeLabel 等所有枚举映射
 - 实例：badge 售罄/团队
+
+## 2026-09-04 R4（boke 静态站）
+### 8. UI 重构后旧样式残留
+- 现象：13 组 CSS 选择器（compare-bar/detail-card/plan-row/fb-chips 等 64 行）零引用
+- 根因：前端从「多选对比条+单家详情卡」重构为「卡片+统一大表」，旧 CSS 留在样式表
+- 反思：重构删组件时必须连带删样式（class 引用 grep 一遍）；死 CSS 增体积也易误导后续维护
+- 同类排查点：所有重构过的前端项目——CSS 定义 vs 模板引用差集
+- 实例：index.html 旧 UI 样式块

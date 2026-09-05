@@ -1,0 +1,1 @@
+死代码：13 组 CSS 选择器（compare-bar 旧多选对比条 / detail-card 单家详情卡 / plan-row pr-* 旧详情行 / card-skeleton 骨架屏 / fb-chips 旧筛选 chip / cat-divider / detail-empty，共 64 行）在 JS 渲染与 HTML body 中零引用 | 证据：index.html:137-147,186-188,191-230,244-247,74（删除前行号）；全量 grep body+JS 引用=0 | 根因：UI 重构为卡片+大表后旧样式未清理 | 修复：精确删除 64 行（含 @keyframes pulse 与媒体查询内死选择器），删后全分类/筛选/选中/移动端溢出回归全绿，index.html 1110→1046 行
