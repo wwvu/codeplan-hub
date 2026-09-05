@@ -246,3 +246,17 @@
 - 反思：通配忽略规则加的时候扫一遍「仓库引用过但尚不存在的文件名」（meta/配置/文档里引用的资产路径）
 - 同类排查点：gitignore/dockerignore 与代码引用资产的交集
 - 实例：og-image.png
+
+## 2026-09-04 R8（boke 静态站）
+### 15. 错误消息也是数据面（esc 审计漏了 catch）
+- 现象：catch 分支 e.message 裸插 innerHTML，解析错误嵌响应体片段可注入
+- 根因：esc 纪律审计只扫了渲染函数，异常消息这条数据流被忽略
+- 反思：凡进 innerHTML 的字符串一律 esc，不分「正常渲染」还是「报错展示」；错误消息天然包含用户可控内容片段
+- 同类排查点：所有 catch/日志/toast 类 UI 分支
+- 实例：数据加载失败错误卡
+### 16. 同一防御在不同脚本层不一致
+- 现象：头部内联主题脚本有 try/catch，主脚本的 initTheme/toggleTheme 裸访问 localStorage
+- 根因：头部兜底是后加的（防闪屏改造），原主脚本代码没同步加固；顶层执行放大了后果（整段脚本死亡）
+- 反思：给某层加防御时 grep 同类调用的其他位置；顶层副作用代码必须有兜底
+- 同类排查点：所有 localStorage/sessionStorage/cookie 访问点；主脚本顶层语句的异常半径
+- 实例：initTheme/toggleTheme

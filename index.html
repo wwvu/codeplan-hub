@@ -497,17 +497,22 @@ const curSym = plan => plan.currency === 'USD' ? '$' : '¥';
 
 // 主题切换
 function initTheme() {
-  const saved = localStorage.getItem('cp-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = saved || (prefersDark ? 'dark' : 'light');
-  document.documentElement.setAttribute('data-theme', theme);
+  // localStorage 在部分隐私配置下任何访问都会抛错——主脚本在此崩溃会连累整站 JS，与头部内联脚本同样兜底
+  try {
+    const saved = localStorage.getItem('cp-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
 }
 initTheme();
 function toggleTheme() {
   const cur = document.documentElement.getAttribute('data-theme');
   const next = cur === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('cp-theme', next);
+  try { localStorage.setItem('cp-theme', next); } catch (e) { /* 存储不可用时主题切换仍然生效，仅不持久化 */ }
 }
 
 const COLORS = {
@@ -1047,7 +1052,7 @@ Promise.all([
   // 错误态收尾：隐藏空筛选栏与计费 tab（初始 HTML 无 hidden 类，成功路径才会重设），避免残缺控件
   document.getElementById('filterBar').classList.add('hidden');
   document.getElementById('billingTabs').style.display = 'none';
-  document.getElementById('cardsGrid').innerHTML = `<div style="padding:48px;text-align:center;color:var(--ink-4);grid-column:1/-1">数据加载失败：${e.message}<br>请确认 data/ 目录完整，或用本地服务器打开（<code>python3 -m http.server 8765</code>）</div>`;
+  document.getElementById('cardsGrid').innerHTML = `<div style="padding:48px;text-align:center;color:var(--ink-4);grid-column:1/-1">数据加载失败：${esc(e.message)}<br>请确认 data/ 目录完整，或用本地服务器打开（<code>python3 -m http.server 8765</code>）</div>`;
 });
 </script>
 

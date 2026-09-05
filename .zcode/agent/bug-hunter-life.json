@@ -1,8 +1,8 @@
 {
-  "life": 8,
-  "found_total": 14,
-  "round": 8,
-  "rounds_completed": 7,
+  "life": 9,
+  "found_total": 16,
+  "round": 9,
+  "rounds_completed": 8,
   "alive": true,
   "mode": "auto",
   "history": [
@@ -81,6 +81,17 @@
       "findings": [
         "数据加载失败错误路径不完整：404 时 r.json() 解析 HTML 得到难懂 SyntaxError 且提示误导（用户可能正开着本地服务器）；catch 分支不收尾 UI——初始 HTML 无 hidden 类的 filterBar 与计费 tab（「全部 0/Coding 0」）在错误态仍然可见 | 证据：index.html:1015 修复前直接 r.json()、:1042 catch 仅写 cardsGrid；黑盒实测 404 时 filterBarVisible=true 且消息为「Unexpected token '<'」 | 根因：错误路径只写了错误卡，没判 r.ok、没回收初始态控件 | 修复：fetchJSON 包裹 r.ok 检查（HTTP 状态+文件名入错误消息），catch 隐藏 filterBar/billingTabs；复验 404 提示真因+控件隐藏、正常路径不受影响",
         ".gitignore *.png 规则会静默忽略规划中的 SEO 资产：index.html og:image/twitter:image 引用 og-image.png（占位域名待上线时补），但「临时截图」通配规则 *.png 使未来添加的 og-image.png 无法入库且无任何报错 | 证据：.gitignore:17 *.png 与 index.html:15 og:image 引用矛盾；git check-ignore 证实 og-image.png 被忽略 | 根因：通配忽略规则与已知待添加资产冲突，无例外声明 | 修复：加 !og-image.png 例外，git check-ignore 复验 og-image.png 放行、临时截图仍忽略"
+      ]
+    },
+    {
+      "round": 8,
+      "ts": "2026-09-05",
+      "delta": 1,
+      "credited": 2,
+      "life_after": 9,
+      "findings": [
+        "错误卡消息未转义（注入向量）：catch 分支把 e.message 直接插入 innerHTML，而 V8 的 JSON 解析错误消息会嵌入响应体原文片段——损坏/被篡改的数据文件即可把标记带进页面 | 证据：index.html:1050 修复前「数据加载失败：${e.message}」；绿测试用纯 HTML 响应体的 providers.json 复现消息含载荷原文（修复后以转义文本显示、imgInjected=false、onerror 未触发）| 根因：R6 esc 审计覆盖了渲染函数漏了 catch 分支 | 修复：esc(e.message)",
+        "主脚本裸访问 localStorage：initTheme 的 getItem 与 toggleTheme 的 setItem 无 try/catch（头部内联脚本有兜底、主脚本没有）——部分隐私/加固配置下任何 localStorage 访问都抛错，initTheme 在主脚本顶层执行会连累整段脚本死亡（fetch、事件绑定全不执行，站点白屏无 JS）| 证据：index.html:499-511 修复前两处裸访问，与 ：24 头部脚本 try/catch 不一致 | 修复：两函数 try/catch 兜底，getItem 失败回退系统主题、setItem 失败仅不持久化；回归验证切换 dark↔light 且 localStorage 持久化正确"
       ]
     }
   ]
